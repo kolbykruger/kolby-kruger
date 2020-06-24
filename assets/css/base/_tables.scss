@@ -1,0 +1,30 @@
+table {
+    display: table;
+    width: 100%;
+    margin: 0.8em auto 1.5em;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-radius: 0.25rem;
+    overflow: hidden;
+
+    td, th {
+        padding: 1em;
+        text-align: left;
+        line-height: 1.6;
+    }
+
+    thead {
+        font-weight: 800;
+        background: lighten($color-grey-100, 7%);
+    }
+
+    tbody {
+        tr:nth-of-type(even) {
+            background: lighten($color-grey-100, 7%);
+        }
+        td:not(:last-of-type) {
+            border-right: 1px solid lighten($color-grey-100, 7%);
+        }
+    }
+
+}

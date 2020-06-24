@@ -1,0 +1,89 @@
+pre,
+code,
+span[class="code"] {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+pre {
+    font-size: 1rem;
+    padding: 1em;
+    margin: 0 0 3em;
+    max-width: 100%;
+    background: $color-grey-100;
+    border-radius: 0.25em;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: normal;
+
+    code {
+        color: black;
+        line-height: 1.5;
+        overflow: auto;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        tab-size: 4;
+        hyphens: none;
+        padding: 0;
+        font-size: inherit;
+        background: transparent;
+    }
+
+    .token {
+
+        &.property,
+        &.tag,
+        &.boolean,
+        &.number,
+        &.function-name,
+        &.symbol,
+        &.deleted {
+            color: red;
+        }
+
+        &.selector,
+        &.attr-name,
+        &.string,
+        &.char,
+        &.function,
+        &.builtin,
+        &.inserted {
+            color: green;
+        }
+
+        &.atrule,
+        &.attr-value,
+        &.keyword,
+        &.class-name {
+            color: blue;
+        }
+
+        &.punctuation {
+            color: purple;
+        }
+
+        &.string {
+            color: orange;
+        }
+
+        &.comment {
+            color: gray;
+        }
+
+    }
+}
+
+span[class="code"] {
+    background: $color-grey-100;
+    padding: 0.3em 0.35em;
+    font-size: 0.875rem;
+    vertical-align: middle;
+    border-radius: 0.25em;
+}
+
+p span[class="code"] {
+    word-break: break-all;
+}

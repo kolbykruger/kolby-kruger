@@ -1,0 +1,9 @@
+//color
+@function c($color-name) {
+    @return var(--color-#{$color-name});
+}
+
+//sizing
+@function s($sizing) {
+    @return var(--size-#{$sizing});
+}

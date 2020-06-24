@@ -1,0 +1,17 @@
+.tool-card {
+    background: $color-grey-100;
+
+    a {
+        text-decoration: none;
+        padding: 2em;
+
+        display: block;
+        margin-bottom: 1em;
+    }
+
+    &__title {
+        margin-top: 0;
+        @extend .font-size__4;
+    }
+
+}

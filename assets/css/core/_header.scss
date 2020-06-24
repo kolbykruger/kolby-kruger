@@ -1,0 +1,31 @@
+header.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    height: $header-height;
+    pointer-events: none;
+
+    .container {
+        position: relative;
+        max-width: 1100px;
+        margin: 0 auto;
+        z-index: 9999;
+    }
+
+    .group {
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+    }
+
+    button {
+        pointer-events: all;
+    }
+
+    svg {
+        width: 100%;
+        max-width: 95px;
+    }
+}

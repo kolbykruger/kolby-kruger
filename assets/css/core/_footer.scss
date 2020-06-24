@@ -1,0 +1,51 @@
+.footer {
+    color: #fff;
+    max-height: 80vh;
+    overflow: hidden;
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .group {
+        display: grid;
+        grid-template-columns: 2fr 6fr;
+    }
+
+    &__texture {
+        flex: 1;
+        //background: c('base-2');
+        margin-top: 10vh;
+        max-height: 100%;
+        overflow: hidden;
+
+        .waves {
+            object-fit: cover;
+            object-position: center center;
+            width: 130%;
+            height: 110%;
+            transform: translate(-5%, -5%);
+
+            .wave {
+                fill: c('base-2')
+            }
+        }
+    }
+
+    &__content {
+        background: c('base-2');
+        padding: 3em;
+    }
+
+    &__catch {
+
+        p {
+            @extend .font-size__1;
+        }
+    }
+
+    &__actions {
+        margin-top: 30vh;
+    }
+}
