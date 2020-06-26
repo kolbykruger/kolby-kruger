@@ -1,45 +1,52 @@
 <template>
-  <section>
-    <!-- Slices block component -->
+<section>
+	<!-- Slices block component -->
 
-    <article>
+	<article>
 
-        <h1>{{ $prismic.asText(content.title) }}</h1>
+		<h1>{{ $prismic.asText(content.title) }}</h1>
 
-        <slices-block :slices="slices"/>
+		<slices-block :slices="slices" />
 
-    </article>
+	</article>
 
-  </section>
+</section>
 </template>
 
 <script>
 import SlicesBlock from '~/components/SlicesBlock.vue'
 
 export default {
-  name: 'post',
-  components: {
-    SlicesBlock
-  },
-  head () {
-    return {
-      title: 'Post',
-    }
-  },
-  async asyncData({ $prismic, params, error }) {
-    try{
-      // Query to get post content
-      const document = (await $prismic.api.getByUID('post', params.uid)).data
+	name: 'post',
+	components: {
+		SlicesBlock
+	},
+	head() {
+		return {
+			title: 'Post',
+		}
+	},
+	async asyncData({
+		$prismic,
+		params,
+		error
+	}) {
+		try {
+			// Query to get post content
+			const document = (await $prismic.api.getByUID('post', params.uid)).data
 
-      return {
-        // Set slices as variable
-        content: document,
-        slices: document.body
-      }
-    } catch (e) {
-      // Returns error page
-      error({ statusCode: 404, message: 'Page not found' })
-    }
-  },
+			return {
+				// Set slices as variable
+				content: document,
+				slices: document.body
+			}
+		} catch (e) {
+			// Returns error page
+			error({
+				statusCode: 404,
+				message: 'Page not found'
+			})
+		}
+	},
 }
 </script>

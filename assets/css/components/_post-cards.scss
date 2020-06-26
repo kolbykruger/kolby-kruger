@@ -11,15 +11,9 @@
 }
 
 .post-card {
-    margin-bottom: 1em;
+    margin-bottom: 8vh;
 
     a {
-        display: grid;
-        grid-template-columns: 120px 5fr;
-        grid-gap: 2em;
-        align-items: flex-start;
-        padding: 2em;
-        border-radius: 0.25em;
         text-decoration: none;
         color: inherit;
         transition: 300ms ease;
@@ -34,30 +28,10 @@
     &__title {
         text-decoration: none;
         margin-top: 0;
+        margin-bottom: 0;
     }
 
-    &__date {
-        @extend .font-size__3;
-    }
-
-    &__month,
-    &__day {
-        margin: 0;
-        text-align: center;
-        padding: 0.25em 0.5em;
-        border-radius: 0.25em 0.25em 0 0;
-    }
-
-    &__month {
-        border-bottom: 2px solid $color-000;
-        background: $color-grey-100;
-    }
-
-    &__day {
-
-    }
-
-    &__description {
-
+    &__summary {
+        @extend .font-size__4;
     }
 }

@@ -1,11 +1,10 @@
 <template>
-        <nuxt-link :to="link">
-
-            <h3>{{ post.data.title[0].text }}</h3>
-            <p class="summary">{{ post.data.summary }}</p>
-            <p class="date">{{ date }}</p>
-
+    <div class="post-card">
+        <nuxt-link  :to="link">
+            <h3 class="post-card__title">{{ post.data.title[0].text }}</h3>
+            <p class="post-card__summary">{{ post.data.summary }}</p>
         </nuxt-link>
+    </div>
 </template>
 
 <script>

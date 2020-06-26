@@ -1,11 +1,11 @@
 <template>
-  <section>
+<section>
 
-    <h1>Home</h1>
+	<h1>Home</h1>
 
-    <!-- Slices block component -->
-    <!-- <slices-block :slices="slices"/> -->
-  </section>
+	<!-- Slices block component -->
+	<!-- <slices-block :slices="slices"/> -->
+</section>
 </template>
 
 <script>
@@ -13,15 +13,15 @@
 import SlicesBlock from '~/components/SlicesBlock.vue'
 
 export default {
-  name: 'Home',
-  layout: 'homepage',
-  components: {
-    SlicesBlock
-  },
-  head () {
-    return {
-      title: 'Prismic Nuxt.js Multi Page Website',
-    }
-  },
+	name: 'Home',
+	layout: 'homepage',
+	components: {
+		SlicesBlock
+	},
+	head() {
+		return {
+			title: 'Prismic Nuxt.js Multi Page Website',
+		}
+	},
 }
 </script>
