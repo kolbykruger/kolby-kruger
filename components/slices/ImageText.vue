@@ -1,0 +1,37 @@
+<template>
+
+  <section class="image-text" :class="label">
+    <div class="container">
+        <div class="group" v-for="(item, index) in slice.items">
+            <div class="image-text__image">
+                <prismic-image :field="item.image"/>
+            </div>
+            <div class="image-text__details">
+                <h3 class="image-text__title">
+                    {{ $prismic.asText(item.title) }}
+                </h3>
+                <prismic-rich-text class="image-text__description" :field="item.description"/>
+            </div>
+        </div>
+    </div>
+  </section>
+
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'ImageText',
+  data() {
+      return {
+          label: '',
+      }
+  },
+  mounted() {
+      const label = this.slice.slice_label ? this.slice.slice_label : '';
+      if (label != '') {
+          this.label = 'image-text__'+label;
+      }
+  }
+}
+</script>

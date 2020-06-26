@@ -16,5 +16,9 @@ export default function (doc) {
     return '/post/' + doc.uid
   }
 
+  if (doc.type === 'case_study') {
+    return '/case-study/' + doc.uid
+  }
+
   return '/not-found'
 }

@@ -1,5 +1,6 @@
 <template>
         <nuxt-link :to="link">
+
             <h3>{{ post.data.title[0].text }}</h3>
             <p class="summary">{{ post.data.summary }}</p>
             <p class="date">{{ date }}</p>

@@ -5,6 +5,7 @@
       <li>
         <nuxt-link to="/">Home</nuxt-link>
         <nuxt-link to="/writing">Writing</nuxt-link>
+        <nuxt-link to="/work">Work</nuxt-link>
       </li>
     </ul>
   </nav>

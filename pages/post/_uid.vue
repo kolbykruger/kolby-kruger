@@ -4,17 +4,16 @@
 
     <article>
 
-        <h2>{{ $prismic.asText(content.title) }}</h2>
+        <h1>{{ $prismic.asText(content.title) }}</h1>
 
         <slices-block :slices="slices"/>
-        
+
     </article>
 
   </section>
 </template>
 
 <script>
-// Imports for Prismic Slice components
 import SlicesBlock from '~/components/SlicesBlock.vue'
 
 export default {

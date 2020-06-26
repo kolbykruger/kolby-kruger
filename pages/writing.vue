@@ -1,14 +1,16 @@
 <template>
   <section>
 
-    <h1>Writing</h1>
+    <div class="container">
+        <h1>Writing</h1>
 
-    <div v-if="posts.length !== 0">
+        <div v-if="posts.length !== 0">
 
-        <div v-for="(post, index) in posts" :key="index">
-            <Post :post="post" />
+            <div v-for="(post, index) in posts" :key="index">
+                <Post :post="post" />
+            </div>
+
         </div>
-
     </div>
 
   </section>

@@ -1,17 +1,31 @@
 <template>
-  <section class='image-gallery content-section' :class="'image-gallery__'+slice.slice_label">
-    <h2>{{ $prismic.asText(slice.primary.name_of_the_gallery) }}</h2>
-    <div class="gallery">
-      <div v-for="item in slice.items" :key="item.id" class="gallery-item">
-        <prismic-image :field="item.gallery_image"/>
-      </div>
-    </div>
+
+  <section class="images" :class="label">
+        <div class="container">
+            <div class="group">
+                <div v-for="item in slice.items" :key="item.id" class="images-item">
+                    <prismic-image :field="item.image"/>
+                </div>
+            </div>
+        </div>
   </section>
+
 </template>
 
 <script>
 export default {
   props: ['slice'],
-  name: 'images'
+  name: 'images',
+  data() {
+      return {
+          label: '',
+      }
+  },
+  mounted() {
+      const label = this.slice.slice_label ? this.slice.slice_label : '';
+      if (label != '') {
+          this.label = 'images__'+label;
+      }
+  }
 }
 </script>

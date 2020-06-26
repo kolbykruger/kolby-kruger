@@ -34,7 +34,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-      '@/assets/css/bundle.scss'
+      '@/assets/css/bundle.scss',
+      { src: '~/plugins/VueFlickity.js', ssr: false }
   ],
 
   /*
