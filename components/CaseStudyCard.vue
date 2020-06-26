@@ -29,12 +29,14 @@
 
     export default {
         name: 'CaseStudyCard',
-        props: ['data'],
+        props: ['data', 'count'],
         data() {
             return {
                 link: '',
                 date: '',
                 label: '',
+                active: '',
+                customClass: '',
                 viewport: {
                   width: 0,
                   height: 0,
@@ -56,6 +58,11 @@
           this.viewport.center.x = screen.width / 2;
           this.viewport.center.y = screen.height / 2;
           this.label = this.data.data.class_name ? 'case-study-card__'+this.data.data.class_name : '';
+
+          if (this.count === 0) {
+              this.label = this.label+' is-selected';
+          }
+
       },
         methods: {
               mouseEnter() {

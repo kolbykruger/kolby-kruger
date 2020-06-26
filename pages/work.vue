@@ -4,7 +4,7 @@
     <section class="case-study-cards">
 
         <div class="carousel" ref="flickity">
-            <CaseStudyCard v-for="(item, index) in cases" :key="index" :data="item"/>
+            <CaseStudyCard v-for="(item, index) in cases" :key="index" :data="item" :count="index"/>
         </div>
 
         <button class="flickity-btn flickity-btn__prev" @click="previous()">Back</button>
@@ -49,6 +49,7 @@ export default {
         return {
             flick: null,
             flickityOptions: {
+                cellSelector: '.case-study-card',
                 wrapAround: true,
                 adaptiveHeight: false,
                 cellAlign: 'center',
@@ -56,12 +57,6 @@ export default {
                 pageDots: true,
                 imagesLoaded: true,
                 initialIndex: 0,
-                // on: {
-                //     ready: function() {
-                //         this.cells[0].element.classList.add('POOPY')
-                //         console.log('added')
-                //     }
-                // }
             },
         }
     },
@@ -69,14 +64,18 @@ export default {
         const carousel = this.$refs.flickity;
         if (carousel) {
             this.flick = new Flickity(carousel, this.flickityOptions)
+            //this.flick.cells[0].element.style.background = 'green'
+            //carousel.querySelectorAll('.case-study-card')[0].classList.add('is-selected')
+            //carousel.querySelectorAll('.case-study-card')[0].style.display = 'none'
+            console.log(this.flick)
         }
     },
     methods: {
         next() {
-            this.$refs.flickity.next();
+            this.flick.next()
         },
         previous() {
-            this.$refs.flickity.previous();
+            this.flick.previous()
         },
     },
   async asyncData({ $prismic, params, error }) {

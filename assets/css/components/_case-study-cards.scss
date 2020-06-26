@@ -100,8 +100,8 @@
         }
 
         img {
-            width: 90vw;
-            height: 90vh;
+            width: 100%;
+            height: 100%;
             margin: 0 auto;
             object-fit: contain;
             filter: drop-shadow(0 3px 24px rgba(34, 34, 34, 0.18));
@@ -176,28 +176,6 @@
 
     }
 
-
-    &.is-selected {
-
-        &.case-study-card {
-            transition: background 1s ease;
-
-            &__eternity {
-
-            }
-
-            &__lizzy-healy {
-
-            }
-
-            &__upstream {
-                background: linear-gradient(45deg, rgb(11, 93, 105) 0%, rgb(19, 171, 181) 100%);
-            }
-
-        }
-    }
-
-
     &__lizzy-healy {
         background: linear-gradient(45deg, darken(#f6f9fc, 3%) 0%, lighten(#f6f9fc, 3%) 100%);
 
@@ -222,5 +200,9 @@
             }
         }
 
+    }
+
+    &__upstream {
+        background: linear-gradient(45deg, rgb(11, 93, 105) 0%, rgb(19, 171, 181) 100%);
     }
 }

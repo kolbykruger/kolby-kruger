@@ -35,7 +35,7 @@ export default {
   */
   plugins: [
       '@/assets/css/bundle.scss',
-      { src: '~/plugins/VueFlickity.js', ssr: false }
+      'node_modules/flickity/dist/flickity.min.css'
   ],
 
   /*
