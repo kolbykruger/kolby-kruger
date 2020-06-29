@@ -11,7 +11,7 @@
 
 	<section class="case-study__meta">
 		<div class="container">
-			<div class="group">
+			<div class="columns">
 
 				<div>
 					<p>Client</p>

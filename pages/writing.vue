@@ -5,7 +5,7 @@
 
 	<section class="post-cards" v-if="posts.length !== 0">
 		<div class="container">
-			<Post v-for="(post, index) in posts" :key="index" :post="post" />
+			<PostCard v-for="(post, index) in posts" :key="index" :post="post" />
 		</div>
 	</section>
 
@@ -15,14 +15,14 @@
 
 <script>
 import PageHeading from '~/components/PageHeading.vue'
-import Post from '~/components/Post.vue'
+import PostCard from '~/components/PostCard.vue'
 
 export default {
 	name: 'Home',
 	layout: 'default',
 	components: {
 		PageHeading,
-		Post,
+		PostCard,
 	},
 	head() {
 		return {

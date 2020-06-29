@@ -7,7 +7,7 @@
 
 	<section class="experiment-cards" v-if="docs.length !== 0">
 		<div class="container">
-			<Experiment v-for="(post, index) in docs" :key="index" :post="post" />
+			<ExperimentCard v-for="(post, index) in docs" :key="index" :post="post" />
 		</div>
 	</section>
 
@@ -17,14 +17,14 @@
 
 <script>
 import PageHeading from '~/components/PageHeading.vue'
-import Experiment from '~/components/Experiment.vue'
+import ExperimentCard from '~/components/ExperimentCard.vue'
 
 export default {
 	name: 'Lab',
 	layout: 'default',
 	components: {
 		PageHeading,
-		Experiment,
+		ExperimentCard,
 	},
 	head() {
 		return {

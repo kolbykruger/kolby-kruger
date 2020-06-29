@@ -94,7 +94,7 @@ export default {
 					rotateZ: 0,
 					rotateY: 0,
 					rotateX: 0,
-					scale: 0.92,
+					scale: 1.12,
 				});
 				TweenMax.to(layer3, 1.8, {
 					y: 0,
@@ -102,7 +102,7 @@ export default {
 					rotateZ: 0,
 					rotateY: 0,
 					rotateX: 0,
-					scale: 0.86,
+					scale: 1.06,
 				});
 			}
 		},
@@ -128,7 +128,7 @@ export default {
 					rotateZ: 0.0015 * cursor.x,
 					rotateY: 0.005 * cursor.x,
 					rotateX: 0.005 * cursor.y,
-					scale: 0.92,
+					scale: 1.12,
 				});
 
 				TweenMax.to(layer1.childNodes[0], 1, {
@@ -141,7 +141,7 @@ export default {
 					rotateZ: 0.0015 * cursor.x,
 					rotateY: 0.005 * cursor.x,
 					rotateX: 0.005 * cursor.y,
-					scale: 0.86,
+					scale: 1.06,
 				});
 
 				TweenMax.to(layer3.childNodes[0], 1, {
