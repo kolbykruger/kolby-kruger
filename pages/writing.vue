@@ -1,7 +1,7 @@
 <template>
 <main>
 
-	<PageHeading heading="Writing" summary="123" />
+	<PageHeading heading="writing" summary="I write stuff occasionally..." />
 
 	<section class="post-cards" v-if="posts.length !== 0">
 		<div class="container">

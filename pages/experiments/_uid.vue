@@ -1,16 +1,11 @@
 <template>
-<section>
-	<!-- Slices block component -->
+<main>
 
-	<article>
+	<PageHeading :heading="$prismic.asText(content.name)" :summary="content.summary" />
 
-		<PageHeading :heading="$prismic.asText(content.title)" :summary="content.summary" alignment="left" />
+	<slices-block :slices="slices" />
 
-		<slices-block :slices="slices" />
-
-	</article>
-
-</section>
+</main>
 </template>
 
 <script>
@@ -18,14 +13,14 @@ import PageHeading from '~/components/PageHeading.vue'
 import SlicesBlock from '~/components/SlicesBlock.vue'
 
 export default {
-	name: 'post',
+	name: 'case-study',
 	components: {
 		PageHeading,
 		SlicesBlock
 	},
 	head() {
 		return {
-			title: 'Post',
+			title: 'Experiment',
 		}
 	},
 	async asyncData({
@@ -35,7 +30,7 @@ export default {
 	}) {
 		try {
 			// Query to get post content
-			const document = (await $prismic.api.getByUID('post', params.uid)).data
+			const document = (await $prismic.api.getByUID('experiment', params.uid)).data
 
 			return {
 				// Set slices as variable
@@ -50,5 +45,8 @@ export default {
 			})
 		}
 	},
+	methods: {
+
+	}
 }
 </script>

@@ -21,5 +21,9 @@ export default function (doc) {
     return '/case-study/' + doc.uid
   }
 
+  if (doc.type === 'experiment') {
+    return '/experiments/' + doc.uid
+  }
+
   return '/not-found'
 }

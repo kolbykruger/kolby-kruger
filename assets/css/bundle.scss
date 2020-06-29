@@ -21,6 +21,7 @@
 @import 'base/blockquote';
 @import 'base/keyboard';
 @import 'base/iframes';
+@import 'base/columns';
 
 //Templates
 @import 'templates/post';
@@ -33,7 +34,7 @@
 
 //Components
 @import 'components/impression';
-@import 'components/services';
+@import 'components/about';
 @import 'components/page-heading';
 @import 'components/section-heading';
 @import 'components/cursor';
