@@ -1,0 +1,17 @@
+.slice {
+
+    .text {
+        max-width: 46em;
+
+        &__two_columns {
+            max-width: 1400px;
+            column-count: 2;
+            column-gap: 4vw;
+
+            @media (max-width: 768px) {
+                column-count: 1;
+                column-gap: 0;
+            }
+        }
+    }
+}

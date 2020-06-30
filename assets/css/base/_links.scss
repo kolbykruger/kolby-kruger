@@ -1,0 +1,14 @@
+a:not([class]) {
+    color: c('primary-base');
+    text-decoration: none;
+    transition: color 1s ease;
+
+    &:hover,
+    &:focus {
+        color: c('primary-light')
+    }
+
+    &:visited {
+        color: c('primary-dark')
+    }
+}

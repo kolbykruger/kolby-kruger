@@ -3,24 +3,27 @@
     <Header/>
         <nuxt />
     <Footer/>
+    <Theme />
   </div>
 </template>
 
 <script>
 import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
+import Theme from '~/components/Theme.vue'
 
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    Theme
   },
   head () {
     return {
       title: 'Prismic Nuxt.js Multi Page Website',
     }
   },
-  transition: "page"
+  transition: "page",
 }
 </script>
 

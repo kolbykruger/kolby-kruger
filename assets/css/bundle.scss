@@ -22,6 +22,8 @@
 @import 'base/keyboard';
 @import 'base/iframes';
 @import 'base/columns';
+@import 'base/links';
+@import 'base/search';
 
 //Templates
 @import 'templates/post';
@@ -44,3 +46,12 @@
 @import 'components/tool-cards';
 @import 'components/case-study';
 @import 'components/case-study-cards';
+@import 'components/theme';
+
+//Slices
+@import 'slices/slices';
+@import 'slices/text';
+@import 'slices/code';
+@import 'slices/images';
+@import 'slices/image-text';
+@import 'slices/embed';

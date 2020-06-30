@@ -3,6 +3,11 @@ $color-100: #262626;
 $color-grey-100: #e0e6ef;
 
 $colors: (
+    background: #ffffff,
+    menu: (
+        background: #16141c,
+        color: #ffffff,
+    ),
     base: (
         0: #3c4044,
         1: #212121,
@@ -11,6 +16,29 @@ $colors: (
     grey: (
         0: #e0e6ef,
     ),
+    primary: (
+        light: lighten(rgb(12, 202, 177), 8%),
+        base: rgb(12, 202, 177),
+        dark: darken(rgb(12, 202, 177), 8%)
+    ),
+    secondary: blue,
+);
+
+$dark: (
+    background: #16141c,
+    menu: (
+        background: #100f0f,
+        color: #f5f3fc,
+    ),
+    base: (
+        0: #f5f3fc,
+        1: #ffffff,
+        2: #ffffff,
+    ),
+    grey: (
+        0: #23202d,
+    ),
     primary: #F1F2F3,
     secondary: blue,
 );
+

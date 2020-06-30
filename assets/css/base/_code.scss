@@ -9,16 +9,16 @@ span[class="code"] {
 pre {
     font-size: 1rem;
     padding: 1em;
-    margin: 0 0 3em;
+    margin: 1.5em auto 3em;
     max-width: 100%;
-    background: $color-grey-100;
+    background: #23202d;
     border-radius: 0.25em;
     overflow: hidden;
     overflow-x: auto;
     white-space: normal;
 
     code {
-        color: black;
+        color: #c0cefc;
         line-height: 1.5;
         overflow: auto;
         white-space: pre;
@@ -41,7 +41,7 @@ pre {
         &.function-name,
         &.symbol,
         &.deleted {
-            color: red;
+            color: #f7768e;
         }
 
         &.selector,
@@ -51,37 +51,42 @@ pre {
         &.function,
         &.builtin,
         &.inserted {
-            color: green;
+            color: #73daca;
         }
 
         &.atrule,
         &.attr-value,
         &.keyword,
         &.class-name {
-            color: blue;
+            color: #89ddff;
         }
 
         &.punctuation {
-            color: purple;
+            color: #b267e6;
         }
 
         &.string {
-            color: orange;
+            color: #ffdb69;
         }
 
         &.comment {
-            color: gray;
+            color: #444b6a;
         }
 
     }
 }
 
 span[class="code"] {
-    background: $color-grey-100;
-    padding: 0.3em 0.35em;
-    font-size: 0.875rem;
+    display: inline-flex;
+    background: c('grey-0');
+    color: c('base-2');
+    padding: 0.3em 0.45em;
     vertical-align: middle;
     border-radius: 0.25em;
+    
+    + span[class="code"] {
+        margin-left: 0.25em;
+    }
 }
 
 p span[class="code"] {

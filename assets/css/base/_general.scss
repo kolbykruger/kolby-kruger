@@ -1,22 +1,24 @@
 body {
+    background: c('background');
     position: relative;
     color: c('base-0');
     line-height: 1;
+    transition: background 1s ease, color 1s ease;
 
-    &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: auto;
-        z-index: -1;
-        width: 100%;
-        height: 100vh;
-        background-image: linear-gradient(170deg,#6283b0,#cbbcdd 25%,rgba(188,202,221,0) 50%);
-        opacity: .2;
-        pointer-events: none;
-    }
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     left: 0;
+    //     top: 0;
+    //     right: 0;
+    //     bottom: auto;
+    //     z-index: -1;
+    //     width: 100%;
+    //     height: 100vh;
+    //     background-image: linear-gradient(170deg,#6283b0,#cbbcdd 25%,rgba(188,202,221,0) 50%);
+    //     opacity: .2;
+    //     pointer-events: none;
+    // }
 }
 
 #app {
@@ -38,12 +40,7 @@ article {
 }
 
 article {
-    max-width: $section-width;
-
-    .container {
-        max-width: 48em;
-        margin: 0 auto;
-    }
+    padding: 0 4vw 8vh;
 }
 
 img {
@@ -54,4 +51,14 @@ img {
 
 a {
 
+}
+
+.visually-hidden { 
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
 }

@@ -1,9 +1,8 @@
 <template>
 
-    <section class="text">
+    <section class="text" :class="label">
         <div class="container">
             <prismic-rich-text
-                :class="label"
                 :field="slice.primary.text" />
         </div>
     </section>

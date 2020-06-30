@@ -13,13 +13,26 @@
 
     &__cover {
         margin: 3em auto;
+        
+        img {
+            box-shadow: 0px 4px 6px 0px rgba(50, 50, 93, 0.09), 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+            border-radius: 0.25em;
+        }
     }
 
     &__meta {
 
-        h3,
+        .container {
+            max-width: 46em;
+        }
+
         p {
-            @extend .font-size__4;
+            margin: 0;
+            color: c('base-0');
+
+            + p {
+                color: c('base-2');
+            }
         }
     }
 

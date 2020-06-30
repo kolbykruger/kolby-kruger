@@ -11,8 +11,6 @@
     pointer-events: none;
 
     .container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
         width: 100%;
 
         &::before {
@@ -24,12 +22,23 @@
             width: 5em;
             height: 5em;
             margin: 0 auto;
-            background: c('base-2');
+            background: c('menu-background');
             border-radius: 50%;
-            transition: transform .8s cubic-bezier(.86,0,.07,1);
+            transform: scale(80);
+            transition: transform .4s cubic-bezier(.86,0,.07,1);
             transform-origin: center center;
             will-change: transform;
             z-index: -1;
+        }
+    }
+
+    &:not(.navigation--open) {
+        
+        .container {
+            
+            &::before {
+                transform: scale(0);
+            }
         }
     }
 
@@ -42,9 +51,34 @@
 
             &::before {
                 transition: transform .8s cubic-bezier(.86,0,.07,1);
-                transform: scale(80);
+                
             }
         }
+
+        .navigation {
+            
+            &__content {
+                opacity: 1;
+                transition: 0s;
+                transition-delay: 0.4s;
+            }
+
+            &__links {
+
+                li {
+                    animation: appear 280ms ease-in forwards;
+                }
+            }
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        opacity: 0;
+        transition: 0.2s;
+        transition-delay: 0.2s;
     }
 
     &__links,
@@ -53,7 +87,7 @@
 
         li,
         a {
-            color: #fff;
+            color: c('menu-color');
         }
 
         li {
@@ -68,6 +102,32 @@
 
     &__links {
 
+        li {
+            opacity: 0;
+
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    animation-delay: $i * 75ms + 250ms;
+                }
+            }
+
+            @keyframes appear {
+                from {
+                    opacity: 0;
+                    transform: translate(0, -0.25em);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(0, 0);
+                }
+            }
+        }
+        
+        a {
+            &.nuxt-link-exact-active {
+                text-decoration: line-through;
+            }
+        }
     }
 
     &__contact {

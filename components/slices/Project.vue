@@ -6,11 +6,11 @@
 
         <div class="project-card__details">
             <div class="project-card__date">
-                <p>Date</p>
+                <p class="visually-hidden">Date</p>
                 <p>{{ date }}</p>
             </div>
             <div class="project-card__role">
-                <p>Role</p>
+                <p class="visually-hidden">Role</p>
                 <p>
                     <span v-for="(item, index) in slice.items" :key="index">
                         {{ item.role }}
@@ -18,7 +18,7 @@
                 </p>
             </div>
             <div class="project-card__website">
-                <p>Website</p>
+                <p class="visually-hidden">Website</p>
                 <p v-if="slice.primary.website.url">
                     <a :href="slice.primary.website.url">{{ slice.primary.website.url }}</a>
                 </p>
@@ -40,7 +40,7 @@ export default {
   },
   mounted() {
     if (this.slice.primary.date) {
-        this.date = Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(this.slice.primary.date))
+        this.date = Intl.DateTimeFormat('en-US', { year: 'numeric'}).format(new Date(this.slice.primary.date))
     }
   }
 }

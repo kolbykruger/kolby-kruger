@@ -45,7 +45,8 @@ h4,
 h5 {
     line-height: 1.25;
     margin-bottom: 0.5em;
-    color: $color-100;
+    color: c('base-2');
+    transition: color 1s ease;
 }
 
 h2,

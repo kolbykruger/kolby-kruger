@@ -13,7 +13,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.1",
     "@fortawesome/fontawesome-pro": "^5.13.1",
+    "@nuxtjs/color-mode": "^1.0.0",
     "@nuxtjs/prismic": "^1.1.0",
+    "@nuxtjs/svg": "^0.1.11",
     "cookies": "^0.8.0",
     "gsap": "^3.3.4",
     "nuxt": "^2.13.0",

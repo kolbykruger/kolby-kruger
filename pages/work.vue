@@ -7,8 +7,8 @@
 			<CaseStudyCard v-for="(item, index) in cases" :key="index" :data="item" :count="index" />
 		</div>
 
-		<button class="flickity-btn flickity-btn__prev" @click="previous()">Back</button>
-		<button class="flickity-btn flickity-btn__next" @click="next()">Next</button>
+		<!-- <button class="flickity-btn flickity-btn__prev" @click="previous()">Back</button>
+		<button class="flickity-btn flickity-btn__next" @click="next()">Next</button> -->
 
 	</section>
 

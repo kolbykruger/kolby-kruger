@@ -1,5 +1,5 @@
 <template>
-    <pre :class="'language-'+lang">
+    <pre :class="'language-'+lang" class="codeblock">
         <code
             :class="'language-'+lang"
             v-html="formattedCode">

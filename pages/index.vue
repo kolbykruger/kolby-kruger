@@ -28,7 +28,7 @@ import {
 
 export default {
 	name: 'Home',
-	layout: 'homepage',
+	layout: 'default',
 	head() {
 		return {
 			title: 'Web designer and developer in Burlington, Vermont'
@@ -77,10 +77,10 @@ export default {
 				x: e.pageX,
 				y: e.pageY
 			}
-			TweenMax.to(cursor, {
-				left: mouse.x,
-				top: mouse.y
-			});
+			// TweenMax.to(cursor, {
+			// 	left: mouse.x,
+			// 	top: mouse.y
+			// });
 		},
 		linkEnter(link, cursor) {
 			this.linkDimensions = link.getBoundingClientRect();
@@ -98,7 +98,7 @@ export default {
 			})
 		},
 		linkMove(link, cursor, event, $el) {
-			let rel = {
+			const rel = {
 				x: (event.clientX - $el.linkDimensions.left) - ($el.linkDimensions.width / 2),
 				y: (event.clientY - $el.linkDimensions.top) - ($el.linkDimensions.height / 2)
 			}

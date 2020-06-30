@@ -1,9 +1,13 @@
 <template>
 <main>
 
-	<PageHeading :heading="$prismic.asText(content.name)" :summary="content.summary" />
+	<article>
 
-	<slices-block :slices="slices" />
+		<PageHeading :heading="$prismic.asText(content.name)" :summary="content.summary" />
+
+		<slices-block :slices="slices" />
+
+	</article>
 
 </main>
 </template>
