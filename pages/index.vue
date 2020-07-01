@@ -5,14 +5,29 @@
 		<div class="container">
 
 			<div class="impression__contents">
-				<p class="impression__intro">Hello,</p>
-				<h1><span>my&nbsp;</span><span>name&nbsp;</span><span>is&nbsp;</span><span><b>Kolby</b></span></h1>
+				<p class="impression__intro">hello,</p>
+				<p class="impression__intro"><span>my&nbsp;</span><span>name&nbsp;</span><span>is&nbsp;</span></p>
+				<h1>
+					<span class="visually-hidden">Kolby Kruger</span>
+					<span>k</span>
+					<span>o</span>
+					<span>l</span>
+					<span>b</span>
+					<span>y</span>
+					<span>&nbsp;</span>
+					<span>k</span>
+					<span>r</span>
+					<span>u</span>
+					<span>g</span>
+					<span>e</span>
+					<span>r</span>
+				</h1>
 				<p class="impression__summary">I'm a {{ age }} year old designer & developer from Vermont. I aspire to create noteworthy, performant, and custom websites.</p>
 			</div>
 
 			<div class="buttons">
-				<nuxt-link to="/work">Explore my work</nuxt-link>
-				<nuxt-link to="/about">More about me</nuxt-link>
+				<nuxt-link to="/work"><span>Explore my work</span></nuxt-link>
+				<nuxt-link to="/about"><span>More about me</span></nuxt-link>
 			</div>
 
 		</div>
@@ -51,6 +66,7 @@ export default {
 	mounted() {
 		this.links = this.$el.querySelectorAll('.impression a');
 		const cursor = this.$refs.cursor;
+		console.log(this.$refs.navicon)
 		const $el = this;
 		this.links.forEach((link) => {
 			link.addEventListener('mouseenter', function() {

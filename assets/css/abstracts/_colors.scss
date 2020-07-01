@@ -17,11 +17,16 @@ $colors: (
         0: #e0e6ef,
     ),
     primary: (
-        light: lighten(rgb(12, 202, 177), 8%),
-        base: rgb(12, 202, 177),
-        dark: darken(rgb(12, 202, 177), 8%)
+        light: lighten(#73daca, 8%),
+        base: #73daca,
+        dark: darken(#73daca, 8%)
     ),
-    secondary: blue,
+    secondary: (
+        light: lighten(#f7768e, 8%),
+        base: #f7768e,
+        dark: darken(#f7768e, 8%)
+    ),
+    tertiary: #444b6a
 );
 
 $dark: (
@@ -41,4 +46,3 @@ $dark: (
     primary: #F1F2F3,
     secondary: blue,
 );
-

@@ -18,6 +18,7 @@
 
     &__contents {
         padding: 1.5em;
+        text-align: center;
     }
 
     &__intro {
@@ -27,8 +28,12 @@
         font-weight: 300;
         line-height: 1;
 
+        &:first-of-type {
+            font-size: s('large-5');
+        }
+
         @media (min-width: 2000px) {
-            font-size: s('large-6');
+            font-size: s('large-4');
         }
     }
 
@@ -39,6 +44,7 @@
         text-align: center;
         display: flex;
         align-items: center;
+        justify-content: center;
         text-align: left;
         width: 100%;
         font-weight: 300;
@@ -50,18 +56,16 @@
         }
 
         @for $i from 1 through 6 {
-            &:nth-of-type(1) span:nth-child(#{$i}) {
+            span:nth-child(#{$i}) {
                 animation-delay: 1.2s + $i * 0.15s;
             }
         }
-        @for $i from 1 through 3 {
-            &:nth-of-type(2) span:nth-child(#{$i}) {
-                animation-delay: 2.1s + $i * 0.15s;
-            }
-        }
-        @for $i from 1 through 3 {
-            &:nth-of-type(3) span:nth-child(#{$i}) {
-                animation-delay: 2.55s + $i * 0.15s;
+
+        @for $i from 1 through 6 {
+            $value: 12;
+            $x: $value - $i;
+            span:nth-child(#{$x}) {
+                animation-delay: 1.2s + $i * 0.15s;
             }
         }
 
@@ -111,26 +115,35 @@
 
     &__summary {
         @extend .font-size__4;
+        max-width: 60%;
+        margin: 0 auto;
         margin-top: 1.5em;
     }
 
     .buttons {
         width: 100%;
         transform-style: preserve-3d;
+        will-change: transform;
+        justify-content: center;
 
         a {
-            @extend .font-size__4;
+            font-size: 1.414rem;
             color: c('base-2');
             text-decoration: none;
             padding: 0.85em 0.75em;
             margin-right: 0.75em;
             border-radius: 0.5em;
             will-change: transform;
-            transition: background 1s ease;
+            transition: background 200ms ease, color 200ms ease;
             overflow: hidden;
 
-            &.cursor--entered {
+            span {
+                width: min-content;
+            }
 
+            &.cursor--entered {
+                color: c('grey-0');
+                background: c('base-2');
             }
         }
     }

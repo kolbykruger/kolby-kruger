@@ -16,7 +16,7 @@
         &::before {
             content: '';
             position: fixed;
-            top: 0;
+            top: 12px;
             left: 0;
             right: 0;
             width: 5em;
@@ -33,9 +33,9 @@
     }
 
     &:not(.navigation--open) {
-        
+
         .container {
-            
+
             &::before {
                 transform: scale(0);
             }
@@ -51,12 +51,12 @@
 
             &::before {
                 transition: transform .8s cubic-bezier(.86,0,.07,1);
-                
+
             }
         }
 
         .navigation {
-            
+
             &__content {
                 opacity: 1;
                 transition: 0s;
@@ -122,7 +122,7 @@
                 }
             }
         }
-        
+
         a {
             &.nuxt-link-exact-active {
                 text-decoration: line-through;
