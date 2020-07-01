@@ -32,32 +32,33 @@ header.header {
                 background: radial-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
             }
 
-            svg {
-                perspective: 2000px;
-                transform-style: preserve-3d;
+            .navicon {
 
-                rect {
-                    rx: 1px;
+                &__bars {
+
+                }
+
+                &__bar {
+                    top: calc(50% - 16px);
                     height: 32px;
-                    width: 0.5px;
-                    y: 8px;
-                    will-change: transform;
-                    fill: c('base-2');
+                    width: 2px;
+                    border-radius: 2px;
+                    border-width: 0;
+                    background: c('base-2');
 
-                    &:nth-of-type(1) {
-                        x: 12px;
+                    &--one {
+                        left: 12px;
                     }
 
-                    &:nth-of-type(2) {
-                        x: 23px;
+                    &--two {
+                        left: 23px;
                     }
 
-                    &:nth-of-type(3) {
-                        x: 34px;
+                    &--three {
+                        left: 34px;
                     }
                 }
             }
-
         }
 
         &.active {
@@ -73,49 +74,56 @@ header.header {
                     transform: rotateZ(270deg);
                 }
 
-                svg {
+                .navicon {
 
-                    rect {
+                    &__bars {
 
-                        &:nth-of-type(2) {
-                            transition: y 1.4s;
-                            y: -48px;
-                            stroke: c('secondary-base');
+                    }
+
+                    &__bar {
+
+                        &--two {
+                            top: 48px;
                         }
                     }
                 }
             }
 
-            svg {
+            .navicon {
 
-                rect {
-                    width: 0.5px;
-                    stroke: c('menu-color');
+                &__bars {
 
-                    &:nth-of-type(1) {
+                }
+
+                &__bar {
+                    background: c('menu-color');
+                    height: 42px;
+                    width: 2px;
+                    border-radius: 2px;
+                    border-width: 0;
+
+                    &--one {
                         transform: rotateZ(45deg);
                         transform-origin: bottom left;
-                        x: 1px;
-                        height: 42px;
-                        y: -6px;
+                        top: -7px;
+                        left: 6px;
                     }
 
-                    &:nth-of-type(2) {
-                        //opacity: 0;
-                        height: 42px;
-                        y: 48px;
+                    &--two {
+                        top: -48px;
+                        left: calc(50% - 2px);
+                        transition: top 1.2s;
+                        background: c('secondary-base');
                     }
 
-                    &:nth-of-type(3) {
+                    &--three {
                         transform: rotateZ(-45deg);
                         transform-origin: bottom right;
-                        x: 45px;
-                        height: 42px;
-                        y: -6px;
+                        top: -6px;
+                        left: 35px;
                     }
                 }
             }
-
         }
 
         &.cursor--entered {
@@ -134,16 +142,42 @@ header.header {
         }
     }
 
-    svg {
-        width: 100%;
-        max-width: 42px;
-        height: 42px;
+    .navicon {
 
-        rect {
-            fill: transparent;
-            stroke: c('base-2');
-            stroke-width: 2px;
+        &__bars {
+            position: relative;
+            perspective: 2000px;
+            transform-style: preserve-3d;
+            max-width: 42px;
+            width: 100%;
+            height: 42px;
+            overflow: hidden;
+        }
+
+        &__bar {
+            position: absolute;
+            display: block;
+            top: calc(50% - 4px);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid c('base-2');
+            will-change: transform;
+            backface-visibility: none;
             transition: all 700ms cubic-bezier(.165,.84,.44,1), fill 200ms cubic-bezier(.165,.84,.44,1), width 200ms;
+
+            &--one {
+                left: 0;
+            }
+
+            &--two {
+                left: calc(50% - 4px);
+            }
+
+            &--three {
+                left: calc(100% - 8px);
+            }
         }
     }
 }

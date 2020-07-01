@@ -4,11 +4,16 @@
 		<div class="group">
 			<button @click="toggleNavigation" :class="{ 'active': navigation }" class="navicon" ref="navicon" :aria-label="naviconLabel">
 				<div class="navicon__container">
-					<svg viewBox="0 0 46 46">
+					<!-- <svg viewBox="0 0 46 46">
 						<rect x="2" y="23" width="6" height="6" rx="6" />
 						<rect x="20" y="23" width="6" height="6" rx="6" />
 						<rect x="38" y="23" width="6" height="6" rx="6" />
-					</svg>
+					</svg> -->
+					<span class="navicon__bars">
+						<span class="navicon__bar navicon__bar--one"></span>
+						<span class="navicon__bar navicon__bar--two"></span>
+						<span class="navicon__bar navicon__bar--three"></span>
+					</span>
 				</div>
 			</button>
 		</div>
@@ -28,6 +33,7 @@ export default {
 			navigation: false,
 			navicon: null,
 			naviconDimensions: null,
+			naviconEntered: false,
 		}
 	},
 	components: {
@@ -46,13 +52,15 @@ export default {
 		toggleNavigation() {
 			this.navigation = !this.navigation;
 		},
-		linkEnter(link) {
+		linkEnter(link, rects) {
 			this.naviconDimensions = link.getBoundingClientRect()
 			link.classList.add('cursor--entered')
+			this.naviconEntered = true;
 		},
-		linkLeave(link) {
+		linkLeave(link, rects) {
 			link.classList.remove('cursor--entered')
 			this.resetLink(link)
+			this.naviconEntered = false;
 		},
 		resetLink(link) {
 			TweenMax.to(link, 1.2, {
@@ -77,20 +85,32 @@ export default {
 				skewY: (rel.y * -0.15),
 			});
 		},
+		linkClick(link, rects, event, $el) {
+
+		}
 	},
 	mounted() {
 		this.navicon = this.$refs.navicon;
 		const navicon = this.$el.querySelector('.navicon');
+		const rects = {
+			one: navicon.querySelector('rect:nth-of-type(1)'),
+			two: navicon.querySelector('rect:nth-of-type(2)'),
+			three: navicon.querySelector('rect:nth-of-type(3)')
+		}
+		console.log(rects)
 
 		const $el = this;
 		navicon.addEventListener('mouseenter', function() {
-			$el.linkEnter(navicon)
+			$el.linkEnter(navicon, rects)
 		})
 		navicon.addEventListener('mouseleave', function() {
-			$el.linkLeave(navicon)
+			$el.linkLeave(navicon, rects)
 		})
 		navicon.addEventListener('mousemove', function(event) {
 			$el.linkMove(navicon, event, $el)
+		})
+		navicon.addEventListener('click', function(event) {
+			$el.linkClick(navicon, rects, event, $el)
 		})
 	},
 	watch: {

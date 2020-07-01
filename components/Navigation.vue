@@ -122,8 +122,5 @@ export default {
 	props: [
 		'status'
 	],
-	methods: {
-
-	},
 }
 </script>
