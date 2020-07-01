@@ -22,25 +22,9 @@
 
     &__meta {
 
-        .container {
-            //max-width: 46em;
-        }
-
-        .columns {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
         p {
+            text-align: right;
             margin: 0;
-            color: c('base-0');
-
-            &:first-of-type {
-                opacity: 0.5;
-            }
-
-            + p {
-                color: c('base-2');
-            }
         }
     }
 

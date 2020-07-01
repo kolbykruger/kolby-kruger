@@ -26,6 +26,10 @@
 			<embed-slice :slice="slice" />
 		</template>
 
+		<template v-else-if="slice.slice_type === 'banner'">
+			<Banner :slice="slice" />
+		</template>
+
 	</div>
 </div>
 </template>
@@ -37,7 +41,8 @@ const Images = () => import('./slices/Images.vue');
 const ImageText = () => import('./slices/ImageText.vue');
 const Project = () => import('./slices/Project.vue');
 const TextSlice = () => import("./slices/TextSlice.vue");
-const EmbedSlice = () => import("./slices/EmbedSlice.vue")
+const EmbedSlice = () => import("./slices/EmbedSlice.vue");
+const Banner = () => import("./slices/Banner.vue");
 
 export default {
 	props: ['slices'],
@@ -48,7 +53,8 @@ export default {
 		ImageText,
 		Codeblock,
 		Project,
-		EmbedSlice
+		EmbedSlice,
+		Banner
 	},
 }
 </script>

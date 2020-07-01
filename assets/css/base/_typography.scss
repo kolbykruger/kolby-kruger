@@ -21,6 +21,7 @@ li {
     font-size: clamp(1.25rem, calc(#{1rem} + 0.5vw), 1.414rem);
     line-height: 1.65;
     margin-bottom: 0.5rem;
+    font-weight: 300;
 
     + h2,
     + h3,
@@ -47,6 +48,7 @@ h5 {
     margin-bottom: 0.5em;
     color: c('base-2');
     transition: color 1s ease;
+    font-weight: 500;
 }
 
 h2,

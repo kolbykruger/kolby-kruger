@@ -3,55 +3,32 @@
 
 	<article>
 
-		<PageHeading :heading="$prismic.asText(content.name)" :summary="content.summary" />
+		<!-- <PageHeading :heading="$prismic.asText(content.name)" :summary="content.summary" /> -->
+		<section class="page-heading page-heading__left">
+			<div class="container">
+				<div class="columns">
+					<div class="column column__1">
+						<h1 class="page-heading__heading">{{ $prismic.asText(content.name) }}</h1>
+						<p class="page-heading__summary">{{ content.summary }}</p>
+					</div>
+					<div class="column column__2">
+						<div class="case-study__meta">
+							<p>{{ content.year }}</p>
+							<p>
+								<span v-for="(item, index) in content.role" :key="index">
+									{{ item.tag }}{{ delimiter(index + 1, content.role.length) }}
+								</span>
+							</p>
+							<p>{{ content.technologies }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<section class="case-study__cover">
 			<div class="container">
 				<prismic-image :field="content.screen" />
-			</div>
-		</section>
-
-		<section class="case-study__meta">
-			<div class="container">
-				<div class="columns">
-
-					<div>
-						<p>Client</p>
-						<p>{{ content.client }}</p>
-					</div>
-
-					<div>
-						<p>Year</p>
-						<p>{{ content.year }}</p>
-					</div>
-
-					<div>
-						<p>Timeline</p>
-						<p>{{ content.timeline }}</p>
-					</div>
-
-					<div>
-						<p>Role</p>
-						<p>
-							<span v-for="(item, index) in content.role" :key="index">
-								{{ item.tag }}{{ delimiter(index + 1, content.role.length) }}
-							</span>
-						</p>
-					</div>
-
-					<div>
-						<p>Tech</p>
-						<p>{{ content.technologies }}</p>
-					</div>
-
-					<div>
-						<p>Website</p>
-						<p>
-							<a href="">{{ content.website.url }}</a>
-						</p>
-					</div>
-
-				</div>
 			</div>
 		</section>
 

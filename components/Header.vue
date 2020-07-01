@@ -2,14 +2,12 @@
 <header class="header">
 	<div class="container">
 		<div class="group">
-			<button @click="toggleNavigation" :class="{ 'active': navigation }" class="navicon" ref="navicon">
-				<div>
+			<button @click="toggleNavigation" :class="{ 'active': navigation }" class="navicon" ref="navicon" :aria-label="naviconLabel">
+				<div class="navicon__container">
 					<svg viewBox="0 0 46 46">
-
 						<rect x="2" y="23" width="6" height="6" rx="6" />
 						<rect x="20" y="23" width="6" height="6" rx="6" />
 						<rect x="38" y="23" width="6" height="6" rx="6" />
-
 					</svg>
 				</div>
 			</button>
@@ -35,12 +33,21 @@ export default {
 	components: {
 		Navigation
 	},
+	computed: {
+		naviconLabel() {
+			if (this.navigation) {
+				return ('Close Menu')
+			} else {
+				return ('Open Menu')
+			}
+		}
+	},
 	methods: {
 		toggleNavigation() {
 			this.navigation = !this.navigation;
 		},
 		linkEnter(link) {
-			this.naviconDimensions = link.getBoundingClientRect();
+			this.naviconDimensions = link.getBoundingClientRect()
 			link.classList.add('cursor--entered')
 		},
 		linkLeave(link) {
@@ -55,6 +62,11 @@ export default {
 			})
 		},
 		linkMove(link, event, $el) {
+
+			if (!$el.naviconDimensions) {
+				return false
+			}
+
 			const rel = {
 				x: (event.clientX - $el.naviconDimensions.left) - ($el.naviconDimensions.width / 2),
 				y: (event.clientY - $el.naviconDimensions.top) - ($el.naviconDimensions.height / 2)
@@ -64,7 +76,7 @@ export default {
 				y: rel.y / $el.naviconDimensions.height * 30,
 				skewY: (rel.y * -0.15),
 			});
-		}
+		},
 	},
 	mounted() {
 		this.navicon = this.$refs.navicon;

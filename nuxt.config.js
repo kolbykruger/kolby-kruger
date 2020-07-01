@@ -13,11 +13,12 @@ export default {
     ]
   },
 
-  loading: { 
+  loading: {
     color: '#fff'
   },
 
   css: [
+      '@/static/fonts/moderat/moderat.css'
   ],
 
   plugins: [

@@ -9,7 +9,7 @@ header.header {
 
     .container {
         position: relative;
-        max-width: 1100px;
+        max-width: 1400px;
         margin: 0 auto;
         z-index: 9999;
     }
@@ -25,23 +25,9 @@ header.header {
         padding: 0;
         pointer-events: all;
 
-        &::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            background: c('background');
-            transform: translate(-50%, -50%) scale(0);
-            transition: 700ms cubic-bezier(.165,.84,.44,1);
-            z-index: -1;
-        }
-
         &:hover {
 
-            div {
+            .navicon__container {
                 transform: rotateZ(90deg);
                 background: radial-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
             }
@@ -76,12 +62,9 @@ header.header {
 
         &.active {
 
-            div {
+            .navicon__container {
                 transform: rotateZ(90deg);
-            }
-
-            &::before {
-                background: transparent !important;
+                background: rgba(255,255,255,0.15);
             }
 
             &:hover {
@@ -137,13 +120,9 @@ header.header {
 
         &.cursor--entered {
 
-            &::before {
-                //background: c('primary-base');
-                transform: translate(-50%, -50%) scale(1);
-            }
         }
 
-        div {
+        .navicon__container {
             border-radius: 50%;
             width: 72px;
             height: 72px;

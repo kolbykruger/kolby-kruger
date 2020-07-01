@@ -3,7 +3,7 @@
     bottom: 1.5em;
     right: 1.5em;
     z-index: 999;
-    
+
     display: flex;
     flex-direction: column;
 
@@ -24,7 +24,6 @@
         height: 3em;
         min-height: 3em;
         width: 3em;
-        background: c('grey-0');
         color: c('base-0');
         opacity: 0.25;
         transition: opacity 200ms ease;

@@ -10,7 +10,7 @@
 		<div class="case-study-card__layer case-study-card__layer--2" ref="layer2">
 			<div class="case-study-card__details">
 				<h1 class="case-study-card__title">{{ $prismic.asText(data.data.name) }}</h1>
-				<nuxt-link class="button case-study-card__button" :to="link">View case study</nuxt-link>
+				<nuxt-link ref="button" class="button case-study-card__button" :to="link">View case study</nuxt-link>
 			</div>
 		</div>
 
@@ -49,6 +49,8 @@ export default {
 				}
 			},
 			active: false,
+			button: null,
+			buttonDimensions: null,
 		}
 	},
 	created() {
@@ -67,6 +69,21 @@ export default {
 		if (this.count === 0) {
 			this.label = this.label + ' is-selected';
 		}
+
+		//Button
+		this.button = this.$refs.button;
+		const button = this.$el.querySelector('.case-study-card__button');
+
+		const $el = this;
+		button.addEventListener('mouseenter', function() {
+			$el.buttonEnter(button)
+		})
+		button.addEventListener('mouseleave', function() {
+			$el.buttonLeave(button)
+		})
+		button.addEventListener('mousemove', function(event) {
+			$el.buttonMove(button, event, $el)
+		})
 
 	},
 	methods: {
@@ -148,7 +165,36 @@ export default {
 					filter: `drop-shadow(${dropShadow.x}px ${dropShadow.y}px 25px rgba(34, 34, 34, 0.08))`,
 				})
 			}
-		}
+		},
+		buttonEnter(button) {
+			this.buttonDimensions = button.getBoundingClientRect()
+			button.classList.add('cursor--entered')
+		},
+		buttonLeave(button) {
+			button.classList.remove('cursor--entered')
+			this.resetButton(button)
+		},
+		resetButton(button) {
+			TweenMax.to(button, 1.2, {
+				x: 0,
+				y: 0,
+			})
+		},
+		buttonMove(button, event, $el) {
+
+			if (!$el.buttonDimensions) {
+				return false
+			}
+
+			const rel = {
+				x: (event.clientX - $el.buttonDimensions.left) - ($el.buttonDimensions.width / 2),
+				y: (event.clientY - $el.buttonDimensions.top) - ($el.buttonDimensions.height / 2)
+			}
+			TweenMax.to(button, 1.2, {
+				x: rel.x / $el.buttonDimensions.width * 40,
+				y: rel.y / $el.buttonDimensions.height * 30,
+			});
+		},
 	},
 	beforeDestroy() {
 		this.destroy = true;
