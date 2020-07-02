@@ -66,7 +66,6 @@ export default {
 	mounted() {
 		this.links = this.$el.querySelectorAll('.impression a');
 		const cursor = this.$refs.cursor;
-		console.log(this.$refs.navicon)
 		const $el = this;
 		this.links.forEach((link) => {
 			link.addEventListener('mouseenter', function() {

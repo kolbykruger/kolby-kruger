@@ -7,6 +7,6 @@
 <script>
 export default {
 	props: ['slice'],
-	name: 'banner'
+	name: 'banner',
 }
 </script>

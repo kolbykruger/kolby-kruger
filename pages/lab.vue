@@ -49,7 +49,7 @@ export default {
 			if (query == '') {
 				return docs;
 			} else {
-				
+
 				let results = [];
 
 				docs.forEach((doc) => {

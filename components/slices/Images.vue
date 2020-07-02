@@ -1,31 +1,29 @@
 <template>
-
-  <section class="images" :class="label">
-        <div class="container">
-            <div class="group">
-                <div v-for="item in slice.items" :key="item.id" class="images-item">
-                    <prismic-image :field="item.image"/>
-                </div>
-            </div>
-        </div>
-  </section>
-
+<section class="images" :class="label">
+	<div class="container">
+		<div class="group">
+			<div v-for="item in slice.items" :key="item.id" class="images-item">
+				<prismic-image :field="item.image" />
+			</div>
+		</div>
+	</div>
+</section>
 </template>
 
 <script>
 export default {
-  props: ['slice'],
-  name: 'images',
-  data() {
-      return {
-          label: '',
-      }
-  },
-  mounted() {
-      const label = this.slice.slice_label ? this.slice.slice_label : '';
-      if (label != '') {
-          this.label = 'images__'+label;
-      }
-  }
+	props: ['slice'],
+	name: 'images',
+	data() {
+		return {
+			label: '',
+		}
+	},
+	mounted() {
+		const label = this.slice.slice_label ? this.slice.slice_label : '';
+		if (label != '') {
+			this.label = 'images__' + label;
+		}
+	}
 }
 </script>

@@ -123,6 +123,12 @@
 
                 li {
 
+                    @for $i from 1 through 7 {
+                        &:nth-child(#{$i}) a::before {
+                            transition-delay: 400ms + $i * 30ms;
+                        }
+                    }
+
                     a.nuxt-link-exact-active::before {
                         max-width: 110%;
                     }
@@ -240,6 +246,7 @@
             position: relative;
 
             &.nuxt-link-exact-active {
+                cursor: not-allowed;
 
                 &::before {
                     content: '';
@@ -251,7 +258,7 @@
                     height: 6px;
                     background: c('secondary-base');
                     transform: skewX(-25deg);
-                    transition: max-width 500ms;
+                    transition: max-width 500ms cubic-bezier(.165,.84,.44,1);
                     z-index: 1;
                 }
 
