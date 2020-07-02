@@ -58,6 +58,13 @@
                 fill: c('menu-background-layer-3');
             }
         }
+
+        @media (max-width: 900px) {
+            &--layer-2,
+            &--layer-3 {
+                display: none;
+            }
+        }
     }
 
     &:not(.navigation--open) {
