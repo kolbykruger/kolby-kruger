@@ -97,7 +97,6 @@ export default {
 			two: navicon.querySelector('rect:nth-of-type(2)'),
 			three: navicon.querySelector('rect:nth-of-type(3)')
 		}
-		console.log(rects)
 
 		const $el = this;
 		navicon.addEventListener('mouseenter', function() {

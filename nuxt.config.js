@@ -24,8 +24,6 @@ export default {
   plugins: [
       '@/assets/css/bundle.scss',
       'node_modules/flickity/dist/flickity.min.css',
-      'node_modules/@fortawesome/fontawesome-free/js/all.min.js',
-      'node_modules/@fortawesome/fontawesome-pro/js/all.min.js'
   ],
 
   modules: [

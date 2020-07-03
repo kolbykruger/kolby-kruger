@@ -4,6 +4,10 @@
 	<section class="impression" ref="impression" @mouseenter="mouseEnter" @mouseleave="mouseLeave" @mousemove="mouseMove">
 		<div class="container">
 
+			<div class="impression__background">
+				<div class="impression__background--layer-1" v-html="Arc"></div>
+			</div>
+
 			<div class="impression__contents">
 				<p class="impression__intro">hello,</p>
 				<p class="impression__intro"><span>my&nbsp;</span><span>name&nbsp;</span><span>is&nbsp;</span></p>
@@ -40,6 +44,7 @@
 import {
 	TweenMax
 } from 'gsap'
+import Arc from '~/assets/graphic/arc.svg?raw'
 
 export default {
 	name: 'Home',
@@ -49,11 +54,15 @@ export default {
 			title: 'Web designer and developer in Burlington, Vermont'
 		}
 	},
+	components: {
+
+	},
 	data() {
 		return {
 			links: null,
 			linkDimensions: null,
 			linkCircle: null,
+			Arc,
 		}
 	},
 	computed: {

@@ -1,7 +1,7 @@
 <template>
 <main>
 
-	<PageHeading heading="about me" summary="Kolby Kruger — Designer & Developer" />
+	<PageHeading heading="about" summary="Kolby Kruger — Designer & Developer" />
 
 	<section class="about about__cover">
 		<div class="container">
@@ -9,14 +9,54 @@
 		</div>
 	</section>
 
-	<section v-for="(section, index) in doc.data.sections" :key="index" class="about" :class="'about__'+section.title[0].text.toLowerCase()">
+	<section class="about about__greeting">
 		<div class="container">
 			<div class="columns">
 				<div class="column column--1">
-					<h2 class="font-size__3">{{ $prismic.asText(section.title) }}</h2>
+					<h2 class="font-size__3">{{ $prismic.asText(doc.data.greeting[0].title) }}</h2>
 				</div>
 				<div class="column column--2">
-					<prismic-rich-text :field="section.description" />
+					<prismic-rich-text :field="doc.data.greeting[0].description" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="about about__process">
+		<div class="container">
+			<div class="columns">
+				<div class="column column--1">
+					<h2 class="font-size__3">{{ $prismic.asText(process.data.name) }}</h2>
+				</div>
+				<div class="column column--2">
+					<prismic-rich-text :field="process.data.description" />
+					<SlicesBlock :slices="process.data.body" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="about about__work">
+		<div class="container">
+			<div class="columns">
+				<div class="column column--1">
+					<h2 class="font-size__3">{{ $prismic.asText(doc.data.work[0].title) }}</h2>
+				</div>
+				<div class="column column--2">
+					<prismic-rich-text :field="doc.data.work[0].description" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="about about__background">
+		<div class="container">
+			<div class="columns">
+				<div class="column column--1">
+					<h2 class="font-size__3">{{ $prismic.asText(doc.data.background[0].title) }}</h2>
+				</div>
+				<div class="column column--2">
+					<prismic-rich-text :field="doc.data.background[0].description" />
 				</div>
 			</div>
 		</div>
@@ -28,12 +68,14 @@
 <script>
 // Imports for all components
 import PageHeading from '~/components/PageHeading.vue'
+import SlicesBlock from '~/components/SlicesBlock.vue'
 
 export default {
 	name: 'About',
 	layout: 'default',
 	components: {
 		PageHeading,
+		SlicesBlock
 	},
 	async asyncData({
 		$prismic,
@@ -43,9 +85,13 @@ export default {
 			const about = await $prismic.api.query(
 				$prismic.predicates.at('document.type', 'about')
 			)
+			const process = await $prismic.api.query(
+				$prismic.predicates.at('document.type', 'process')
+			)
 
 			return {
-				doc: about.results[0]
+				doc: about.results[0],
+				process: process.results[0]
 			}
 		} catch (e) {
 			error({
@@ -56,7 +102,7 @@ export default {
 	},
 	head() {
 		return {
-			title: '',
+			title: 'About',
 		}
 	},
 }

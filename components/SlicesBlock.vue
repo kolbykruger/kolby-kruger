@@ -7,7 +7,7 @@
 		</template>
 
 		<template v-else-if="slice.slice_type === 'images'">
-			<images :slice="slice" />
+			<Images :slice="slice" />
 		</template>
 
 		<template v-else-if="slice.slice_type === 'image___text'">
@@ -19,15 +19,19 @@
 		</template>
 
 		<template v-else-if="slice.slice_type === 'text'">
-			<text-slice :slice="slice" />
+			<TextSlice :slice="slice" />
 		</template>
 
 		<template v-else-if="slice.slice_type === 'embed'">
-			<embed-slice :slice="slice" />
+			<EmbedSlice :slice="slice" />
 		</template>
 
 		<template v-else-if="slice.slice_type === 'banner'">
 			<Banner :slice="slice" />
+		</template>
+
+		<template v-else-if="slice.slice_type === 'accordion'">
+			<Accordion :slice="slice" />
 		</template>
 
 	</div>
@@ -35,14 +39,14 @@
 </template>
 
 <script>
-// Imports for all slices
-const Codeblock = () => import('./slices/Codeblock.vue');
-const Images = () => import('./slices/Images.vue');
-const ImageText = () => import('./slices/ImageText.vue');
-const Project = () => import('./slices/Project.vue');
-const TextSlice = () => import("./slices/TextSlice.vue");
-const EmbedSlice = () => import("./slices/EmbedSlice.vue");
-const Banner = () => import("./slices/Banner.vue");
+import Codeblock from '~/components/slices/Codeblock.vue'
+import Images from '~/components/slices/Images.vue'
+import ImageText from '~/components/slices/ImageText.vue'
+import Project from '~/components/slices/Project.vue'
+import TextSlice from '~/components/slices/TextSlice.vue'
+import EmbedSlice from '~/components/slices/EmbedSlice.vue'
+import Banner from '~/components/slices/Banner.vue'
+import Accordion from '~/components/slices/Accordion.vue'
 
 export default {
 	props: ['slices'],
@@ -54,7 +58,8 @@ export default {
 		Codeblock,
 		Project,
 		EmbedSlice,
-		Banner
+		Banner,
+		Accordion
 	},
 }
 </script>

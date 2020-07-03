@@ -113,6 +113,40 @@
         }
     }
 
+    &__background {
+
+        &--layer-1 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30vw;
+
+            svg {
+                display: block;
+
+                path {
+                    fill: none;
+                    stroke: c('secondary-base');
+                    stroke-miterlimit: 10;
+                    stroke-width: 300px;
+                    stroke-dasharray: 121.5%;
+                    stroke-dashoffset: 121.5%;
+                    animation: arc 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+                    animation-delay: 1s;
+
+                    @keyframes arc {
+                        from {
+                            stroke-dashoffset: 121.5%;
+                        }
+                        to {
+                            stroke-dashoffset: 0%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     &__summary {
         @extend .font-size__4;
         max-width: 60%;

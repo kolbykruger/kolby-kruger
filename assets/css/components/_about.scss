@@ -1,6 +1,10 @@
 .about {
     margin: 10vh 0;
 
+    h2 {
+        text-transform: lowercase;
+    }
+
     .container {
 
         div[data-type="website"] {
