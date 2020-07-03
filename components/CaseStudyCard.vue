@@ -10,7 +10,6 @@
 		<div class="case-study-card__layer case-study-card__layer--2" ref="layer2">
 			<div class="case-study-card__details">
 				<h1 class="case-study-card__title">{{ $prismic.asText(data.data.name) }}</h1>
-				<p> O: {{ orientation }}</p>
 				<nuxt-link ref="button" class="button case-study-card__button" :to="link">View case study</nuxt-link>
 			</div>
 		</div>
@@ -50,7 +49,6 @@ export default {
 				}
 			},
 			mobile: false,
-			orientation: null,
 			active: false,
 			button: null,
 			buttonDimensions: null,
@@ -185,33 +183,41 @@ export default {
 			const layer1 = $el.$refs.layer1,
 				layer3 = $el.$refs.layer3;
 
-			this.orientation = {
-				x: event.beta,
-				y: event.gamma
-			}
-
 			const orientation = {
 				x: event.beta,
 				y: event.gamma
 			}
 
+			let dropShadow = {
+				x: 0.25 * orientation.y,
+				y: (0.5 * orientation.x) / 2 + 15,
+			}
+
 			TweenMax.to(layer1, 1.2, {
-				y: 0.2 * orientation.x,
-				x: 0.5 * orientation.y,
-				rotateZ: 0.05 * orientation.y,
-				rotateY: 0.05 * orientation.y,
-				rotateX: 0.05 * orientation.x,
+				y: 0.35 * orientation.x,
+				x: 0.6 * orientation.y,
+				rotateZ: 0.08 * orientation.y,
+				rotateY: 0.08 * orientation.y,
+				rotateX: 0.08 * orientation.x,
 				scale: 1.12,
 			});
 
 			TweenMax.to(layer3, 1.8, {
 				y: 0.6 * orientation.x,
-				x: 0.25 * orientation.y,
-				rotateZ: 0.15 * orientation.y,
-				rotateY: 0.15 * orientation.y,
-				rotateX: 0.15 * orientation.x,
+				x: 0.9 * orientation.y,
+				rotateZ: 0.1 * orientation.y,
+				rotateY: 0.1 * orientation.y,
+				rotateX: 0.1 * orientation.x,
 				scale: 1.06,
 			});
+
+			TweenMax.to(layer1.childNodes[0], 1, {
+				filter: `drop-shadow(${dropShadow.x}px ${dropShadow.y}px 25px rgba(34, 34, 34, 0.12))`,
+			})
+
+			TweenMax.to(layer3.childNodes[0], 1, {
+				filter: `drop-shadow(${dropShadow.x}px ${dropShadow.y}px 25px rgba(34, 34, 34, 0.08))`,
+			})
 
 		},
 		buttonEnter(button) {
