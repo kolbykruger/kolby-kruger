@@ -180,7 +180,7 @@ export default {
 				})
 			}
 		},
-		handleOrientation(event) {
+		handleOrientation(event, $el) {
 
 			const layer1 = $el.$refs.layer1,
 				layer3 = $el.$refs.layer3;
