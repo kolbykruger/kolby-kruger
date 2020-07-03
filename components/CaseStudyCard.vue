@@ -69,6 +69,11 @@ export default {
 		//initialize the tweens on the layers to provide better initial scaling
 		this.resetTweenMax()
 
+		//check size
+		if (screen.width < 900) {
+			this.mobile = true
+		}
+
 		if (this.count === 0) {
 			this.label = this.label + ' is-selected';
 		}
@@ -179,10 +184,38 @@ export default {
 			}
 		},
 		handleOrientation(event) {
+
+			const layer1 = this.$refs.layer1,
+				layer3 = this.$refs.layer3;
+
 			this.orientation = {
 				x: event.beta,
 				y: event.gamma
 			}
+
+			const orientation = {
+				x: event.beta,
+				y: event.gamma
+			}
+
+			TweenMax.to(layer1, 1.2, {
+				y: 0.02 * orientation.x,
+				x: 0.04 * orientation.y,
+				rotateZ: 0.0015 * orientation.y,
+				rotateY: 0.005 * orientation.y,
+				rotateX: 0.005 * orientation.x,
+				scale: 1.12,
+			});
+
+			TweenMax.to(layer3, 1.8, {
+				y: 0.008 * orientation.x,
+				x: 0.025 * orientation.y,
+				rotateZ: 0.0015 * orientation.y,
+				rotateY: 0.005 * orientation.y,
+				rotateX: 0.005 * orientation.x,
+				scale: 1.06,
+			});
+
 		},
 		buttonEnter(button) {
 			this.buttonDimensions = button.getBoundingClientRect()
