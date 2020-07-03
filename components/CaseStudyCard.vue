@@ -199,20 +199,20 @@ export default {
 			}
 
 			TweenMax.to(layer1, 1.2, {
-				y: 0.02 * orientation.x,
-				x: 0.04 * orientation.y,
-				rotateZ: 0.0015 * orientation.y,
-				rotateY: 0.005 * orientation.y,
-				rotateX: 0.005 * orientation.x,
+				y: 0.2 * orientation.x,
+				x: 0.5 * orientation.y,
+				rotateZ: 0.05 * orientation.y,
+				rotateY: 0.05 * orientation.y,
+				rotateX: 0.05 * orientation.x,
 				scale: 1.12,
 			});
 
 			TweenMax.to(layer3, 1.8, {
-				y: 0.008 * orientation.x,
-				x: 0.025 * orientation.y,
-				rotateZ: 0.0015 * orientation.y,
-				rotateY: 0.005 * orientation.y,
-				rotateX: 0.005 * orientation.x,
+				y: 0.6 * orientation.x,
+				x: 0.25 * orientation.y,
+				rotateZ: 0.15 * orientation.y,
+				rotateY: 0.15 * orientation.y,
+				rotateX: 0.15 * orientation.x,
 				scale: 1.06,
 			});
 
