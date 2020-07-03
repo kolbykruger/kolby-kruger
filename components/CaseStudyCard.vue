@@ -95,10 +95,7 @@ export default {
 
 		if (window.DeviceOrientationEvent) {
 			window.addEventListener('deviceorientation', function(event) {
-				$el.orientation = {
-					x: event.beta,
-					y: event.gamma
-				}
+				$el.handleOrientation(event, $el)
 			});
 		}
 
@@ -185,8 +182,8 @@ export default {
 		},
 		handleOrientation(event) {
 
-			const layer1 = this.$refs.layer1,
-				layer3 = this.$refs.layer3;
+			const layer1 = $el.$refs.layer1,
+				layer3 = $el.$refs.layer3;
 
 			this.orientation = {
 				x: event.beta,
