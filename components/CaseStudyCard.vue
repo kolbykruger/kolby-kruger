@@ -10,6 +10,7 @@
 		<div class="case-study-card__layer case-study-card__layer--2" ref="layer2">
 			<div class="case-study-card__details">
 				<h1 class="case-study-card__title">{{ $prismic.asText(data.data.name) }}</h1>
+				<p> O: {{ orientation }}</p>
 				<nuxt-link ref="button" class="button case-study-card__button" :to="link">View case study</nuxt-link>
 			</div>
 		</div>
@@ -48,6 +49,8 @@ export default {
 					y: 0
 				}
 			},
+			mobile: false,
+			orientation: null,
 			active: false,
 			button: null,
 			buttonDimensions: null,
@@ -84,6 +87,15 @@ export default {
 		button.addEventListener('mousemove', function(event) {
 			$el.buttonMove(button, event, $el)
 		})
+
+		if (window.DeviceOrientationEvent) {
+			window.addEventListener('deviceorientation', function(event) {
+				$el.orientation = {
+					x: event.beta,
+					y: event.gamma
+				}
+			});
+		}
 
 	},
 	methods: {
@@ -124,7 +136,7 @@ export default {
 			}
 		},
 		mouseMove(e) {
-			if (this.active && !this.destroy) {
+			if (this.active && !this.destroy && !this.mobile) {
 				const layer1 = this.$refs.layer1,
 					layer3 = this.$refs.layer3;
 
@@ -164,6 +176,12 @@ export default {
 				TweenMax.to(layer3.childNodes[0], 1, {
 					filter: `drop-shadow(${dropShadow.x}px ${dropShadow.y}px 25px rgba(34, 34, 34, 0.08))`,
 				})
+			}
+		},
+		handleOrientation(event) {
+			this.orientation = {
+				x: event.beta,
+				y: event.gamma
 			}
 		},
 		buttonEnter(button) {
