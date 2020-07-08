@@ -1,10 +1,15 @@
 <template>
 <section>
-	<!-- Slices block component -->
+
+	<section class="post__cover">
+		<div class="container">
+			<prismic-image :field="content.cover"></prismic-image>
+		</div>
+	</section>
 
 	<article>
 
-		<PageHeading :heading="$prismic.asText(content.title)" :summary="content.summary" alignment="left" />
+		<PageHeading :heading="$prismic.asText(content.title)" :summary="content.summary" alignment="center" />
 
 		<slices-block :slices="slices" />
 
@@ -50,5 +55,8 @@ export default {
 			})
 		}
 	},
+	mounted() {
+
+	}
 }
 </script>
