@@ -97,6 +97,18 @@ export default {
 			});
 		}
 
+		window.addEventListener('resize', function() {
+			if (screen.width < 900) {
+				$el.mobile = true
+			} else {
+				$el.mobile = false
+			}
+			$el.viewport.width = screen.width;
+			$el.viewport.height = screen.height;
+			$el.viewport.center.x = screen.width / 2;
+			$el.viewport.center.y = screen.height / 2;
+		})
+
 	},
 	methods: {
 		mouseEnter() {
@@ -139,6 +151,7 @@ export default {
 		},
 		mouseMove(e) {
 			if (this.active && !this.destroy && !this.mobile) {
+
 				const layer1 = this.$refs.layer1,
 					layer3 = this.$refs.layer3;
 
@@ -185,6 +198,7 @@ export default {
 			if ($el.mobile) {
 
 				requestAnimationFrame(() => {
+
 					const layer1 = $el.$refs.layer1,
 						layer3 = $el.$refs.layer3;
 
@@ -193,15 +207,16 @@ export default {
 						y: event.gamma
 					}
 
-					TweenMax.to(layer1, 1.2, {
+					TweenMax.to(layer1, 1, {
 						y: 0.35 * orientation.x,
 						x: 0.6 * orientation.y,
 					});
 
-					TweenMax.to(layer3, 1.8, {
+					TweenMax.to(layer3, 1.2, {
 						y: 0.6 * orientation.x,
 						x: 0.9 * orientation.y,
 					});
+
 				})
 			}
 
@@ -230,10 +245,12 @@ export default {
 				x: (event.clientX - $el.buttonDimensions.left) - ($el.buttonDimensions.width / 2),
 				y: (event.clientY - $el.buttonDimensions.top) - ($el.buttonDimensions.height / 2)
 			}
+
 			TweenMax.to(button, 1.2, {
 				x: rel.x / $el.buttonDimensions.width * 40,
 				y: rel.y / $el.buttonDimensions.height * 30,
 			});
+
 		},
 	},
 	beforeDestroy() {
