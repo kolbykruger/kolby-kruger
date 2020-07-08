@@ -1,8 +1,27 @@
 .search {
-    
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__result {
+
+        span {
+            background: c('primary-base');
+            color: #fff;
+            padding: 0.2em 0.5em;
+            border-radius: 0.25em;
+        }
+    }
+
     input[type="text"] {
-        padding: 0.5em;
+        padding: 1em;
         font-family: inherit;
         font-size: inherit;
+        border: none;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 0.25em;
     }
 }

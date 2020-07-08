@@ -5,7 +5,8 @@
 		<div class="container">
 
 			<div class="impression__background">
-				<div class="impression__background--layer-1" v-html="Arc"></div>
+				<div class="impression__background--layer-1 impression__background--timing-1" v-html="Arc"></div>
+				<div class="impression__background--layer-2 impression__background--timing-1" v-html="Arc"></div>
 			</div>
 
 			<div class="impression__contents">
@@ -73,6 +74,7 @@ export default {
 		}
 	},
 	mounted() {
+
 		this.links = this.$el.querySelectorAll('.impression a');
 		const cursor = this.$refs.cursor;
 		const $el = this;

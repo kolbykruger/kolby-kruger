@@ -1,0 +1,63 @@
+.experiment-cards {
+
+    .container {
+
+    }
+
+    .experiment-card {
+        margin: 1em 0;
+
+        a {
+            position: relative;
+            display: block;
+            padding: 2em;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 1em;
+            text-decoration: none;
+            color: inherit;
+            overflow: hidden;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1em;
+                height: 1em;
+                border-radius: 50%;
+                background: rgba(0, 0, 0, 0.1);
+                transform: translate(-100%, -100%);
+                transition: 500ms ease-in-out;
+                z-index: -1;
+            }
+
+            &:hover,
+            &:focus {
+
+                &::before {
+                    transform: translate(-100%, -100%) scale(150);
+                }
+            }
+        }
+
+        &__title {
+            @extend .font-size__4;
+            margin-top: 0;
+            margin-bottom: 0.25em;
+        }
+
+        &__indicator {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3em;
+            height: 3em;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.1);
+            transform: rotate(-45deg);
+        }
+    }
+}

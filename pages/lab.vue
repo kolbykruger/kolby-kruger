@@ -5,13 +5,20 @@
 
 	<section class="search">
 		<div class="container">
+			<div class="search__result">
+				<p v-if="query">
+					results for <span>{{ query }}</span>
+				</p>
+			</div>
 			<input type="text" placeholder="Search..." v-model="query" @keyup="queryResults">
 		</div>
 	</section>
 
 	<section class="experiment-cards" v-if="docs.length !== 0">
 		<div class="container">
-			<ExperimentCard v-for="(post, index) in queryResults()" :key="index" :post="post" />
+			<transition-group name="experiment-card" tag="div">
+				<ExperimentCard v-for="(post, index) in queryResults()" :key="index" :post="post" />
+			</transition-group>
 		</div>
 	</section>
 
@@ -91,3 +98,32 @@ export default {
 	}
 }
 </script>
+
+<style>
+.experiment-card {
+	transition: all 0.25s;
+}
+
+.experiment-card-enter,
+.experiment-card-leave-to
+
+/* .card-leave-active for <2.1.8 */
+	{
+	opacity: 0;
+	transform: scale(0);
+}
+
+.experiment-card-enter-to {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.experiment-card-leave-active {
+	/*position: absolute;*/
+}
+
+.experiment-card-move {
+	opacity: 1;
+	transition: all 0.5s;
+}
+</style>

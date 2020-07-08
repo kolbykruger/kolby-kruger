@@ -137,12 +137,6 @@
 
             &__link {
 
-                // @for $i from 1 through 7 {
-                //     span:nth-child(#{$i}) span {
-                //         transition-delay: 300ms + $i * 30ms;
-                //     }
-                // }
-
                 span {
 
                     span {
@@ -179,6 +173,15 @@
         li {
             @extend .font-size__1;
             line-height: 1.6;
+
+            @media (max-height: 900px) {
+                font-size: s('large-4');
+            }
+
+            @media (max-height: 600px) {
+                font-size: s('large-3');
+            }
+
         }
 
         a {

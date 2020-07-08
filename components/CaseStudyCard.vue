@@ -150,47 +150,54 @@ export default {
 			}
 		},
 		mouseMove(e) {
+
+			const $el = this;
+
 			if (this.active && !this.destroy && !this.mobile) {
 
-				const layer1 = this.$refs.layer1,
-					layer3 = this.$refs.layer3;
+				const layer1 = $el.$refs.layer1,
+					layer3 = $el.$refs.layer3;
 
-				const cursor = {
-					x: (this.viewport.center.x - e.clientX) * -1,
-					y: (this.viewport.center.y - e.clientY) * -1
-				}
+				requestAnimationFrame(() => {
 
-				let dropShadow = {
-					x: 0.05 * cursor.x,
-					y: (0.10 * cursor.y) / 2 + 15,
-					scale: Math.abs(((cursor.x + cursor.y) / 2) * 0.1) * 1.5,
-				}
+					const cursor = {
+						x: ($el.viewport.center.x - e.clientX) * -1,
+						y: ($el.viewport.center.y - e.clientY) * -1
+					}
 
-				TweenMax.to(layer1, 1.2, {
-					y: 0.02 * cursor.y,
-					x: 0.04 * cursor.x,
-					rotateZ: 0.0015 * cursor.x,
-					rotateY: 0.005 * cursor.x,
-					rotateX: 0.005 * cursor.y,
-					scale: 1.12,
+					let dropShadow = {
+						x: 0.05 * cursor.x,
+						y: (0.10 * cursor.y) / 2 + 15,
+						scale: Math.abs(((cursor.x + cursor.y) / 2) * 0.1) * 1.5,
+					}
+
+					TweenMax.to(layer1, 1.2, {
+						y: 0.02 * cursor.y,
+						x: 0.04 * cursor.x,
+						rotateZ: 0.0015 * cursor.x,
+						rotateY: 0.005 * cursor.x,
+						rotateX: 0.005 * cursor.y,
+						scale: 1.12,
+					});
+
+					TweenMax.to(layer1.childNodes[0], 1, {
+						filter: `drop-shadow(${dropShadow.x}px ${dropShadow.y}px 25px rgba(34, 34, 34, 0.12))`,
+					})
+
+					TweenMax.to(layer3, 1.8, {
+						y: 0.008 * cursor.y,
+						x: 0.025 * cursor.x,
+						rotateZ: 0.0015 * cursor.x,
+						rotateY: 0.005 * cursor.x,
+						rotateX: 0.005 * cursor.y,
+						scale: 1.06,
+					});
+
+					TweenMax.to(layer3.childNodes[0], 1, {
+						filter: `drop-shadow(${dropShadow.x}px ${dropShadow.y}px 25px rgba(34, 34, 34, 0.08))`,
+					})
+
 				});
-
-				TweenMax.to(layer1.childNodes[0], 1, {
-					filter: `drop-shadow(${dropShadow.x}px ${dropShadow.y}px 25px rgba(34, 34, 34, 0.12))`,
-				})
-
-				TweenMax.to(layer3, 1.8, {
-					y: 0.008 * cursor.y,
-					x: 0.025 * cursor.x,
-					rotateZ: 0.0015 * cursor.x,
-					rotateY: 0.005 * cursor.x,
-					rotateX: 0.005 * cursor.y,
-					scale: 1.06,
-				});
-
-				TweenMax.to(layer3.childNodes[0], 1, {
-					filter: `drop-shadow(${dropShadow.x}px ${dropShadow.y}px 25px rgba(34, 34, 34, 0.08))`,
-				})
 			}
 		},
 		handleOrientation(event, $el) {

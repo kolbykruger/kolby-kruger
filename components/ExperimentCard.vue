@@ -4,6 +4,9 @@
 	<a target="_blank" rel="nofollow norefer" :href="post.data.link.url" v-if="post.data.type == 'Tool'">
 		<h3 class="experiment-card__title">{{ post.data.name[0].text }}</h3>
 		<p class="experiment-card__summary">{{ post.data.summary }}</p>
+		<span class="experiment-card__indicator" v-if="post.data.type == 'Tool'">
+			->
+		</span>
 	</a>
 
 	<nuxt-link :to="link" v-else>
