@@ -213,8 +213,8 @@ export default {
 					});
 
 					TweenMax.to(layer3, 1.2, {
-						y: 0.6 * orientation.x,
-						x: 0.9 * orientation.y,
+						y: 0.5 * orientation.x,
+						x: 0.8 * orientation.y,
 					});
 
 				})
