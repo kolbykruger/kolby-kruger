@@ -9,7 +9,7 @@ span[class="code"] {
 pre {
     font-size: 1rem;
     padding: 1em;
-    margin: 1.5em auto 3em;
+    margin: 1.5em auto;
     max-width: 100%;
     background: #23202d;
     border-radius: 0.25em;
@@ -78,12 +78,16 @@ pre {
 
 span[class="code"] {
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: c('grey-0');
     color: c('base-2');
     padding: 0.3em 0.45em;
     vertical-align: middle;
     border-radius: 0.25em;
-    
+    font-size: 1rem;
+    font-weight: 500;
+
     + span[class="code"] {
         margin-left: 0.25em;
     }

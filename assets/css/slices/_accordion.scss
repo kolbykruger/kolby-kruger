@@ -32,6 +32,10 @@
                         }
                     }
                 }
+
+                & + .accordion__panel {
+                    padding: 1em 0;
+                }
             }
         }
 
@@ -66,7 +70,7 @@
             max-height: 0;
             height: 100%;
             overflow: hidden;
-            transition: max-height 300ms cubic-bezier(.165,.84,.44,1);
+            transition: max-height 300ms cubic-bezier(.165,.84,.44,1), padding 300ms cubic-bezier(.165,.84,.44,1);
         }
     }
 }

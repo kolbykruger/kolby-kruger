@@ -66,7 +66,6 @@
 </template>
 
 <script>
-// Imports for all components
 import PageHeading from '~/components/PageHeading.vue'
 import SlicesBlock from '~/components/SlicesBlock.vue'
 
@@ -105,5 +104,8 @@ export default {
 			title: 'About',
 		}
 	},
+	mounted() {
+
+	}
 }
 </script>

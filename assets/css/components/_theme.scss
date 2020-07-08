@@ -33,4 +33,9 @@
             opacity: 1;
         }
     }
+
+    @media (max-width: 768px) {
+        bottom: 0.5em;
+        right: 0.5em;
+    }
 }

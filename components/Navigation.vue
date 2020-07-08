@@ -109,7 +109,9 @@
 				</li>
 			</ul>
 			<ul class="navigation__contact">
-				<li>say hello</li>
+				<li>
+					<button @click="obfuscateEmail">say hello</button>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -122,5 +124,12 @@ export default {
 	props: [
 		'status'
 	],
+	methods: {
+		obfuscateEmail(e) {
+			const contactContainer = e.target.parentNode;
+			const contactTemplate = `<a href="mailto:hi@kolby.dev">hi@kolby.dev</a>`;
+			contactContainer.innerHTML = contactTemplate;
+		}
+	}
 }
 </script>

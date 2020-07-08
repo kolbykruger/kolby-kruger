@@ -24,6 +24,7 @@ export default {
   plugins: [
       '@/assets/css/bundle.scss',
       'node_modules/flickity/dist/flickity.min.css',
+      '@/plugins/scroll-animations',
   ],
 
   modules: [

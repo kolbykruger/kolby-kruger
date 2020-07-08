@@ -34,6 +34,7 @@ export default {
 			navicon: null,
 			naviconDimensions: null,
 			naviconEntered: false,
+			mobile: false,
 		}
 	},
 	components: {
@@ -71,7 +72,7 @@ export default {
 		},
 		linkMove(link, event, $el) {
 
-			if (!$el.naviconDimensions) {
+			if (!$el.naviconDimensions || $el.mobile) {
 				return false
 			}
 
@@ -96,6 +97,10 @@ export default {
 			one: navicon.querySelector('rect:nth-of-type(1)'),
 			two: navicon.querySelector('rect:nth-of-type(2)'),
 			three: navicon.querySelector('rect:nth-of-type(3)')
+		}
+
+		if (screen.width < 900) {
+			this.mobile = true
 		}
 
 		const $el = this;

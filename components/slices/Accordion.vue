@@ -29,7 +29,7 @@ export default {
 			} else {
 				//expand
 				action.classList.add('accordion__block--active')
-				panel.style.maxHeight = panel.scrollHeight + 'px'
+				panel.style.maxHeight = (panel.scrollHeight + 32) + 'px'
 
 			}
 		}
