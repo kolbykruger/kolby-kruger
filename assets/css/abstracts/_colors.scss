@@ -28,7 +28,12 @@ $colors: (
         base: #f7768e,
         dark: darken(#f7768e, 8%)
     ),
-    tertiary: #444b6a
+    tertiary: #444b6a,
+    quarternary: (
+        light: lighten(#11c9c3, 8%),
+        base: #11c9c3,
+        dark: darken(#11c9c3, 8%)
+    )
 );
 
 $dark: (
