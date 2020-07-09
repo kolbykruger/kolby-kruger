@@ -128,6 +128,7 @@ export default {
 			const size = [1, 2];
 			const timing = [1, 2, 3];
 			const delay = [1, 2, 3];
+			const direction = [90, -90];
 
 			shapes.classList.remove('animate-in')
 			shapes.innerHTML = '';
@@ -139,6 +140,7 @@ export default {
 				shape.classList.add('shape');
 				shape.classList.add(shapeOptions[Math.floor(Math.random() * shapeOptions.length)])
 				shape.setAttribute('data-rotation', rotation[Math.floor(Math.random() * rotation.length)])
+				shape.setAttribute('data-direction', direction[Math.floor(Math.random() * direction.length)])
 				shape.setAttribute('data-color', colors[Math.floor(Math.random() * colors.length)])
 				shape.setAttribute('data-timing', timing[Math.floor(Math.random() * timing.length)])
 				shape.setAttribute('data-delay', delay[Math.floor(Math.random() * delay.length)])

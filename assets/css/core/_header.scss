@@ -41,7 +41,7 @@ header.header {
                 &__bar {
                     top: calc(50% - 16px);
                     height: 32px;
-                    width: 2px;
+                    width: 3px;
                     border-radius: 2px;
                     border-width: 0;
                     background: c('base-2');
@@ -98,7 +98,7 @@ header.header {
                 &__bar {
                     background: c('menu-color');
                     height: 42px;
-                    width: 2px;
+                    width: 3px;
                     border-radius: 2px;
                     border-width: 0;
 
@@ -157,12 +157,12 @@ header.header {
         &__bar {
             position: absolute;
             display: block;
-            top: calc(50% - 4px);
-            width: 8px;
-            height: 8px;
+            top: calc(50% - 5px);
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: transparent;
-            border: 2px solid c('base-2');
+            border: 3px solid c('base-2');
             will-change: transform;
             backface-visibility: none;
             transition: all 700ms cubic-bezier(.165,.84,.44,1), fill 200ms cubic-bezier(.165,.84,.44,1), width 200ms;
@@ -172,11 +172,11 @@ header.header {
             }
 
             &--two {
-                left: calc(50% - 4px);
+                left: calc(50% - 5px);
             }
 
             &--three {
-                left: calc(100% - 8px);
+                left: calc(100% - 10px);
             }
         }
     }

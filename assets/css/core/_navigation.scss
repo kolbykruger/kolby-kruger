@@ -9,6 +9,7 @@
     transition: visibility 0s 0.8s;
     visibility: hidden;
     pointer-events: none;
+    user-select: none;
 
     .container {
         width: 100%;

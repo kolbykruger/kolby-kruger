@@ -10,13 +10,13 @@
     grid-auto-flow: dense;
     align-items: stretch;
     grid-gap: 0;
-    background-color: c('background');
     opacity: 0;
     z-index: -1;
 
     &.animate-in {
         opacity: 1;
-        transition: 1s;
+        transition: 800ms;
+        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
     .shape {
@@ -61,27 +61,31 @@
             grid-column: span 2;
             grid-row: span 2;
         }
+        &[data-size="3"] {
+            grid-column: span 3;
+            grid-row: span 3;
+        }
 
         // TIMING
         &[data-timing="1"] {
-            &::before {animation-duration: 400ms;}
+            &::before {animation-duration: 420ms;}
         }
         &[data-timing="2"] {
-            &::before {animation-duration: 550ms;}
+            &::before {animation-duration: 560ms;}
         }
         &[data-timing="3"] {
-            &::before {animation-duration: 700ms;}
+            &::before {animation-duration: 640ms;}
         }
 
         // DELAY
         &[data-delay="1"] {
-            &::before {animation-delay: 0ms;}
+            &::before {animation-delay: 60ms;}
         }
         &[data-delay="2"] {
-            &::before {animation-delay: 50ms;}
+            &::before {animation-delay: 120ms;}
         }
         &[data-delay="3"] {
-            &::before {animation-delay: 100ms;}
+            &::before {animation-delay: 180ms;}
         }
 
         // COLORS
@@ -118,7 +122,6 @@
 
         &[data-color-secondary="tertiary"] {
             &::after {
-                //background: c('tertiary-base');
                 background-color: c('quarternary-base');
             }
         }
@@ -164,8 +167,15 @@
 
         &__triangle {
 
+            &[data-direction="90"] {
+                &::before {animation-name: triangle-left;}
+            }
+            &[data-direction="-90"] {
+                &::before {animation-name: triangle-right;}
+            }
+
             &::before {
-                animation: triangle 1s ease forwards, opacity 1s ease forwards;
+                animation: triangle-left 1s ease forwards, opacity 1s ease forwards;
                 animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
                 clip-path: polygon(0 0, 0 100%, 100% 100%);
             }
@@ -178,7 +188,11 @@
                 animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
                 clip-path: polygon(0 0, 0 100%, 100% 100%);
 
-                @keyframes triangle {
+                @keyframes triangle-left {
+                    from {transform: scale(2) rotate(45deg)}
+                    to {transform: scale(1) rotate(0)}
+                }
+                @keyframes triangle-right {
                     from {transform: scale(2) rotate(-45deg)}
                     to {transform: scale(1) rotate(0)}
                 }

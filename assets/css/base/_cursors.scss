@@ -1,0 +1,26 @@
+body {
+    cursor: url('../cursors/cursor-auto.png'), default;
+
+    .flickity-enabled.is-draggable .flickity-viewport {
+        cursor: url('../cursors/cursor-drag.png'), grab;
+
+        &.is-pointer-down {
+            cursor: url('../cursors/cursor-drag-clicked.png'), grabbing;
+        }
+    }
+}
+
+a,
+button,
+input[type="submit"] {
+    cursor: url('../cursors/cursor-pointer.png'), pointer;
+}
+
+p,
+ol,
+ul,
+li,
+pre,
+code {
+    //cursor: url('../cursors/cursor-text.png'), text;
+}
