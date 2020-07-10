@@ -29,7 +29,6 @@
         // SHAPE OBJECTS
         &::before,
         &::after {
-            content: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -37,10 +36,11 @@
             height: 100%;
             background-image: url('../img/noise.png');
             background-blend-mode: overlay;
+            animation-fill-mode: forwards;
         }
 
-        &::after {
-            opacity: 0;
+        &::before {
+            content: '';
         }
 
         // ROTATION
@@ -82,10 +82,21 @@
             &::before {animation-delay: 60ms;}
         }
         &[data-delay="2"] {
-            &::before {animation-delay: 120ms;}
+            &::before {animation-delay: 180ms;}
         }
         &[data-delay="3"] {
-            &::before {animation-delay: 180ms;}
+            &::before {animation-delay: 360ms;}
+        }
+
+        // FUNCT
+        &[data-delay="1"] {
+            &::before {animation-timing-function: cubic-bezier(0.05, 0.6, 0.165, 1);}
+        }
+        &[data-delay="2"] {
+            &::before {animation-timing-function: cubic-bezier(0.0625, 0.7, 0.165, 1);}
+        }
+        &[data-delay="3"] {
+            &::before {animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);}
         }
 
         // COLORS
@@ -154,66 +165,100 @@
             }
 
             &::before {
-                animation: circle 1s ease forwards, opacity 1s ease forwards;
-                animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+                animation-name: circle;
                 border-radius: 50%;
-
-                @keyframes circle {
-                    from {transform: scale(2)}
-                    to {transform: scale(1)}
-                }
+                transform: scale(0);
             }
         }
 
         &__triangle {
 
             &[data-direction="90"] {
-                &::before {animation-name: triangle-left;}
+                &::before {
+                    transform: scale(0) rotate(45deg);
+                    animation-name: triangle-left;}
             }
             &[data-direction="-90"] {
-                &::before {animation-name: triangle-right;}
+                &::before {
+                    transform: scale(0) rotate(-45deg);
+                    animation-name: triangle-right;}
             }
 
             &::before {
-                animation: triangle-left 1s ease forwards, opacity 1s ease forwards;
-                animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
                 clip-path: polygon(0 0, 0 100%, 100% 100%);
+            }
+        }
+
+        &__triangle-triangle {
+
+            &[data-direction="90"] {
+                &::before,
+                &::after {
+                    transform: scale(0) rotate(45deg);
+                    animation-name: triangle-left;}
+            }
+            &[data-direction="-90"] {
+                &::before,
+                &::after {
+                    transform: scale(0) rotate(-45deg);
+                    animation-name: triangle-right;}
+            }
+
+            &::before {
+                animation: triangle-left forwards;
+                clip-path: polygon(0 0, 0 100%, 100% 100%);
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                content: '';
+                clip-path: polygon(0 0, 100% 0, 100% 100%);
             }
         }
 
         &__triangle-circle {
 
-            &::before {
-                animation: triangle 1s ease forwards, opacity 1s ease forwards;
-                animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-                clip-path: polygon(0 0, 0 100%, 100% 100%);
+            &[data-direction="90"] {
+                &::before {
+                    transform: scale(0) rotate(45deg);
+                    animation-name: triangle-left;}
+            }
+            &[data-direction="-90"] {
+                &::before {
+                    transform: scale(0) rotate(-45deg);
+                    animation-name: triangle-right;}
+            }
 
-                @keyframes triangle-left {
-                    from {transform: scale(2) rotate(45deg)}
-                    to {transform: scale(1) rotate(0)}
-                }
-                @keyframes triangle-right {
-                    from {transform: scale(2) rotate(-45deg)}
-                    to {transform: scale(1) rotate(0)}
-                }
+            &::before {
+                clip-path: polygon(0 0, 0 100%, 100% 100%);
             }
 
             &::after {
-                opacity: 1;
-                width: 59%;
-                height: 59%;
+                content: '';
+                width: 58.5%;
+                height: 58.5%;
                 border-radius: 50%;
                 bottom: auto;
                 left: auto;
                 right: 0;
                 top: 0;
+                animation-name: circle;
+                transform: scale(0);
             }
 
         }
 
-        @keyframes opacity {
-            from {opacity: 0;}
-            to {opacity: 1;}
+        @keyframes triangle-left {
+            from {transform: scale(0) rotate(45deg)}
+            to {transform: scale(1) rotate(0)}
+        }
+        @keyframes triangle-right {
+            from {transform: scale(0) rotate(-45deg)}
+            to {transform: scale(1) rotate(0)}
+        }
+        @keyframes circle {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
         }
     }
 }

@@ -121,12 +121,13 @@ export default {
 			const shapeCount = 40;
 			const shapes = this.$refs.shapes;
 			const shapeList = shapes.querySelectorAll('.shape');
-			const shapeOptions = ['shape__circle', 'shape__triangle', 'shape__triangle-circle']
-			const type = ['shape__circle--half', 'shape__circle--quarter', 'shape__circle--full']
+			const shapeOptions = ['shape__circle', 'shape__triangle', 'shape__triangle-circle', 'shape__circle', 'shape__triangle', 'shape__triangle-circle', 'shape__triangle-triangle'];
+			const type = ['shape__circle--half', 'shape__circle--quarter', 'shape__circle--full'];
 			const rotation = ['90', '180', '270'];
 			const colors = ['primary', 'secondary', 'tertiary'];
 			const size = [1, 2];
 			const timing = [1, 2, 3];
+			const funct = [1, 2, 3];
 			const delay = [1, 2, 3];
 			const direction = [90, -90];
 
@@ -144,6 +145,7 @@ export default {
 				shape.setAttribute('data-color', colors[Math.floor(Math.random() * colors.length)])
 				shape.setAttribute('data-timing', timing[Math.floor(Math.random() * timing.length)])
 				shape.setAttribute('data-delay', delay[Math.floor(Math.random() * delay.length)])
+				shape.setAttribute('data-funct', funct[Math.floor(Math.random() * funct.length)])
 
 				const randomSize = size[Math.floor(Math.random() * size.length)];
 				if (lastSize == 2) {
@@ -157,7 +159,7 @@ export default {
 				if (shape.classList.contains('shape__circle')) {
 					shape.classList.add(type[Math.floor(Math.random() * type.length)]);
 				}
-				if (shape.classList.contains('shape__triangle-circle')) {
+				if (shape.classList.contains('shape__triangle-circle') || shape.classList.contains('shape__triangle-triangle')) {
 					shape.setAttribute('data-color-secondary', colors[Math.floor(Math.random() * colors.length)])
 				}
 
