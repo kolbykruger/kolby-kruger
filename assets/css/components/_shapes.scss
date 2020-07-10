@@ -8,6 +8,11 @@
     opacity: 0;
     z-index: -1;
 
+    @media (max-width: 968px) {
+        left: 0;
+        width: 100vw;
+    }
+
     .container {
         display: grid;
         grid-template-columns: repeat(7, 10vw);
@@ -15,8 +20,14 @@
         grid-auto-flow: dense;
         align-items: stretch;
         grid-gap: 0;
+        padding: 0;
         width: 100%;
         height: 100%;
+
+        @media (max-width: 968px) {
+            grid-template-columns: repeat(5, 20vw);
+            grid-template-rows: repeat(20, 20vw);
+        }
     }
 
     &.animate-in {
@@ -185,12 +196,21 @@
 
                 &::before,
                 &::after {
-                    animation-name: circle-spin;
-                    transform: scale(0) rotate(270deg);
+                    transform: scale(0) rotate(0);
                 }
 
-                &::before {
+                &[data-direction="90"] {
+                    &::before,
+                    &::after {
+                        animation-name: circle-spin-left;
+                    }
+                }
 
+                &[data-direction="-90"] {
+                    &::before,
+                    &::after {
+                        animation-name: circle-spin-right;
+                    }
                 }
 
                 &::after {
@@ -310,9 +330,14 @@
             from {transform: scale(0)}
             to {transform: scale(1)}
         }
-        @keyframes circle-spin {
-            from {transform: scale(0) rotate(270deg)}
-            to {transform: scale(1) rotate(0)}
+        @keyframes circle-spin-right {
+            from {transform: scale(0) rotate(0)}
+            to {transform: scale(1) rotate(270deg)}
+        }
+
+        @keyframes circle-spin-left {
+            from {transform: scale(0) rotate(0)}
+            to {transform: scale(1) rotate(-270deg)}
         }
     }
 }

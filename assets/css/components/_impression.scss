@@ -32,6 +32,9 @@
         @media (min-width: 2000px) {
             font-size: s('large-4');
         }
+        @media (max-width: 968px) {
+            max-width: 100%;
+        }
     }
 
     .buttons {

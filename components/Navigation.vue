@@ -16,10 +16,11 @@
 				<circle cx="25" cy="25" r="25"></circle>
 			</svg>
 		</div>
+		<div class="navigation__shape" ref="navigationShape"></div>
 		<div class="navigation__content">
-			<ul class="navigation__links">
+			<ul class="navigation__links" ref="navigationLinks">
 				<li>
-					<nuxt-link to="/" data-word="home" aria-label="home" class="navigation__link">
+					<nuxt-link to="/" data-word="home" aria-label="home" class="navigation__link" data-shape="0">
 						<span data-letter="h" aria-hidden="true">
 							<span data-letter="h">h</span>
 						</span>
@@ -35,7 +36,7 @@
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/work" data-word="work" aria-label="work" class="navigation__link">
+					<nuxt-link to="/work" data-word="work" aria-label="work" class="navigation__link" data-shape="1">
 						<span data-letter="w" aria-hidden="true">
 							<span data-letter="w">w</span>
 						</span>
@@ -51,7 +52,7 @@
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/about" data-word="about" aria-label="about" class="navigation__link">
+					<nuxt-link to="/about" data-word="about" aria-label="about" class="navigation__link" data-shape="2">
 						<span data-letter="a" aria-hidden="true">
 							<span data-letter="a">a</span>
 						</span>
@@ -70,7 +71,7 @@
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/lab" data-word="lab" aria-label="lab" class="navigation__link">
+					<nuxt-link to="/lab" data-word="lab" aria-label="lab" class="navigation__link" data-shape="3">
 						<span data-letter="l" aria-hidden="true">
 							<span data-letter="l">l</span>
 						</span>
@@ -83,7 +84,7 @@
 					</nuxt-link>
 				</li>
 				<li>
-					<nuxt-link to="/writing" data-word="writing" aria-label="writing" class="navigation__link">
+					<nuxt-link to="/writing" data-word="writing" aria-label="writing" class="navigation__link" data-shape="4">
 						<span data-letter="w" aria-hidden="true">
 							<span data-letter="w">w</span>
 						</span>
@@ -124,11 +125,33 @@ export default {
 	props: [
 		'status'
 	],
+	mounted() {
+		const navigationLinks = this.$refs.navigationLinks.querySelectorAll('.navigation__link');
+		const navigationShape = this.$refs.navigationShape;
+		const $el = this;
+
+		//set shape on mount
+		const activeLink = this.$refs.navigationLinks.querySelector('.nuxt-link-exact-active');
+		if (activeLink) {
+			navigationShape.setAttribute('data-shape', activeLink.getAttribute('data-shape'))
+		}
+
+		navigationLinks.forEach((link, index) => {
+			link.addEventListener('mouseenter', function() {
+				$el.transformShape(navigationShape, index)
+			})
+		})
+	},
 	methods: {
 		obfuscateEmail(e) {
 			const contactContainer = e.target.parentNode;
 			const contactTemplate = `<a href="mailto:hi@kolby.dev">hi@kolby.dev</a>`;
 			contactContainer.innerHTML = contactTemplate;
+		},
+		transformShape(target, i) {
+			requestAnimationFrame(() => {
+				target.setAttribute('data-shape', i)
+			})
 		}
 	}
 }

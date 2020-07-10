@@ -16,8 +16,8 @@
 
 	<section class="experiment-cards" v-if="docs.length !== 0">
 		<div class="container">
-			<transition-group name="experiment-card" tag="div">
-				<ExperimentCard v-for="(post, index) in queryResults()" :key="index" :post="post" />
+			<transition-group name="experiment-card" tag="div" mode="in-out" appear>
+				<ExperimentCard v-for="(post, index) in queryResults()" :key="post.id" :post="post" />
 			</transition-group>
 		</div>
 	</section>

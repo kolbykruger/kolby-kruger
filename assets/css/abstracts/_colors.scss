@@ -28,11 +28,25 @@ $colors: (
         base: #f7768e,
         dark: darken(#f7768e, 8%)
     ),
-    tertiary: #444b6a,
+    tertiary: (
+        light: lighten(#ffdb69, 8%),
+        base: #ffdb69,
+        dark: darken(#ffdb69, 8%)
+    ),
     quarternary: (
         light: lighten(#11c9c3, 8%),
         base: #11c9c3,
         dark: darken(#11c9c3, 8%)
+    ),
+    quinary: (
+        light: lighten(#89ddff, 8%),
+        base: #89ddff,
+        dark: darken(#89ddff, 8%)
+    ),
+    sextet: (
+        light: lighten(#444b6a, 8%),
+        base: #444b6a,
+        dark: darken(#444b6a, 8%)
     )
 );
 
