@@ -10,7 +10,7 @@
 		<div class="case-study-card__layer case-study-card__layer--2" ref="layer2">
 			<div class="case-study-card__details">
 				<h1 class="case-study-card__title">{{ $prismic.asText(data.data.name) }}</h1>
-				<nuxt-link ref="button" class="button case-study-card__button" :to="link">View case study</nuxt-link>
+				<nuxt-link ref="button" class="case-study-card__button" :to="link">View case study</nuxt-link>
 			</div>
 		</div>
 
