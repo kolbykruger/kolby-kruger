@@ -16,37 +16,33 @@
     }
 
     h1 {
-        font-size: s('large-6');
+
+        @media (min-width: 2000px) {
+            font-size: s('large-6');
+        }
     }
 
     &__summary {
-        @extend .font-size__2;
+        @extend .font-size__3;
         color: c('base-1');
         font-weight: 500;
         max-width: 50%;
         line-height: 1.3;
+
+        @media (min-width: 2000px) {
+            font-size: s('large-4');
+        }
     }
 
     .buttons {
         margin-top: 6vh;
 
         a {
+            position: relative;
             @extend .font-size__3;
             text-decoration: none;
             color: c('base-1');
-
-            span {
-                transition: 300ms ease;
-            }
-
-            &:hover,
-            &:focus {
-
-                span.arrow {
-                    display: inline-block;
-                    transform: translate(0.25em, 0);
-                }
-            }
+            padding: 0.5em 0.25em;
         }
     }
 }

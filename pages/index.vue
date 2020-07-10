@@ -1,7 +1,9 @@
 <template>
 <main id="home" @click="regenerateShapes">
 
-	<div class="shapes" ref="shapes"></div>
+	<section class="shapes">
+		<div class="container" ref="shapes"></div>
+	</section>
 
 	<section class="impression" ref="impression" @mouseenter="mouseEnter" @mouseleave="mouseLeave" @mousemove="mouseMove">
 		<div class="container">
@@ -121,8 +123,8 @@ export default {
 			const shapeCount = 40;
 			const shapes = this.$refs.shapes;
 			const shapeList = shapes.querySelectorAll('.shape');
-			const shapeOptions = ['shape__circle', 'shape__triangle', 'shape__triangle-circle', 'shape__circle', 'shape__triangle', 'shape__triangle-circle', 'shape__triangle-triangle'];
-			const type = ['shape__circle--half', 'shape__circle--quarter', 'shape__circle--full'];
+			const shapeOptions = ['shape__circle', 'shape__circle', 'shape__circle', 'shape__triangle', 'shape__triangle', 'shape__triangle-circle', 'shape__triangle-circle', 'shape__triangle-triangle'];
+			const type = ['shape__circle--half', 'shape__circle--quarter', 'shape__circle--full', 'shape__circle--split-shared', 'shape__circle--split-apart'];
 			const rotation = ['90', '180', '270'];
 			const colors = ['primary', 'secondary', 'tertiary'];
 			const size = [1, 2];
@@ -131,7 +133,7 @@ export default {
 			const delay = [1, 2, 3];
 			const direction = [90, -90];
 
-			shapes.classList.remove('animate-in')
+			shapes.parentNode.classList.remove('animate-in')
 			shapes.innerHTML = '';
 			let lastSize = 1;
 
@@ -159,7 +161,7 @@ export default {
 				if (shape.classList.contains('shape__circle')) {
 					shape.classList.add(type[Math.floor(Math.random() * type.length)]);
 				}
-				if (shape.classList.contains('shape__triangle-circle') || shape.classList.contains('shape__triangle-triangle')) {
+				if (shape.classList.contains('shape__triangle-circle') || shape.classList.contains('shape__triangle-triangle') || shape.classList.contains('shape__circle--split-shared') || shape.classList.contains('shape__circle--split-apart')) {
 					shape.setAttribute('data-color-secondary', colors[Math.floor(Math.random() * colors.length)])
 				}
 
@@ -167,7 +169,7 @@ export default {
 			}
 
 			setTimeout(function() {
-				shapes.classList.add('animate-in');
+				shapes.parentNode.classList.add('animate-in');
 			}, 50)
 		}
 	}

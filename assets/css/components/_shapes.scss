@@ -3,15 +3,21 @@
     top: 0;
     left: 35vw;
     width: 65vw;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(10, 10vw);
-    grid-template-rows: repeat(10, 10vw);
-    grid-auto-flow: dense;
-    align-items: stretch;
-    grid-gap: 0;
+    height: 100vh;
+    overflow: hidden;
     opacity: 0;
     z-index: -1;
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(7, 10vw);
+        grid-template-rows: repeat(20, 10vw);
+        grid-auto-flow: dense;
+        align-items: stretch;
+        grid-gap: 0;
+        width: 100%;
+        height: 100%;
+    }
 
     &.animate-in {
         opacity: 1;
@@ -68,35 +74,46 @@
 
         // TIMING
         &[data-timing="1"] {
-            &::before {animation-duration: 420ms;}
+            &::before,
+            &::after {animation-duration: 420ms;}
         }
         &[data-timing="2"] {
-            &::before {animation-duration: 560ms;}
+            &::before,
+            &::after {animation-duration: 560ms;}
         }
         &[data-timing="3"] {
-            &::before {animation-duration: 640ms;}
+            &::before,
+            &::after {animation-duration: 640ms;}
         }
 
         // DELAY
         &[data-delay="1"] {
-            &::before {animation-delay: 60ms;}
+            &::before,
+            &::after {animation-delay: 60ms;}
         }
         &[data-delay="2"] {
-            &::before {animation-delay: 180ms;}
+            &::before,
+            &::after {animation-delay: 180ms;}
         }
         &[data-delay="3"] {
-            &::before {animation-delay: 360ms;}
+            &::before,
+            &::after {animation-delay: 360ms;}
         }
 
         // FUNCT
         &[data-delay="1"] {
-            &::before {animation-timing-function: cubic-bezier(0.05, 0.6, 0.165, 1);}
+            &::before,
+            &::after {animation-timing-function: cubic-bezier(0.05, 0.6, 0.165, 1);}
         }
         &[data-delay="2"] {
-            &::before {animation-timing-function: cubic-bezier(0.0625, 0.7, 0.165, 1);}
+            //&::before {animation-timing-function: cubic-bezier(0.0625, 0.7, 0.165, 1);}
+            &::before,
+            &::after {animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);}
         }
         &[data-delay="3"] {
-            &::before {animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);}
+            //&::before {animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);}
+            &::before,
+            &::after {animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);}
         }
 
         // COLORS
@@ -164,7 +181,40 @@
                 }
             }
 
-            &::before {
+            &.shape__circle--split-shared {
+
+                &::before,
+                &::after {
+                    animation-name: circle-spin;
+                    transform: scale(0) rotate(270deg);
+                }
+
+                &::before {
+
+                }
+
+                &::after {
+                    content: '';
+                    clip-path: polygon(0 0, 0 50%, 100% 50%, 100% 0);
+                    background-image: none;
+                }
+            }
+
+            &.shape__circle--split-apart {
+
+                &::before {
+                    top: 50%;
+                }
+
+                &::after {
+                    content: '';
+                    top: -50%;
+                    background-image: none;
+                }
+            }
+
+            &::before,
+            &:after {
                 animation-name: circle;
                 border-radius: 50%;
                 transform: scale(0);
@@ -259,6 +309,10 @@
         @keyframes circle {
             from {transform: scale(0)}
             to {transform: scale(1)}
+        }
+        @keyframes circle-spin {
+            from {transform: scale(0) rotate(270deg)}
+            to {transform: scale(1) rotate(0)}
         }
     }
 }
