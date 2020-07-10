@@ -130,38 +130,38 @@
         // COLORS
         &[data-color="primary"] {
             &::before {
-                background-color: c('primary-base');
+                background-color: c('quarternary-base');
             }
         }
 
         &[data-color="secondary"] {
             &::before {
-                background-color: c('secondary-base');
+                background-color: c('sextet-base');
             }
         }
 
         &[data-color="tertiary"] {
             &::before {
                 //background: c('tertiary-base');
-                background-color: c('quarternary-base');
+                background-color: c('secondary-base');
             }
         }
 
         &[data-color-secondary="primary"] {
             &::after {
-                background-color: c('primary-base');
+                background-color: c('quarternary-base');
             }
         }
 
         &[data-color-secondary="secondary"] {
             &::after {
-                background-color: c('secondary-base');
+                background-color: c('sextet-base');
             }
         }
 
         &[data-color-secondary="tertiary"] {
             &::after {
-                background-color: c('quarternary-base');
+                background-color: c('secondary-base');
             }
         }
 

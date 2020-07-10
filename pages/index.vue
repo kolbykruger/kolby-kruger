@@ -44,6 +44,7 @@ export default {
 			links: null,
 			linkDimensions: null,
 			linkCircle: null,
+			destroy: false,
 			Arc,
 		}
 	},
@@ -65,9 +66,6 @@ export default {
 			})
 			link.addEventListener('mouseleave', function() {
 				$el.linkLeave(link, cursor)
-			})
-			link.addEventListener('mousemove', function(event) {
-				$el.linkMove(link, cursor, event, $el)
 			})
 		})
 
@@ -98,27 +96,12 @@ export default {
 		},
 		linkLeave(link, cursor) {
 			link.classList.remove('cursor--entered')
-			this.resetLink(link)
-		},
-		resetLink(link) {
-			TweenMax.to(link, 1.2, {
-				x: 0,
-				y: 0
-			})
-		},
-		linkMove(link, cursor, event, $el) {
-			requestAnimationFrame(() => {
-				const rel = {
-					x: (event.clientX - $el.linkDimensions.left) - ($el.linkDimensions.width / 2),
-					y: (event.clientY - $el.linkDimensions.top) - ($el.linkDimensions.height / 2)
-				}
-				TweenMax.to(link, 1.2, {
-					x: rel.x / $el.linkDimensions.width * 25,
-					y: rel.y / $el.linkDimensions.height * 25,
-				});
-			});
 		},
 		regenerateShapes() {
+
+			if (this.destroy) {
+				return false;
+			}
 
 			const shapeCount = 40;
 			const shapes = this.$refs.shapes;
@@ -172,6 +155,9 @@ export default {
 				shapes.parentNode.classList.add('animate-in');
 			}, 50)
 		}
+	},
+	beforeDestroy() {
+		this.destroy = true;
 	}
 }
 </script>
