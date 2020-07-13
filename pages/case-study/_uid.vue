@@ -3,7 +3,6 @@
 
 	<article>
 
-		<!-- <PageHeading :heading="$prismic.asText(content.name)" :summary="content.summary" /> -->
 		<section class="page-heading page-heading__left">
 			<div class="container">
 				<div class="columns">
@@ -34,6 +33,12 @@
 
 		<slices-block :slices="slices" />
 
+		<section class="case-study__link" :class="label">
+			<div class="container">
+				<a target="_blank" rel="nofollow norefer" :href="content.website.url+'?utm_source=Kolby.Kruger'"><span>Visit {{ $prismic.asText(content.name) }}&nbsp;</span>-></a>
+			</div>
+		</section>
+
 	</article>
 
 </main>
@@ -53,6 +58,14 @@ export default {
 		return {
 			title: 'Case Study',
 		}
+	},
+	data() {
+		return {
+			label: ''
+		}
+	},
+	mounted() {
+		this.label = this.content['class_name'] ? 'case-study__link--' + this.content['class_name'] : '';
 	},
 	async asyncData({
 		$prismic,
@@ -81,7 +94,7 @@ export default {
 			if (index != length) {
 				return `, `
 			}
-		}
+		},
 	}
 }
 </script>

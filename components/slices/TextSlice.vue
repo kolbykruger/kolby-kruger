@@ -1,7 +1,14 @@
 <template>
 <section class="text" :class="label">
 	<div class="container">
-		<prismic-rich-text :field="slice.primary.text" />
+		<p class="vertical" v-if="slice.primary.vertical">
+			{{ slice.primary.vertical }}
+		</p>
+		<p class="sup" v-if="slice.primary.sup">{{ slice.primary.sup }}</p>
+		<prismic-rich-text class="heading" :field="slice.primary.heading" />
+		<div class="group">
+			<prismic-rich-text :field="slice.primary.text" />
+		</div>
 	</div>
 </section>
 </template>

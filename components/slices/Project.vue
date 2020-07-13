@@ -38,9 +38,15 @@ export default {
 	},
 	mounted() {
 		if (this.slice.primary.date) {
-			this.date = Intl.DateTimeFormat('en-US', {
-				year: 'numeric'
-			}).format(new Date(this.slice.primary.date))
+			// this.date = Intl.DateTimeFormat('en-US', {
+			// 	month: 'numeric',
+			// 	day: 'numeric',
+			// 	year: 'numeric',
+			// 	literal: '-'
+			// }).formatToParts(new Date(this.slice.primary.date))
+			let date = this.slice.primary.date.split('-');
+			let formatted = `${date[1]}-${date[2]}-${date[0]}`
+			this.date = formatted;
 		}
 	}
 }

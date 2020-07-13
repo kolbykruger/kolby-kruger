@@ -34,6 +34,11 @@
 			<Accordion :slice="slice" />
 		</template>
 
+		<template v-else-if="slice.slice_type === 'information'">
+			<Information :slice="slice" />
+		</template>
+
+
 	</div>
 </div>
 </template>
@@ -47,6 +52,7 @@ import TextSlice from '~/components/slices/TextSlice.vue'
 import EmbedSlice from '~/components/slices/EmbedSlice.vue'
 import Banner from '~/components/slices/Banner.vue'
 import Accordion from '~/components/slices/Accordion.vue'
+import Information from '~/components/slices/InfoSlice.vue'
 
 export default {
 	props: ['slices'],
@@ -59,7 +65,8 @@ export default {
 		Project,
 		EmbedSlice,
 		Banner,
-		Accordion
+		Accordion,
+		Information
 	},
 }
 </script>

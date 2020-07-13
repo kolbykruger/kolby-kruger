@@ -276,7 +276,7 @@
 
             &::before {
                 animation: triangle-left forwards;
-                clip-path: polygon(0 0, 0 100%, 100% 100%);
+                //clip-path: polygon(0 0, 0 100%, 100% 100%);
                 transform: rotate(45deg);
             }
 

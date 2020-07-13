@@ -1,6 +1,7 @@
 .project-cards {
     padding: 1em 0 6em;
     margin-bottom: 0;
+    background: c('grey-0');
 
     .container {
 
@@ -22,8 +23,9 @@
 
 .project-card {
     padding: 3em;
-    border-bottom: 1px solid rgba(34, 34, 34, 0.1);
-    border-top: 1px solid rgba(34, 34, 34, 0.1);
+    margin-bottom: 1em;
+    background: c('background');
+    border-radius: 1em;
     transition: 200ms ease;
 
     &:hover,
