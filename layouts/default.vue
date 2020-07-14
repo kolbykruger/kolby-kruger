@@ -15,11 +15,11 @@ export default {
 		Header,
 		Theme
 	},
-	head() {
-		return {
-			title: 'Prismic Nuxt.js Multi Page Website',
-		}
-	},
+	// head() {
+	// 	return {
+	// 		title: 'Prismic Nuxt.js Multi Page Website',
+	// 	}
+	// },
 	transition: "page",
 }
 </script>

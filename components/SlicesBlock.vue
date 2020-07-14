@@ -14,10 +14,6 @@
 			<ImageText :slice="slice" />
 		</template>
 
-		<template v-else-if="slice.slice_type === 'project'">
-			<Project :slice="slice" />
-		</template>
-
 		<template v-else-if="slice.slice_type === 'text'">
 			<TextSlice :slice="slice" />
 		</template>
@@ -47,7 +43,6 @@
 import Codeblock from '~/components/slices/Codeblock.vue'
 import Images from '~/components/slices/Images.vue'
 import ImageText from '~/components/slices/ImageText.vue'
-import Project from '~/components/slices/Project.vue'
 import TextSlice from '~/components/slices/TextSlice.vue'
 import EmbedSlice from '~/components/slices/EmbedSlice.vue'
 import Banner from '~/components/slices/Banner.vue'
@@ -62,7 +57,6 @@ export default {
 		Images,
 		ImageText,
 		Codeblock,
-		Project,
 		EmbedSlice,
 		Banner,
 		Accordion,

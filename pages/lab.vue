@@ -10,7 +10,7 @@
 					results for <span>{{ query }}</span>
 				</p>
 			</div>
-			<input type="text" placeholder="Search..." v-model="query" @keyup="queryResults">
+			<input type="text" placeholder="Search..." v-model="query" :keyup.enter="queryResults">
 		</div>
 	</section>
 
@@ -49,6 +49,8 @@ export default {
 	},
 	methods: {
 		queryResults(e) {
+
+			console.log(e)
 
 			const query = this.query;
 			const docs = this.docs;

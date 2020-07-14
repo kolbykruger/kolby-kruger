@@ -1,5 +1,6 @@
 export default {
   mode: 'universal',
+  globalName: 'app',
 
   head: {
     title: 'Kolby Kruger',

@@ -16,17 +16,27 @@
 		<div class="container">
 			<div class="section-heading">
 				<h2>
-					<span class="font-size__1">{{ slices.length }}</span>
+					<span class="font-size__1">{{ projects.length }}</span>
 					<br>
-					projects launched since 2014
+					projects launched since 2016
 				</h2>
 			</div>
 			<div class="group">
-				<slices-block :slices="slices" />
+				<ProjectCard v-for="(item, index) in featured[0].data.featured" :key="index" :data="item.project" />
 			</div>
 		</div>
 	</section>
 
+	<section class="project-list">
+		<div class="container">
+			<div class="section-heading">
+				<h2>All of my projects</h2>
+			</div>
+			<div class="group">
+				<ProjectListCard v-for="(item, index) in projects" :key="index" :data="item" />
+			</div>
+		</div>
+	</section>
 
 </div>
 </template>
@@ -34,6 +44,8 @@
 <script>
 import PageHeading from '~/components/PageHeading.vue'
 import CaseStudyCard from '~/components/CaseStudyCard.vue'
+import ProjectCard from '~/components/ProjectCard.vue'
+import ProjectListCard from '~/components/ProjectListCard.vue'
 import SlicesBlock from '~/components/SlicesBlock.vue'
 
 let Flickity = {}
@@ -47,6 +59,8 @@ export default {
 	components: {
 		PageHeading,
 		CaseStudyCard,
+		ProjectCard,
+		ProjectListCard,
 		SlicesBlock,
 	},
 	head() {
@@ -89,20 +103,36 @@ export default {
 		error
 	}) {
 		try {
-			// Query to get post content
-			const projects = (await $prismic.api.getSingle('projects')).data;
-			const caseStudies = await $prismic.api.query(
-				$prismic.predicates.at('document.type', 'case_study')
-			)
+
+			const project = (await $prismic.api.query(
+				$prismic.predicates.at('document.type', 'project'), {
+					pageSize: 100,
+					orderings: '[document.first_publication_date desc]'
+				}
+			));
+			const caseStudies = (await $prismic.api.query(
+				$prismic.predicates.at('document.type', 'case_study'), {
+					orderings: '[document.first_publication_date desc]'
+				}
+			));
+			const projects = (await $prismic.api.query(
+				$prismic.predicates.at('document.type', 'projects'), {
+					fetchLinks: [
+						'project.name',
+						'project.cover',
+						'project.link',
+						'project.role',
+						'project.date'
+					]
+				}
+			));
 
 			return {
-				// Set slices as variable
 				cases: caseStudies.results,
-				content: projects,
-				slices: projects.body
+				projects: project.results,
+				featured: projects.results
 			}
 		} catch (e) {
-			// Returns error page
 			error({
 				statusCode: 404,
 				message: 'Page not found'
