@@ -7,26 +7,6 @@
 
 			<prismic-image :field="data.data.cover" />
 
-			<div class="project-card__meta">
-
-				<div class="project-card__role">
-					<p class="visually-hidden">Role</p>
-					<p>
-						<span v-for="(item, index) in data.data.role" :key="index" :data-type="item.item.toLowerCase()">
-							{{ item.item }}
-						</span>
-					</p>
-				</div>
-
-				<div class="project-card__date">
-					<p class="visually-hidden">Date</p>
-					<p>
-						{{ date }}
-					</p>
-				</div>
-
-			</div>
-
 		</div>
 
 		<div class="project-card__details">

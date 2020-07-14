@@ -16,7 +16,6 @@
 				<circle cx="25" cy="25" r="25"></circle>
 			</svg>
 		</div>
-		<div class="navigation__shape" ref="navigationShape"></div>
 		<div class="navigation__content">
 			<ul class="navigation__links" ref="navigationLinks">
 				<li>
@@ -129,29 +128,12 @@ export default {
 		const navigationLinks = this.$refs.navigationLinks.querySelectorAll('.navigation__link');
 		const navigationShape = this.$refs.navigationShape;
 		const $el = this;
-
-		//set shape on mount
-		const activeLink = this.$refs.navigationLinks.querySelector('.nuxt-link-exact-active');
-		if (activeLink) {
-			navigationShape.setAttribute('data-shape', activeLink.getAttribute('data-shape'))
-		}
-
-		navigationLinks.forEach((link, index) => {
-			link.addEventListener('mouseenter', function() {
-				$el.transformShape(navigationShape, index)
-			})
-		})
 	},
 	methods: {
 		obfuscateEmail(e) {
 			const contactContainer = e.target.parentNode;
 			const contactTemplate = `<a href="mailto:hi@kolby.dev">hi@kolby.dev</a>`;
 			contactContainer.innerHTML = contactTemplate;
-		},
-		transformShape(target, i) {
-			requestAnimationFrame(() => {
-				target.setAttribute('data-shape', i)
-			})
 		}
 	}
 }
