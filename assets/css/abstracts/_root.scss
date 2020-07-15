@@ -22,7 +22,7 @@ html {
         }
     }
 
-    &.dark-mode {
+    &[theme="dark"] {
 
         @each $name, $color in $dark {
             @if type-of($color) == "map" {

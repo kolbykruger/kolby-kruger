@@ -26,17 +26,34 @@ export default {
 	},
 	methods: {
 		theme(mode) {
-			console.log(mode)
-			// this.$colorMode.preference = mode;
-			// this.mode = this.$colorMode.preference;
+			this.mode = mode;
+			window.localStorage.setItem('theme', mode)
+			document.querySelector('HTML').setAttribute('theme', mode);
 		}
 	},
+	beforeMount() {
+
+		let colorSetting = window.localStorage.getItem('theme');
+
+		if (!colorSetting) {
+			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				window.localStorage.setItem('theme', 'dark')
+				colorSetting = 'dark';
+			} else {
+				window.localStorage.setItem('theme', 'light');
+				colorSetting = 'light';
+			}
+
+		} else {
+			window.localStorage.setItem('theme', colorSetting);
+		}
+
+		document.querySelector('HTML').setAttribute('theme', colorSetting)
+
+	},
 	mounted() {
-		// if (this.$colorMode.unknown) {
-		// 	this.$colorMode.preference = 'light'
-		// }
-		//
-		// this.mode = this.$colorMode.preference;
+		const colorSetting = window.localStorage.getItem('theme');
+		this.mode = colorSetting;
 	}
 }
 </script>
