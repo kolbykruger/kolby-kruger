@@ -125,9 +125,7 @@ export default {
 		'status'
 	],
 	mounted() {
-		const navigationLinks = this.$refs.navigationLinks.querySelectorAll('.navigation__link');
-		const navigationShape = this.$refs.navigationShape;
-		const $el = this;
+
 	},
 	methods: {
 		obfuscateEmail(e) {
