@@ -34,6 +34,9 @@
 			<Information :slice="slice" />
 		</template>
 
+		<template v-else-if="slice.slice_type === 'table'">
+			<Table :slice="slice" />
+		</template>
 
 	</div>
 </div>
@@ -48,6 +51,7 @@ import EmbedSlice from '~/components/slices/EmbedSlice.vue'
 import Banner from '~/components/slices/Banner.vue'
 import Accordion from '~/components/slices/Accordion.vue'
 import Information from '~/components/slices/InfoSlice.vue'
+import Table from '~/components/slices/TableSlice.vue'
 
 export default {
 	props: ['slices'],
@@ -60,7 +64,8 @@ export default {
 		EmbedSlice,
 		Banner,
 		Accordion,
-		Information
+		Information,
+		Table
 	},
 }
 </script>

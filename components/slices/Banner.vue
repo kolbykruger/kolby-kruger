@@ -1,6 +1,6 @@
 <template>
 <section class="banner">
-	<prismic-image :field="slice.primary.image" />
+	<LazyImage :src="slice.primary.image" mobile="" tablet="" laptop="" desktop="" aspect="" />
 </section>
 </template>
 

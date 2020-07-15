@@ -2,7 +2,8 @@ kbd {
     padding: 0.3em 0.35em;
     font-size: 0.875rem;
     vertical-align: middle;
-    background: $color-grey-100;
+    color: c('background');
+    background: c('base-2');
     border-radius: 0.25em;
     border-bottom: 2px solid rgba(0,0,0,0.1);
 }

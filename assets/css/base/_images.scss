@@ -1,0 +1,16 @@
+.lazyload {
+    filter: grayscale(1);
+}
+
+.lazyloading {
+
+}
+
+.lazyloaded {
+    filter: grayscale(0);
+    transition: filter 3s ease;
+}
+
+img.lazyload:not([src]) {
+    visibility: hidden;
+}

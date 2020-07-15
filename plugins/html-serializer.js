@@ -30,7 +30,7 @@ export default function (type, element, content, children) {
   }
 
   if (type === Elements.image) {
-    let result = `<img src="${element.url}" alt="${element.alt || ''}" copyright="${element.copyright || ''}">`
+    let result = `<img class="lazyload" src="${element.url}&w=1400&colorquant=16&blur=500" data-src="${element.url}&w=1400" alt="${element.alt || ''}" copyright="${element.copyright || ''}">`
 
     if (element.linkTo) {
       const url = prismicDOM.Link.url(element.linkTo, linkResolver)

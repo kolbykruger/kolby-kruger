@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="group">
 			<div v-for="item in slice.items" :key="item.id" class="images-item">
-				<prismic-image :field="item.image" />
+				<LazyImage :src="item.image" mobile="" tablet="" laptop="" desktop="" aspect="" />
 			</div>
 		</div>
 	</div>

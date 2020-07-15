@@ -27,7 +27,7 @@
 
 		<section class="case-study__cover">
 			<div class="container">
-				<prismic-image :field="content.screen" />
+				<LazyImage :src="content.screen" mobile="" tablet="" laptop="" desktop="" aspect="" />
 			</div>
 		</section>
 

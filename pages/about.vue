@@ -5,7 +5,7 @@
 
 	<section class="about about__cover">
 		<div class="container">
-			<prismic-image :field="doc.data.cover"></prismic-image>
+			<LazyImage :src="doc.data.cover" mobile="591" tablet="911" laptop="1068" desktop="1068" aspect="" />
 		</div>
 	</section>
 

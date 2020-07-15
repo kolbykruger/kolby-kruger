@@ -25,6 +25,8 @@ export default {
       '@/assets/css/bundle.scss',
       'node_modules/flickity/dist/flickity.min.css',
       '@/plugins/scroll-animations',
+      '@/plugins/vue-lazysizes.client.js',
+      '@/plugins/LazySizes'
   ],
 
   modules: [
@@ -42,9 +44,12 @@ export default {
   },
 
   build: {
-    extend(config, ctx) {
-      config.resolve.alias['vue'] = 'vue/dist/vue.common'
-  },
+    extend(config, { isDev, isClient, loaders: { vue }}) {
+          config.resolve.alias['vue'] = 'vue/dist/vue.common'
+          vue.transformAssetUrls.img = ['data-src', 'src'];
+          vue.transformAssetUrls.source = ['data-srcset','srcset'];
+
+      },
   },
 
   generate: {
