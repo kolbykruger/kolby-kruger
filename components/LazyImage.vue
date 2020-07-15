@@ -1,5 +1,5 @@
 <template>
-<picture>
+<picture v-if="valid">
 
 	<source v-if="sizes.mobile.dpr1" :data-srcset="sizes.mobile.dpr1+' 1x,'+ sizes.mobile.dpr2+' 2x'" media="(max-width: 640px)">
 	<source v-if="sizes.tablet.dpr1" :data-srcset="sizes.tablet.dpr1+' 1x,'+ sizes.tablet.dpr2+' 2x'" media="(max-width: 960px)">
@@ -27,6 +27,7 @@ export default {
 	],
 	data() {
 		return {
+			valid: false,
 			sizes: {
 				placeholder: null,
 				mobile: {
@@ -54,6 +55,10 @@ export default {
 		}
 	},
 	mounted() {
+
+		if (this.src.url) {
+			this.valid = true;
+		}
 
 		this.sizes.placeholder = this.src.url + '&w=1920&colorquant=16&blur=200';
 		this.sizes.original = this.src.url;
