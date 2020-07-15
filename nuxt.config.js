@@ -1,6 +1,5 @@
 export default {
   mode: 'universal',
-  globalName: 'app',
 
   head: {
     title: 'Kolby Kruger',
@@ -31,7 +30,7 @@ export default {
   modules: [
     '@/modules/static',
     '@/modules/crawler',
-    '@nuxtjs/color-mode',
+    //'@nuxtjs/color-mode',
     '@nuxtjs/svg',
     '@nuxtjs/prismic'
   ],

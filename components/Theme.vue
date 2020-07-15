@@ -26,16 +26,17 @@ export default {
 	},
 	methods: {
 		theme(mode) {
-			this.$colorMode.preference = mode;
-			this.mode = this.$colorMode.preference;
+			console.log(mode)
+			// this.$colorMode.preference = mode;
+			// this.mode = this.$colorMode.preference;
 		}
 	},
 	mounted() {
-		if (this.$colorMode.unknown) {
-			this.$colorMode.preference = 'light'
-		}
-
-		this.mode = this.$colorMode.preference;
+		// if (this.$colorMode.unknown) {
+		// 	this.$colorMode.preference = 'light'
+		// }
+		//
+		// this.mode = this.$colorMode.preference;
 	}
 }
 </script>

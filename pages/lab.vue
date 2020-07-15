@@ -50,8 +50,6 @@ export default {
 	methods: {
 		queryResults(e) {
 
-			console.log(e)
-
 			const query = this.query;
 			const docs = this.docs;
 
