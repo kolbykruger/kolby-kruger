@@ -15,12 +15,7 @@ export default {
 		Header,
 		Theme
 	},
-	// head() {
-	// 	return {
-	// 		title: 'Prismic Nuxt.js Multi Page Website',
-	// 	}
-	// },
-	transition: "page",
+	transition: "page"
 }
 </script>
 
@@ -29,7 +24,7 @@ export default {
 .page-leave-active {
 	transition-property: opacity;
 	transition-timing-function: ease-in-out;
-	transition-duration: 100ms;
+	transition-duration: 400ms;
 }
 
 .page-enter,

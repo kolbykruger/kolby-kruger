@@ -7,7 +7,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt + Prismic showcase' }
+      { hid: 'description', name: 'description', content: 'Kolby Kruger is a freelance designer, developer and student that does web design and web development in Burlington, Vermont.' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -43,10 +43,9 @@ export default {
   },
 
   build: {
-
     extend(config, ctx) {
       config.resolve.alias['vue'] = 'vue/dist/vue.common'
-    }
+  },
   },
 
   generate: {
