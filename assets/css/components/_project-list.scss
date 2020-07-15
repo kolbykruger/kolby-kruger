@@ -5,6 +5,17 @@
 
     }
 
+    .section-heading {
+        text-align: center;
+
+        h2 {
+
+            @media (min-width: 2000px) {
+                font-size: s('large-6');
+            }
+        }
+    }
+
     .group {
 
     }
@@ -37,14 +48,17 @@
             line-height: 1.65;
         }
 
-        &__date,
         &__role {
             opacity: 0;
             transition: 300ms ease;
         }
 
         &__date {
+            opacity: 0.25;
+            font-family: $font-1;
+            font-weight: 500;
             margin-right: 1em;
+            transition: 300ms ease;
         }
 
         &__title {

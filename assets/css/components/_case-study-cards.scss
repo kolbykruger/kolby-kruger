@@ -105,6 +105,10 @@
             margin: 0 auto;
             object-fit: contain;
             filter: drop-shadow(0 3px 24px rgba(34, 34, 34, 0.18));
+
+            @media (max-width: 960px) {
+                object-fit: cover;
+            }
         }
     }
 
@@ -128,12 +132,49 @@
         }
     }
 
-        //move externally
     &__button {
-        @extend .font-size__4;
+        position: absolute;
+        top: 20vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-top: 1.5em;
+        width: 6.5em;
+        height: 6.5em;
+        font-size: 1rem;
         text-decoration: none;
-        color: #000;
+        background-color: #000;
+        border-radius: 50%;
+        z-index: 40;
+
+        &--layer-1,
+        &--layer-2 {
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            mix-blend-mode: overlay;
+        }
+
+        &--layer-1 {
+            background-color: c('primary-base');
+            background-image: url('../img/noise.png');
+            z-index: 1;
+        }
+        &--layer-2 {
+            background-color: c('quarternary-base');
+            background-image: url('../img/noise.png');
+            z-index: 2;
+        }
+        &--text {
+            position: relative;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #fff;
+            z-index: 3;
+        }
     }
 
     //Flickity animation specifics
@@ -157,6 +198,12 @@
             transform: translate(30%, 0);
             transition: transform 300ms ease, opacity 0s;
         }
+    }
+
+    picture {
+        display: block;
+        width: 100vw;
+        height: 100vh;
     }
 
 

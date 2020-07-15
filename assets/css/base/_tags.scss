@@ -12,6 +12,7 @@
         font-weight: 600;
         border-radius: 1em;
         color: #fff;
+        background-color: c('sextet-base');
         background-image: url('../img/noise.png');
         background-blend-mode: overlay;
 
@@ -21,6 +22,10 @@
 
         &[data-type="Development"] {
             background: c('secondary-base');
+        }
+
+        &[data-type="Support"] {
+            background: c('quinary-base');
         }
     }
 }

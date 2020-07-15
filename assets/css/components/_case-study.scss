@@ -51,6 +51,7 @@
 
     &__link {
         margin: 6em auto 4vh;
+        text-align: center;
 
         .container {
             max-width: 1400px;
@@ -59,10 +60,10 @@
 
         a {
             @extend .font-size__3;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10vh 10vw;
+            padding: 5vh 5vw;
             color: #fff;
             border-radius: 0.25em;
             background-color: c('sextet-base');
@@ -70,6 +71,10 @@
             background-blend-mode: overlay;
             text-decoration: none;
             transition: 300ms ease;
+
+            span {
+                margin-right: 0.5em;
+            }
 
             &:hover,
             &:focus {

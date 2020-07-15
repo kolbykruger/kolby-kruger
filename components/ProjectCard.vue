@@ -5,7 +5,7 @@
 
 		<div class="project-card__cover">
 
-			<prismic-image :field="data.data.cover" />
+			<LazyImage :src="data.data.cover" mobile="640" tablet="960" laptop="1200" desktop="642" aspect="1.5:1" />
 
 		</div>
 

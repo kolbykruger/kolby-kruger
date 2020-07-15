@@ -3,7 +3,7 @@
 
 	<section class="post__cover">
 		<div class="container">
-			<prismic-image :field="content.cover"></prismic-image>
+			<LazyImage :src="content.cover" mobile="640" tablet="960" laptop="1200" desktop="1920" aspect="" />
 		</div>
 	</section>
 

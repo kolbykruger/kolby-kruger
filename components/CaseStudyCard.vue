@@ -4,18 +4,22 @@
 	<div class="case-study-card__layers">
 
 		<div class="case-study-card__layer case-study-card__layer--1" ref="layer1">
-			<prismic-image :field="data.data.layer_1" />
+			<LazyImage :src="data.data.layer_1" />
 		</div>
 
 		<div class="case-study-card__layer case-study-card__layer--2" ref="layer2">
 			<div class="case-study-card__details">
 				<h1 class="case-study-card__title">{{ $prismic.asText(data.data.name) }}</h1>
-				<nuxt-link ref="button" class="case-study-card__button" :to="link">View case study</nuxt-link>
+				<nuxt-link ref="button" class="case-study-card__button" :to="link">
+					<span class="case-study-card__button--layer-1"></span>
+					<span class="case-study-card__button--layer-2"></span>
+					<span class="case-study-card__button--text">View</span>
+				</nuxt-link>
 			</div>
 		</div>
 
 		<div class="case-study-card__layer case-study-card__layer--3" ref="layer3">
-			<prismic-image :field="data.data.layer_2" />
+			<LazyImage :src="data.data.layer_2" />
 		</div>
 
 	</div>
@@ -78,17 +82,19 @@ export default {
 
 		//Button
 		this.button = this.$refs.button;
-		const button = this.$el.querySelector('.case-study-card__button');
+		const button = this.$el.querySelector('.case-study-card__button'),
+			buttonLayer1 = button.childNodes[0],
+			buttonLayer2 = button.childNodes[2];
 
 		const $el = this;
 		button.addEventListener('mouseenter', function() {
 			$el.buttonEnter(button)
 		})
 		button.addEventListener('mouseleave', function() {
-			$el.buttonLeave(button)
+			$el.buttonLeave(button, buttonLayer1, buttonLayer2)
 		})
 		button.addEventListener('mousemove', function(event) {
-			$el.buttonMove(button, event, $el)
+			$el.buttonMove(button, buttonLayer1, buttonLayer2, event, $el)
 		})
 
 		if (window.DeviceOrientationEvent) {
@@ -156,7 +162,9 @@ export default {
 			if (this.active && !this.destroy && !this.mobile) {
 
 				const layer1 = $el.$refs.layer1,
-					layer3 = $el.$refs.layer3;
+					layer3 = $el.$refs.layer3,
+					layer1img = layer1.querySelector('img'),
+					layer3img = layer3.querySelector('img');
 
 				requestAnimationFrame(() => {
 
@@ -180,7 +188,7 @@ export default {
 						scale: 1.12,
 					});
 
-					TweenMax.to(layer1.childNodes[0], 1, {
+					TweenMax.to(layer1img, 1, {
 						filter: `drop-shadow(${dropShadow.x}px ${dropShadow.y}px 25px rgba(34, 34, 34, 0.12))`,
 					})
 
@@ -193,7 +201,7 @@ export default {
 						scale: 1.06,
 					});
 
-					TweenMax.to(layer3.childNodes[0], 1, {
+					TweenMax.to(layer3img, 1, {
 						filter: `drop-shadow(${dropShadow.x}px ${dropShadow.y}px 25px rgba(34, 34, 34, 0.08))`,
 					})
 
@@ -232,17 +240,26 @@ export default {
 			this.buttonDimensions = button.getBoundingClientRect()
 			button.classList.add('cursor--entered')
 		},
-		buttonLeave(button) {
+		buttonLeave(button, buttonLayer1, buttonLayer2) {
 			button.classList.remove('cursor--entered')
-			this.resetButton(button)
+			this.resetButton(button, buttonLayer1, buttonLayer2)
 		},
-		resetButton(button) {
-			TweenMax.to(button, 1.2, {
+		resetButton(button, buttonLayer1, buttonLayer2) {
+			TweenMax.to(button, 0.2, {
+				x: 0,
+				y: 0,
+				scale: 1
+			})
+			TweenMax.to(buttonLayer1, 0.4, {
+				x: 0,
+				y: 0,
+			})
+			TweenMax.to(buttonLayer2, 0.8, {
 				x: 0,
 				y: 0,
 			})
 		},
-		buttonMove(button, event, $el) {
+		buttonMove(button, buttonLayer1, buttonLayer2, event, $el) {
 
 			if (!$el.buttonDimensions) {
 				return false
@@ -253,9 +270,20 @@ export default {
 				y: (event.clientY - $el.buttonDimensions.top) - ($el.buttonDimensions.height / 2)
 			}
 
-			TweenMax.to(button, 1.2, {
+			TweenMax.to(button, 0.2, {
 				x: rel.x / $el.buttonDimensions.width * 40,
 				y: rel.y / $el.buttonDimensions.height * 30,
+				scale: 1.2
+			});
+
+			TweenMax.to(buttonLayer1, 0.4, {
+				x: rel.x / $el.buttonDimensions.width * 8,
+				y: rel.y / $el.buttonDimensions.height * 5
+			});
+
+			TweenMax.to(buttonLayer2, 0.8, {
+				x: rel.x / $el.buttonDimensions.width * 16,
+				y: rel.y / $el.buttonDimensions.height * 12
 			});
 
 		},

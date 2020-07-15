@@ -23,7 +23,12 @@
         font-family: inherit;
         font-size: inherit;
         border: none;
+        color: c('base-2');
         background: rgba(0, 0, 0, 0.1);
         border-radius: 0.25em;
+
+        &:placeholder {
+            color: red;
+        }
     }
 }

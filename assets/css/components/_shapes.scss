@@ -28,6 +28,10 @@
             grid-template-columns: repeat(5, 20vw);
             grid-template-rows: repeat(20, 20vw);
         }
+        @media (max-width: 640px) {
+            grid-template-columns: repeat(5, 33.333vw);
+            grid-template-rows: repeat(20, 33.333vw);
+        }
     }
 
     &.animate-in {
@@ -54,6 +58,10 @@
             background-image: url('../img/noise.png');
             background-blend-mode: overlay;
             animation-fill-mode: forwards;
+
+            @media (max-width: 968px) {
+                opacity: 0.75;
+            }
         }
 
         &::before {
