@@ -1,248 +1,276 @@
 .case-study-cards {
-    position: relative;
-    height: 100vh;
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
 
-    .container {
-        max-width: 100%;
-        height: 100vh;
-        padding: 0;
-    }
+	.container {
+		max-width: 100%;
+		height: 100vh;
+		padding: 0;
+	}
 
-    .flickity {
+	.flickity {
+		&-viewport,
+		&-slider {
+			width: 100%;
+			height: 100vh;
+		}
 
-        &-viewport,
-        &-slider {
-            width: 100%;
-            height: 100vh;
-        }
+		&-page-dots {
+			bottom: 2em;
+		}
 
-        &-page-dots {
-            bottom: 2em;
-        }
+		&-btn {
+			position: absolute;
+			bottom: 50%;
+			padding: 0;
+			appearance: none;
+			background: none;
+			border: none;
+			outline: none;
+			font-family: inherit;
+			font-size: s('large-1');
+			color: c('base-2');
+			mix-blend-mode: multiply;
+			border-radius: 0.25em;
+			opacity: 0.15;
+			transition: 150ms ease-in-out;
 
-        &-btn {
-            position: absolute;
-            bottom: 2em;
-            padding: 0.25em 0.5em;
-            appearance: none;
-            background: none;
-            border: none;
-            outline: none;
-            font-family: inherit;
-            font-size: s('large-1');
-            color: c('base-0');
-            background: rgba(34, 34, 34, 0.15);
-            mix-blend-mode: multiply;
-            border-radius: 0.25em;
-            opacity: 0.35;
-            transition: 150ms ease-in-out;
-            cursor: pointer;
+			&__next {
+				right: 0;
 
-            &__next {
-                right: 2em;
-            }
+				.flickity-btn__text {
+					display: flex;
+					transform: translate(50%, 0) rotate(-90deg);
+					transform-origin: bottom center;
+				}
+			}
 
-            &__prev {
-                left: 2em;
-            }
+			&__prev {
+				left: 0;
 
-            &:hover,
-            &:focus {
-                opacity: 0.8;
-            }
-        }
-    }
+				.flickity-btn__text {
+					display: flex;
+					transform: translate(-50%, 0) rotate(90deg);
+					transform-origin: bottom center;
+				}
+			}
+
+			&__text {
+				position: relative;
+				width: max-content;
+				padding: 1em 2em;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					margin: 0 auto;
+					background: linear-gradient(to bottom, transparent, rgba(34, 34, 34, 0.15));
+					transform: translate(0, 100%);
+					transition: 240ms cubic-bezier(0.86, 0, 0.07, 1);
+				}
+			}
+
+			&:hover {
+				opacity: 0.8;
+
+				.flickity-btn__text {
+					&::before {
+						transform: translate(0, 0);
+					}
+				}
+			}
+		}
+	}
 }
 
 .case-study-card {
-    height: 100%;
-    width: 100%;
-    background: c('base-1');
-    overflow: hidden;
+	height: 100%;
+	width: 100%;
+	background: c('base-1');
+	overflow: hidden;
 
-    &__layers {
-        height: 100%;
-        perspective: 2000px;
-        transform-style: preserve-3d;
-    }
+	&__layers {
+		height: 100%;
+		perspective: 2000px;
+		transform-style: preserve-3d;
+	}
 
-    &__layer {
-        will-change: transform;
+	&__layer {
+		will-change: transform;
 
-        &--1,
-        &--2,
-        &--3 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-        }
+		&--1,
+		&--2,
+		&--3 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+		}
 
-        &--1 {
-            transform: translateZ(-100px);
-            pointer-events: none;
-            z-index: 1;
-        }
+		&--1 {
+			transform: translateZ(-100px);
+			pointer-events: none;
+			z-index: 1;
+		}
 
-        &--2 {
-            position: relative;
-            z-index: 10;
-        }
+		&--2 {
+			position: relative;
+			z-index: 10;
+		}
 
-        &--3 {
-            transform: translateZ(100px);
-            pointer-events: none;
-            z-index: 20;
-        }
+		&--3 {
+			transform: translateZ(100px);
+			pointer-events: none;
+			z-index: 20;
+		}
 
-        img {
-            width: 100%;
-            height: 100%;
-            margin: 0 auto;
-            object-fit: contain;
-            filter: drop-shadow(0 3px 24px rgba(34, 34, 34, 0.18));
+		img {
+			width: 100%;
+			height: 100%;
+			margin: 0 auto;
+			object-fit: contain;
+			filter: drop-shadow(0 3px 24px rgba(34, 34, 34, 0.18));
 
-            @media (max-width: 960px) {
-                object-fit: cover;
-            }
-        }
-    }
+			@media (max-width: 960px) {
+				object-fit: cover;
+			}
+		}
+	}
 
-    &__details {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        user-select: none;
-        padding: 0 4vw;
-    }
+	&__details {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		user-select: none;
+		padding: 0 4vw;
+	}
 
-    &__title {
-        margin: 0;
-        color: #000;
-        font-weight: 300;
-        text-align: center;
+	&__title {
+		margin: 0;
+		color: #000;
+		font-weight: 300;
+		text-align: center;
 
-        @media (min-width: 2000px) {
-            font-size: s('large-6');
-        }
-    }
+		@media (min-width: 2000px) {
+			font-size: s('large-6');
+		}
+	}
 
-    &__button {
-        position: absolute;
-        top: 20vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 1.5em;
-        width: 6.5em;
-        height: 6.5em;
-        font-size: 1rem;
-        text-decoration: none;
-        background-color: #000;
-        border-radius: 50%;
-        z-index: 40;
+	&__button {
+		position: absolute;
+		top: 20vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 1.5em;
+		width: 6.5em;
+		height: 6.5em;
+		font-size: 1rem;
+		text-decoration: none;
+		background-color: #000;
+		border-radius: 50%;
+		z-index: 40;
 
-        &--layer-1,
-        &--layer-2 {
-            position: absolute;
-            display: block;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            mix-blend-mode: overlay;
-        }
+		&--layer-1,
+		&--layer-2 {
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			mix-blend-mode: overlay;
+		}
 
-        &--layer-1 {
-            background-color: c('primary-base');
-            background-image: url('../img/noise.png');
-            z-index: 1;
-        }
-        &--layer-2 {
-            background-color: c('quarternary-base');
-            background-image: url('../img/noise.png');
-            z-index: 2;
-        }
-        &--text {
-            position: relative;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #fff;
-            z-index: 3;
-        }
-    }
+		&--layer-1 {
+			background-color: c('primary-base');
+			background-image: url('../img/noise.png');
+			z-index: 1;
+		}
+		&--layer-2 {
+			background-color: c('quarternary-base');
+			background-image: url('../img/noise.png');
+			z-index: 2;
+		}
+		&--text {
+			position: relative;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			color: #fff;
+			z-index: 3;
+		}
+	}
 
-    //Flickity animation specifics
-    &__layer--1 {
-        img {
-            opacity: 0;
-            transform: translate(14%, 0);
-            transition: transform 400ms ease, opacity 0s;
-        }
-    }
-    &__layer--2 {
-        .case-study-card__details {
-            opacity: 0;
-            transform: translate(30%, 0);
-            transition: transform 650ms ease, opacity 0s;
-        }
-    }
-    &__layer--3 {
-        img {
-            opacity: 0;
-            transform: translate(30%, 0);
-            transition: transform 300ms ease, opacity 0s;
-        }
-    }
+	//Flickity animation specifics
+	&__layer--1 {
+		img {
+			opacity: 0;
+			transform: translate(14%, 0);
+			transition: transform 400ms ease, opacity 0s;
+		}
+	}
+	&__layer--2 {
+		.case-study-card__details {
+			opacity: 0;
+			transform: translate(30%, 0);
+			transition: transform 650ms ease, opacity 0s;
+		}
+	}
+	&__layer--3 {
+		img {
+			opacity: 0;
+			transform: translate(30%, 0);
+			transition: transform 300ms ease, opacity 0s;
+		}
+	}
 
-    picture {
-        display: block;
-        width: 100vw;
-        height: 100vh;
-    }
+	picture {
+		display: block;
+		width: 100vw;
+		height: 100vh;
+	}
 
+	&.is-selected {
+		.case-study-card {
+			&__layer--1,
+			&__layer--3 {
+				img {
+					opacity: 1;
+					transform: translate(0, 0);
+				}
+			}
+			&__layer--2 {
+				.case-study-card__details {
+					opacity: 1;
+					transform: translate(0, 0);
+				}
+			}
+		}
+	}
 
-    &.is-selected {
+	&__lizzy-healy {
+		background: linear-gradient(45deg, darken(#f6f9fc, 3%) 0%, lighten(#f6f9fc, 3%) 100%);
+	}
 
-        .case-study-card {
+	&__eternity {
+		background: linear-gradient(45deg, darken(#ef4538, 3%) 0, lighten(#ef4538, 3%) 100%);
+	}
 
-            &__layer--1,
-            &__layer--3 {
-                img {
-                    opacity: 1;
-                    transform: translate(0, 0);
+	&__upstream {
+		background: linear-gradient(45deg, rgb(11, 93, 105) 0%, rgb(19, 171, 181) 100%);
+	}
 
-                }
-            }
-            &__layer--2 {
-                .case-study-card__details {
-                    opacity: 1;
-                    transform: translate(0, 0);
-
-                }
-            }
-        }
-
-    }
-
-    &__lizzy-healy {
-        background: linear-gradient(45deg, darken(#f6f9fc, 3%) 0%, lighten(#f6f9fc, 3%) 100%);
-    }
-
-    &__eternity {
-        background: linear-gradient(45deg, darken(#ef4538, 3%) 0, lighten(#ef4538, 3%) 100%);
-    }
-
-    &__upstream {
-        background: linear-gradient(45deg, rgb(11, 93, 105) 0%, rgb(19, 171, 181) 100%);
-    }
-
-    &__vermont-electric {
-        background: radial-gradient(lighten(#fdbc3a, 5%) 0%, darken(#fdbc3a, 5%) 100%);
-    }
+	&__vermont-electric {
+		background: radial-gradient(lighten(#fdbc3a, 5%) 0%, darken(#fdbc3a, 5%) 100%);
+	}
 }

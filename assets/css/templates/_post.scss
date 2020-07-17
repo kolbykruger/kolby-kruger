@@ -1,31 +1,25 @@
 .post {
-    margin: 0 auto;
-    max-width: 1040px;
-    //padding: 0 170px 6vw;
+	margin: 0 auto;
+	max-width: 1040px;
+	//padding: 0 170px 6vw;
 
-    article {
+	.post-content {
+		position: relative;
+		margin: 0 auto;
+	}
 
-    }
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 
-    .post-content {
-        position: relative;
-        margin: 0 auto;
+		> * {
+			min-width: 100%;
+		}
 
-    }
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        > * {
-            min-width: 100%;
-        }
-
-        img,
-        video {
-            margin: 1.5em auto;
-        }
-
-    }
+		img,
+		video {
+			margin: 1.5em auto;
+		}
+	}
 }

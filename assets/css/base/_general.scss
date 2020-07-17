@@ -1,64 +1,63 @@
 body {
-    background: c('background');
-    position: relative;
-    color: c('base-0');
-    line-height: 1;
-    transition: background 1s ease, color 1s ease;
+	background: c('background');
+	position: relative;
+	color: c('base-0');
+	line-height: 1;
+	transition: background 1s ease, color 1s ease;
 
-    // &::before {
-    //     content: '';
-    //     position: absolute;
-    //     left: 0;
-    //     top: 0;
-    //     right: 0;
-    //     bottom: auto;
-    //     z-index: -1;
-    //     width: 100%;
-    //     height: 100vh;
-    //     background-image: linear-gradient(170deg,#6283b0,#cbbcdd 25%,rgba(188,202,221,0) 50%);
-    //     opacity: .2;
-    //     pointer-events: none;
-    // }
+	// &::before {
+	//     content: '';
+	//     position: absolute;
+	//     left: 0;
+	//     top: 0;
+	//     right: 0;
+	//     bottom: auto;
+	//     z-index: -1;
+	//     width: 100%;
+	//     height: 100vh;
+	//     background-image: linear-gradient(170deg,#6283b0,#cbbcdd 25%,rgba(188,202,221,0) 50%);
+	//     opacity: .2;
+	//     pointer-events: none;
+	// }
 }
 
 #app {
-    min-height: 100vh;
+	min-height: 100vh;
 }
 
 section,
 header,
 footer,
 article {
-    width: 100%;
-    margin: 0 auto;
+	width: 100%;
+	margin: 0 auto;
 
-    .container {
-        max-width: $section-width;
-        margin: 0 auto;
-        padding: 0 1em;
-    }
+	.container {
+		max-width: $section-width;
+		margin: 0 auto;
+		padding: 0 1em;
+	}
 }
 
 article {
-    padding: 0 4vw 8vh;
+	padding: 0 4vw;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    width: 100%;
+	display: block;
+	max-width: 100%;
+	width: 100%;
 }
 
 a {
-
 }
 
 .visually-hidden {
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap; /* added line */
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap; /* added line */
 }
