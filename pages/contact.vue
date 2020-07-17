@@ -1,27 +1,138 @@
 <template>
 	<main>
 		<article>
-			<PageHeading :heading="teaName" summary="a collection of experiments I've built over the years" />
+			<PageHeading heading="Contact" summary="Let's chat about your project." />
 
 			<section>
-				<form name="vue-tea" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-					<input type="hidden" name="form-name" value="vue-tea" />
-					<div class="tea">
-						<h2>Pick a Tea</h2>
-						<label
-							v-for="tea in teaNames"
-							:key="tea"
-							:class="{
-								'tea-label': true,
-								checked: tea === chosenTea,
-							}"
-						>
-							<input id="tea" v-model="chosenTea" name="tea" type="radio" :value="tea" />
-							<span>{{ tea }}</span>
-						</label>
+				<form
+					class="form"
+					name="vue-contact"
+					method="post"
+					data-netlify="true"
+					data-netlify-honeypot="bot-field"
+				>
+					<input type="hidden" name="form-name" value="vue-contact" />
+					<div class="form__section">
+						<h2 class="form__section--label">Hi, what's' your name?</h2>
+						<div class="form__field">
+							<label for="name" class="visually-hidden">Hi, what is your name?</label>
+							<input type="text" id="name" name="name" v-model="name" placeholder="Your name" required />
+						</div>
 					</div>
-					<br />
-					<button @click="formSubmit" class="button">Submit</button>
+					<div class="form__section">
+						<h2 class="form__section--label">What's your email?</h2>
+						<div class="form__field">
+							<label for="email" class="visually-hidden">What is your email?</label>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								v-model="email"
+								placeholder="Your email"
+								required
+							/>
+						</div>
+					</div>
+					<div class="form__section">
+						<h2 class="form__section--label">Tell me about your project.</h2>
+						<div class="form__field">
+							<label for="details" class="visually-hidden">Tell me about your project.</label>
+							<textarea
+								name="details"
+								id="details"
+								v-model="details"
+								placeholder="My project is..."
+								@keyup="resizeTextarea"
+							></textarea>
+						</div>
+					</div>
+					<div class="form__section">
+						<h2 class="form__section--label">How can I help?</h2>
+						<div class="form__fields">
+							<div class="form__field form__field--checkbox">
+								<input
+									type="checkbox"
+									id="accessibility"
+									name="accessibility"
+									value="Accessibility"
+									v-model="service"
+								/>
+
+								<label for="accessibility">Accessibility</label>
+							</div>
+							<div class="form__field form__field--checkbox">
+								<input
+									type="checkbox"
+									id="consulting"
+									name="consulting"
+									value="Consulting"
+									v-model="service"
+								/>
+
+								<label for="consulting">Consulting</label>
+							</div>
+							<div class="form__field form__field--checkbox">
+								<input type="checkbox" id="design" name="design" value="Web design" v-model="service" />
+
+								<label for="design">Website design</label>
+							</div>
+							<div class="form__field form__field--checkbox">
+								<input
+									type="checkbox"
+									id="development"
+									name="development"
+									value="Web development"
+									v-model="service"
+								/>
+
+								<label for="development">Website development</label>
+							</div>
+							<div class="form__field form__field--checkbox">
+								<input type="checkbox" id="ux-ui" name="ux-ui" value="UX / UI" v-model="service" />
+
+								<label for="ux-ui">UX / UI</label>
+							</div>
+							<div class="form__field form__field--checkbox">
+								<input
+									type="checkbox"
+									id="unsure"
+									name="unsure"
+									value="Not sure..."
+									v-model="service"
+								/>
+								<label for="unsure">Not sure...</label>
+							</div>
+						</div>
+					</div>
+					<div class="form__section">
+						<h2 class="form__section--label">What's your budget?</h2>
+						<div class="form__fields">
+							<div class="form__field form__field--radio">
+								<input type="radio" id="low" name="low" value="Less than 5,000" v-model="budget" />
+								<label for="low">&lt; $5k</label>
+							</div>
+							<div class="form__field form__field--radio">
+								<input type="radio" id="medium" name="medium" value="5 - 10k" v-model="budget" />
+								<label for="medium">5 - 10k</label>
+							</div>
+							<div class="form__field form__field--radio">
+								<input type="radio" id="high" name="high" value="10 - 20k" v-model="budget" />
+								<label for="high">10 - 20k</label>
+							</div>
+							<div class="form__field form__field--radio">
+								<input
+									type="radio"
+									id="extreme"
+									name="extreme"
+									value="Greater than 20k"
+									v-model="budget"
+								/>
+								<label for="extreme">&gt; 20k</label>
+							</div>
+						</div>
+					</div>
+					{{ budget }}
+					<button @click="formSubmit">Send it <span>-></span></button>
 				</form>
 			</section>
 		</article>
@@ -39,37 +150,25 @@ export default {
 	},
 	data() {
 		return {
-			chosenTea: 'Earl Grey',
-			teaTypes: {
-				'Earl Grey': 'London',
-				'Irish Breakfast': 'Dublin',
-				Chai: 'Bombay',
-				Rose: 'Atlantic City',
-				Matcha: 'Tokyo',
-				Rooibos: 'Cape Town',
-				'Yerba Mate': 'Montreal',
-				Green: 'Oregon Mist',
-			},
+			name: '',
+			email: '',
+			details: '',
+			service: [],
+			budget: '',
+			textareaHeight: 0,
 		};
 	},
-	computed: {
-		teaName() {
-			return `${this.teaTypes[this.chosenTea]} Fog`;
-		},
-		teaNames() {
-			return Object.keys(this.teaTypes);
-		},
-	},
+	computed: {},
 	methods: {
 		formSubmit() {
 			alert('SUBMITTED FORM');
 		},
+		resizeTextarea(e) {
+			if (this.textareaHeight < e.target.scrollHeight) {
+				this.textareaHeight = e.target.scrollHeight;
+				e.target.style.height = this.textareaHeight + 'px';
+			}
+		},
 	},
 };
 </script>
-
-<style lang="scss">
-form {
-	text-align: center;
-}
-</style>
