@@ -13,6 +13,7 @@
     "dependencies": {
         "@nuxtjs/color-mode": "^1.0.0",
         "@nuxtjs/prismic": "^1.1.0",
+        "@nuxtjs/sitemap": "^2.4.0",
         "@nuxtjs/svg": "^0.1.11",
         "gsap": "^3.3.4",
         "lazysizes": "^5.2.2",
