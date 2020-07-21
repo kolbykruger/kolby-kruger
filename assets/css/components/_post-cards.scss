@@ -1,37 +1,27 @@
 .post-cards {
+	.container {
+	}
 
-    .container {
-
-    }
-
-    .group {
-        margin: 0 -2em;
-    }
-
+	.group {
+		margin: 0 -2em;
+	}
 }
 
 .post-card {
-    margin-bottom: 8vh;
+	margin-bottom: 8vh;
 
-    a {
-        text-decoration: none;
-        color: inherit;
-        transition: 300ms ease;
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
 
-        &:hover,
-        &:focus {
-            box-shadow: 0px 15px 35px 0px rgba(50, 50, 93, 0.15), 0px 5px 15px 0px rgba(0, 0, 0, 0.1);
-            transform: translate(0, -0.5em)
-        }
-    }
+	&__title {
+		text-decoration: none;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 
-    &__title {
-        text-decoration: none;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    &__summary {
-        @extend .font-size__4;
-    }
+	&__summary {
+		@extend .font-size__4;
+	}
 }

@@ -3,22 +3,8 @@ body {
 	position: relative;
 	color: c('base-0');
 	line-height: 1;
+	overflow-x: hidden;
 	transition: background 1s ease, color 1s ease;
-
-	// &::before {
-	//     content: '';
-	//     position: absolute;
-	//     left: 0;
-	//     top: 0;
-	//     right: 0;
-	//     bottom: auto;
-	//     z-index: -1;
-	//     width: 100%;
-	//     height: 100vh;
-	//     background-image: linear-gradient(170deg,#6283b0,#cbbcdd 25%,rgba(188,202,221,0) 50%);
-	//     opacity: .2;
-	//     pointer-events: none;
-	// }
 }
 
 #app {

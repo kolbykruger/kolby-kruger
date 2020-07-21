@@ -124,13 +124,13 @@
 
 		&--2 {
 			position: relative;
-			z-index: 10;
+			z-index: 3;
 		}
 
 		&--3 {
-			transform: translateZ(100px);
+			//transform: translateZ(0);
 			pointer-events: none;
-			z-index: 20;
+			z-index: 2;
 		}
 
 		img {

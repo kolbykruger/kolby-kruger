@@ -57,6 +57,8 @@ export default {
 			vue.transformAssetUrls.img = ['data-src', 'src'];
 			vue.transformAssetUrls.source = ['data-srcset', 'srcset'];
 		},
+		// required for gsap
+		transpile: ["gsap"],
 	},
 
 	generate: {
