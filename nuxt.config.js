@@ -1,5 +1,6 @@
 export default {
 	mode: 'universal',
+	target: 'static',
 
 	head: {
 		title: 'Kolby Kruger',
@@ -58,7 +59,7 @@ export default {
 			vue.transformAssetUrls.source = ['data-srcset', 'srcset'];
 		},
 		// required for gsap
-		transpile: ["gsap"],
+		transpile: ['gsap'],
 	},
 
 	generate: {

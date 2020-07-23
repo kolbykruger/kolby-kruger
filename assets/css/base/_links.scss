@@ -46,9 +46,9 @@ a:not([class]) {
 		background-size: 300% 100%;
 		background-position-x: -225%;
 		transition: 500ms ease;
-		-webkit-background-clip: text;
+		background-clip: text;
 		-webkit-text-fill-color: transparent;
-		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
 
 		.arrow {
 			transition-delay: 300ms;
