@@ -44,7 +44,7 @@ export default {
 		'@/plugins/LazySizes',
 	],
 
-	modules: ['@/modules/static', '@/modules/crawler', '@nuxtjs/svg', '@nuxtjs/prismic', '@nuxtjs/sitemap'],
+	modules: ['@nuxtjs/svg', '@nuxtjs/prismic', '@nuxtjs/sitemap'],
 
 	prismic: {
 		endpoint: 'https://kolby-kruger.cdn.prismic.io/api/v2',
