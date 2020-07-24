@@ -1,34 +1,38 @@
 .form {
 	max-width: 800px;
 	width: 100%;
+	margin: 0 auto;
 
 	&__section {
-		border: 1px solid red;
+		position: relative;
+		margin-bottom: 8vh;
 
 		&--label {
-			@extend .font-size__3;
+			@extend .font-size__2;
 			margin: 0;
+		}
+
+		&--support {
+			//margin-top: 2vh;
+			font-size: 1.5rem;
+			color: c('grey-0');
 		}
 	}
 
 	&__fields {
 		display: flex;
 		flex-flow: row wrap;
-		margin: 4vh auto;
+		margin: 2vh 0;
 	}
 
 	&__field {
-		&--radio {
-			flex: auto;
-		}
-	}
-
-	&__field--label {
+		position: relative;
+		margin-top: 1vh;
 	}
 
 	input,
 	textarea {
-		font-size: 1.5rem;
+		@extend .font-size__3;
 		width: 100%;
 		padding: 0.5em 0;
 		font-family: inherit;
@@ -36,7 +40,15 @@
 		border: none;
 		outline: none;
 		line-height: 1.2;
-		border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+		color: c('base-0');
+		font-weight: 300;
+		background: transparent;
+		border-bottom: 4px dotted c('base-0');
+		transition: 300ms;
+
+		&::placeholder {
+			color: c('grey-0');
+		}
 
 		&[type='text'] {
 		}
@@ -46,7 +58,9 @@
 			display: none;
 
 			&:checked + label {
-				background: green;
+				background: c('grey-0');
+				border-style: solid;
+				border-color: c('base-0');
 			}
 
 			+ label {
@@ -54,9 +68,20 @@
 				padding: 1em;
 				margin-right: 1em;
 				margin-bottom: 1em;
-				border: 1px solid #343434;
+				width: max-content;
+				color: c('base-0');
+				border: 4px dotted c('grey-0');
 				border-radius: 3em;
 				text-align: center;
+				transition: 300ms;
+			}
+		}
+
+		&:focus {
+			border-bottom: 4px solid c('base-0');
+
+			&::before {
+				max-width: 100%;
 			}
 		}
 	}
@@ -68,5 +93,11 @@
 
 	label {
 		font-size: 1.5rem;
+		user-select: none;
+	}
+
+	button {
+		@extend .font-size__2;
+		font-weight: 600;
 	}
 }

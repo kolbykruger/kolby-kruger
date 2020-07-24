@@ -107,7 +107,7 @@ export default {
 	},
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 figure {
 	position: relative;
 	display: block;
@@ -117,14 +117,14 @@ figure {
 		display: block;
 		--aspect: (var(--aspect-ratio));
 		padding-bottom: calc(100% / var(--aspect));
+	}
 
-		img {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 	}
 }
 </style>

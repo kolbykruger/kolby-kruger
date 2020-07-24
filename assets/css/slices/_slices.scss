@@ -1,17 +1,10 @@
 .slices {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 
-    .container {
-        max-width: 100%;
-        padding: 0;
-    }
-
-    article & {
-        
-        .slice {
-            margin-bottom: 1em;
-        }
-    }
+	.container {
+		max-width: 100%;
+		padding: 0;
+	}
 }

@@ -1,8 +1,12 @@
 <template>
 	<main>
-		<article>
-			<PageHeading heading="Contact" summary="Let's chat about your project." />
+		<PageHeading
+			heading="Let's chat"
+			summary="Complete the form below, or email me at hi@kolby.dev."
+			alignment="center"
+		/>
 
+		<article>
 			<section>
 				<form
 					class="form"
@@ -16,7 +20,15 @@
 						<h2 class="form__section--label">Hi, what's' your name?</h2>
 						<div class="form__field">
 							<label for="name" class="visually-hidden">Hi, what is your name?</label>
-							<input type="text" id="name" name="name" v-model="name" placeholder="Your name" required />
+							<input
+								type="text"
+								id="name"
+								name="name"
+								v-model="name"
+								placeholder="Your name..."
+								autocomplete="off"
+								required
+							/>
 						</div>
 					</div>
 					<div class="form__section">
@@ -28,7 +40,8 @@
 								id="email"
 								name="email"
 								v-model="email"
-								placeholder="Your email"
+								placeholder="Your email..."
+								autocomplete="off"
 								required
 							/>
 						</div>
@@ -42,6 +55,8 @@
 								id="details"
 								v-model="details"
 								placeholder="My project is..."
+								autocomplete="off"
+								rows="1"
 								@keyup="resizeTextarea"
 							></textarea>
 						</div>
@@ -116,23 +131,16 @@
 								<label for="medium">5 - 10k</label>
 							</div>
 							<div class="form__field form__field--radio">
-								<input type="radio" id="high" name="high" value="10 - 20k" v-model="budget" />
-								<label for="high">10 - 20k</label>
-							</div>
-							<div class="form__field form__field--radio">
-								<input
-									type="radio"
-									id="extreme"
-									name="extreme"
-									value="Greater than 20k"
-									v-model="budget"
-								/>
-								<label for="extreme">&gt; 20k</label>
+								<input type="radio" id="high" name="high" value="Greater than 10k" v-model="budget" />
+								<label for="high">&gt; 10k</label>
 							</div>
 						</div>
 					</div>
-					{{ budget }}
-					<button @click="formSubmit">Send it <span>-></span></button>
+					<div class="link__gradient">
+						<button class="link__gradient--colorized" @click="formSubmit">
+							Send message <span class="arrow">-></span>
+						</button>
+					</div>
 				</form>
 			</section>
 		</article>
