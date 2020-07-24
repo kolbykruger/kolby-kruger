@@ -4,9 +4,9 @@
  */
 
 export default function(doc) {
-	if (doc.isBroken) {
-		return '/not-found';
-	}
+	// if (doc.isBroken) {
+	// 	return '/not-found';
+	// }
 
 	if (doc.type === 'homepage') {
 		return '/';

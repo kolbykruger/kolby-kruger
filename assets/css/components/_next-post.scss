@@ -1,0 +1,28 @@
+.next-post {
+	.container {
+	}
+
+	.group {
+	}
+
+	a {
+		display: block;
+		padding: 3em;
+		border-radius: 1em;
+		background: #23202d;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	&__title,
+	&__summary {
+		color: #fff;
+	}
+
+	&__title {
+		margin-top: 0;
+	}
+
+	&__summary {
+	}
+}

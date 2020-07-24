@@ -41,7 +41,7 @@ export default {
 		'@/assets/css/bundle.scss',
 		'node_modules/flickity/dist/flickity.min.css',
 		'@/plugins/vue-lazysizes.client.js',
-		'@/plugins/LazySizes',
+		'@/plugins/lazy-sizes.js',
 	],
 
 	modules: ['@nuxtjs/svg', '@nuxtjs/prismic', '@nuxtjs/sitemap'],
