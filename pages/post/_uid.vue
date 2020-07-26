@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<PageHeading :heading="$prismic.asText(content.title)" :summary="content.summary" alignment="center" />
+		<PageHeading :heading="$prismic.asText(content.title)" :summary="content.summary" />
 		<article>
 			<!-- <section class="post__cover">
 				<div class="container">

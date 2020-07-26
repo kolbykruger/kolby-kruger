@@ -1,47 +1,4 @@
 .slice {
 	.info {
-		position: relative;
-		max-width: 46em;
-		padding: 1em;
-		margin-top: 1em;
-		background: linear-gradient(to bottom, c('primary-base'), transparent);
-
-		&::before {
-			content: 'ǃ';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 2em;
-			height: 2em;
-			color: #fff;
-			background: c('primary-base');
-
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			border-radius: 50%;
-			transform: translate(-50%, -50%);
-		}
-
-		&__warning {
-			&,
-			&::before {
-				background-color: c('tertiary-base');
-			}
-		}
-
-		&__success {
-			&,
-			&::before {
-				background-color: c('quarternary-base');
-			}
-		}
-
-		&__error {
-			&,
-			&::after {
-				background-color: c('secondary-dark');
-			}
-		}
 	}
 }

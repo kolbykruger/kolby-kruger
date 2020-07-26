@@ -1,26 +1,2 @@
 .about {
-	margin: 10vh 0;
-	transform: translate(0, 10vh) skew(0, 4deg);
-	opacity: 0;
-	transition: 800ms cubic-bezier(0.86, 0, 0.07, 1);
-	transition-delay: 100ms;
-
-	&.animation--active {
-		transform: translate(0, 0) skew(0, 0);
-		opacity: 1;
-	}
-
-	h2 {
-		text-transform: lowercase;
-	}
-
-	&__cover {
-		.container {
-			max-width: 1400px;
-		}
-	}
-
-	.container {
-		padding: 0;
-	}
 }

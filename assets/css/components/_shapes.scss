@@ -1,351 +1,385 @@
 .shapes {
-    position: fixed;
-    top: 0;
-    left: 35vw;
-    width: 65vw;
-    height: 100vh;
-    overflow: hidden;
-    opacity: 0;
-    z-index: -1;
+	position: fixed;
+	top: 0;
+	left: 40%;
+	width: 60%;
+	height: 100vh;
+	overflow: hidden;
+	opacity: 0;
+	z-index: -1;
 
-    @media (max-width: 968px) {
-        left: 0;
-        width: 100vw;
-    }
+	@media (max-width: 968px) {
+		left: 0;
+		width: 100vw;
+	}
 
-    .container {
-        display: grid;
-        grid-template-columns: repeat(7, 10vw);
-        grid-template-rows: repeat(20, 10vw);
-        grid-auto-flow: dense;
-        align-items: stretch;
-        grid-gap: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
+	.container {
+		display: grid;
+		grid-template-columns: repeat(7, 10vw);
+		grid-template-rows: repeat(20, 10vw);
+		grid-auto-flow: dense;
+		align-items: stretch;
+		grid-gap: 0;
+		padding: 0;
+		width: 100%;
+		max-width: 100%;
+		height: 100%;
 
-        @media (max-width: 968px) {
-            grid-template-columns: repeat(5, 20vw);
-            grid-template-rows: repeat(20, 20vw);
-        }
-        @media (max-width: 640px) {
-            grid-template-columns: repeat(5, 33.333vw);
-            grid-template-rows: repeat(20, 33.333vw);
-        }
-    }
+		@media (max-width: 968px) {
+			grid-template-columns: repeat(5, 20vw);
+			grid-template-rows: repeat(20, 20vw);
+		}
+		@media (max-width: 640px) {
+			grid-template-columns: repeat(5, 33.333vw);
+			grid-template-rows: repeat(20, 33.333vw);
+		}
+	}
 
-    &.animate-in {
-        opacity: 1;
-        transition: 800ms;
-        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
+	&.animate-in {
+		opacity: 1;
+		transition: 800ms;
+		animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+	}
 
-    .shape {
-        position: relative;
-        transform-origin: center;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
+	.shape {
+		position: relative;
+		transform-origin: center;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
 
-        // SHAPE OBJECTS
-        &::before,
-        &::after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('../img/noise.png');
-            background-blend-mode: overlay;
-            animation-fill-mode: forwards;
+		// SHAPE OBJECTS
+		&::before,
+		&::after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: url('../img/noise.png');
+			background-blend-mode: overlay;
+			animation-fill-mode: forwards;
 
-            @media (max-width: 968px) {
-                opacity: 0.75;
-            }
-        }
+			@media (max-width: 968px) {
+				opacity: 0.75;
+			}
+		}
 
-        &::before {
-            content: '';
-        }
+		&::before {
+			content: '';
+		}
 
-        // ROTATION
-        &[data-rotation="90"] {
-            transform: rotate(90deg);
-        }
+		// ROTATION
+		&[data-rotation='90'] {
+			transform: rotate(90deg);
+		}
 
-        &[data-rotation="180"] {
-            transform: rotate(180deg);
-        }
+		&[data-rotation='180'] {
+			transform: rotate(180deg);
+		}
 
-        &[data-rotation="270"] {
-            transform: rotate(270deg);
-        }
+		&[data-rotation='270'] {
+			transform: rotate(270deg);
+		}
 
-        // SIZING
-        &[data-size="2"] {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-        &[data-size="3"] {
-            grid-column: span 3;
-            grid-row: span 3;
-        }
+		// SIZING
+		&[data-size='2'] {
+			grid-column: span 2;
+			grid-row: span 2;
+		}
+		&[data-size='3'] {
+			grid-column: span 3;
+			grid-row: span 3;
+		}
 
-        // TIMING
-        &[data-timing="1"] {
-            &::before,
-            &::after {animation-duration: 420ms;}
-        }
-        &[data-timing="2"] {
-            &::before,
-            &::after {animation-duration: 560ms;}
-        }
-        &[data-timing="3"] {
-            &::before,
-            &::after {animation-duration: 640ms;}
-        }
+		// TIMING
+		&[data-timing='1'] {
+			&::before,
+			&::after {
+				animation-duration: 420ms;
+			}
+		}
+		&[data-timing='2'] {
+			&::before,
+			&::after {
+				animation-duration: 560ms;
+			}
+		}
+		&[data-timing='3'] {
+			&::before,
+			&::after {
+				animation-duration: 640ms;
+			}
+		}
 
-        // DELAY
-        &[data-delay="1"] {
-            &::before,
-            &::after {animation-delay: 60ms;}
-        }
-        &[data-delay="2"] {
-            &::before,
-            &::after {animation-delay: 180ms;}
-        }
-        &[data-delay="3"] {
-            &::before,
-            &::after {animation-delay: 360ms;}
-        }
+		// DELAY
+		&[data-delay='1'] {
+			&::before,
+			&::after {
+				animation-delay: 60ms;
+			}
+		}
+		&[data-delay='2'] {
+			&::before,
+			&::after {
+				animation-delay: 180ms;
+			}
+		}
+		&[data-delay='3'] {
+			&::before,
+			&::after {
+				animation-delay: 360ms;
+			}
+		}
 
-        // FUNCT
-        &[data-delay="1"] {
-            &::before,
-            &::after {animation-timing-function: cubic-bezier(0.05, 0.6, 0.165, 1);}
-        }
-        &[data-delay="2"] {
-            //&::before {animation-timing-function: cubic-bezier(0.0625, 0.7, 0.165, 1);}
-            &::before,
-            &::after {animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);}
-        }
-        &[data-delay="3"] {
-            //&::before {animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);}
-            &::before,
-            &::after {animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);}
-        }
+		// FUNCT
+		&[data-delay='1'] {
+			&::before,
+			&::after {
+				animation-timing-function: cubic-bezier(0.05, 0.6, 0.165, 1);
+			}
+		}
+		&[data-delay='2'] {
+			//&::before {animation-timing-function: cubic-bezier(0.0625, 0.7, 0.165, 1);}
+			&::before,
+			&::after {
+				animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+			}
+		}
+		&[data-delay='3'] {
+			//&::before {animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);}
+			&::before,
+			&::after {
+				animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+			}
+		}
 
-        // COLORS
-        &[data-color="primary"] {
-            &::before {
-                background-color: c('quarternary-base');
-            }
-        }
+		// COLORS
+		&[data-color='primary'] {
+			&::before {
+				background-color: c('quarternary-base');
+			}
+		}
 
-        &[data-color="secondary"] {
-            &::before {
-                background-color: c('sextet-base');
-            }
-        }
+		&[data-color='secondary'] {
+			&::before {
+				background-color: c('sextet-base');
+			}
+		}
 
-        &[data-color="tertiary"] {
-            &::before {
-                //background: c('tertiary-base');
-                background-color: c('secondary-base');
-            }
-        }
+		&[data-color='tertiary'] {
+			&::before {
+				//background: c('tertiary-base');
+				background-color: c('secondary-base');
+			}
+		}
 
-        &[data-color-secondary="primary"] {
-            &::after {
-                background-color: c('quarternary-base');
-            }
-        }
+		&[data-color-secondary='primary'] {
+			&::after {
+				background-color: c('quarternary-base');
+			}
+		}
 
-        &[data-color-secondary="secondary"] {
-            &::after {
-                background-color: c('sextet-base');
-            }
-        }
+		&[data-color-secondary='secondary'] {
+			&::after {
+				background-color: c('sextet-base');
+			}
+		}
 
-        &[data-color-secondary="tertiary"] {
-            &::after {
-                background-color: c('secondary-base');
-            }
-        }
+		&[data-color-secondary='tertiary'] {
+			&::after {
+				background-color: c('secondary-base');
+			}
+		}
 
-        // SHAPES
-        &__square {
+		// SHAPES
+		&__square {
+			&::before {
+			}
+		}
 
-            &::before {
+		&__circle {
+			&.shape__circle--half {
+				&::before {
+					width: 100%;
+					height: 100%;
+					top: 50%;
+				}
+			}
 
-            }
-        }
+			&.shape__circle--quarter {
+				&::before {
+					width: 200%;
+					height: 200%;
+				}
+			}
 
-        &__circle {
+			&.shape__circle--split-shared {
+				&::before,
+				&::after {
+					transform: scale(0) rotate(0);
+				}
 
-            &.shape__circle--half {
+				&[data-direction='90'] {
+					&::before,
+					&::after {
+						animation-name: circle-spin-left;
+					}
+				}
 
-                &::before {
-                    width: 100%;
-                    height: 100%;
-                    top: 50%;
-                }
-            }
+				&[data-direction='-90'] {
+					&::before,
+					&::after {
+						animation-name: circle-spin-right;
+					}
+				}
 
-            &.shape__circle--quarter {
+				&::after {
+					content: '';
+					clip-path: polygon(0 0, 0 50%, 100% 50%, 100% 0);
+					background-image: none;
+				}
+			}
 
-                &::before {
-                    width: 200%;
-                    height: 200%;
-                }
-            }
+			&.shape__circle--split-apart {
+				&::before {
+					top: 50%;
+				}
 
-            &.shape__circle--split-shared {
+				&::after {
+					content: '';
+					top: -50%;
+					background-image: none;
+				}
+			}
 
-                &::before,
-                &::after {
-                    transform: scale(0) rotate(0);
-                }
+			&::before,
+			&:after {
+				animation-name: circle;
+				border-radius: 50%;
+				transform: scale(0);
+			}
+		}
 
-                &[data-direction="90"] {
-                    &::before,
-                    &::after {
-                        animation-name: circle-spin-left;
-                    }
-                }
+		&__triangle {
+			&[data-direction='90'] {
+				&::before {
+					transform: scale(0) rotate(45deg);
+					animation-name: triangle-left;
+				}
+			}
+			&[data-direction='-90'] {
+				&::before {
+					transform: scale(0) rotate(-45deg);
+					animation-name: triangle-right;
+				}
+			}
 
-                &[data-direction="-90"] {
-                    &::before,
-                    &::after {
-                        animation-name: circle-spin-right;
-                    }
-                }
+			&::before {
+				clip-path: polygon(0 0, 0 100%, 100% 100%);
+			}
+		}
 
-                &::after {
-                    content: '';
-                    clip-path: polygon(0 0, 0 50%, 100% 50%, 100% 0);
-                    background-image: none;
-                }
-            }
+		&__triangle-triangle {
+			&[data-direction='90'] {
+				&::before,
+				&::after {
+					transform: scale(0) rotate(45deg);
+					animation-name: triangle-left;
+				}
+			}
+			&[data-direction='-90'] {
+				&::before,
+				&::after {
+					transform: scale(0) rotate(-45deg);
+					animation-name: triangle-right;
+				}
+			}
 
-            &.shape__circle--split-apart {
+			&::before {
+				animation: triangle-left forwards;
+				//clip-path: polygon(0 0, 0 100%, 100% 100%);
+				transform: rotate(45deg);
+			}
 
-                &::before {
-                    top: 50%;
-                }
+			&::after {
+				content: '';
+				clip-path: polygon(0 0, 100% 0, 100% 100%);
+			}
+		}
 
-                &::after {
-                    content: '';
-                    top: -50%;
-                    background-image: none;
-                }
-            }
+		&__triangle-circle {
+			&[data-direction='90'] {
+				&::before {
+					transform: scale(0) rotate(45deg);
+					animation-name: triangle-left;
+				}
+			}
+			&[data-direction='-90'] {
+				&::before {
+					transform: scale(0) rotate(-45deg);
+					animation-name: triangle-right;
+				}
+			}
 
-            &::before,
-            &:after {
-                animation-name: circle;
-                border-radius: 50%;
-                transform: scale(0);
-            }
-        }
+			&::before {
+				clip-path: polygon(0 0, 0 100%, 100% 100%);
+			}
 
-        &__triangle {
+			&::after {
+				content: '';
+				width: 58.5%;
+				height: 58.5%;
+				border-radius: 50%;
+				bottom: auto;
+				left: auto;
+				right: 0;
+				top: 0;
+				animation-name: circle;
+				transform: scale(0);
+			}
+		}
 
-            &[data-direction="90"] {
-                &::before {
-                    transform: scale(0) rotate(45deg);
-                    animation-name: triangle-left;}
-            }
-            &[data-direction="-90"] {
-                &::before {
-                    transform: scale(0) rotate(-45deg);
-                    animation-name: triangle-right;}
-            }
+		@keyframes triangle-left {
+			from {
+				transform: scale(0) rotate(45deg);
+			}
+			to {
+				transform: scale(1) rotate(0);
+			}
+		}
+		@keyframes triangle-right {
+			from {
+				transform: scale(0) rotate(-45deg);
+			}
+			to {
+				transform: scale(1) rotate(0);
+			}
+		}
+		@keyframes circle {
+			from {
+				transform: scale(0);
+			}
+			to {
+				transform: scale(1);
+			}
+		}
+		@keyframes circle-spin-right {
+			from {
+				transform: scale(0) rotate(0);
+			}
+			to {
+				transform: scale(1) rotate(270deg);
+			}
+		}
 
-            &::before {
-                clip-path: polygon(0 0, 0 100%, 100% 100%);
-            }
-        }
-
-        &__triangle-triangle {
-
-            &[data-direction="90"] {
-                &::before,
-                &::after {
-                    transform: scale(0) rotate(45deg);
-                    animation-name: triangle-left;}
-            }
-            &[data-direction="-90"] {
-                &::before,
-                &::after {
-                    transform: scale(0) rotate(-45deg);
-                    animation-name: triangle-right;}
-            }
-
-            &::before {
-                animation: triangle-left forwards;
-                //clip-path: polygon(0 0, 0 100%, 100% 100%);
-                transform: rotate(45deg);
-            }
-
-            &::after {
-                content: '';
-                clip-path: polygon(0 0, 100% 0, 100% 100%);
-            }
-        }
-
-        &__triangle-circle {
-
-            &[data-direction="90"] {
-                &::before {
-                    transform: scale(0) rotate(45deg);
-                    animation-name: triangle-left;}
-            }
-            &[data-direction="-90"] {
-                &::before {
-                    transform: scale(0) rotate(-45deg);
-                    animation-name: triangle-right;}
-            }
-
-            &::before {
-                clip-path: polygon(0 0, 0 100%, 100% 100%);
-            }
-
-            &::after {
-                content: '';
-                width: 58.5%;
-                height: 58.5%;
-                border-radius: 50%;
-                bottom: auto;
-                left: auto;
-                right: 0;
-                top: 0;
-                animation-name: circle;
-                transform: scale(0);
-            }
-
-        }
-
-        @keyframes triangle-left {
-            from {transform: scale(0) rotate(45deg)}
-            to {transform: scale(1) rotate(0)}
-        }
-        @keyframes triangle-right {
-            from {transform: scale(0) rotate(-45deg)}
-            to {transform: scale(1) rotate(0)}
-        }
-        @keyframes circle {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
-        }
-        @keyframes circle-spin-right {
-            from {transform: scale(0) rotate(0)}
-            to {transform: scale(1) rotate(270deg)}
-        }
-
-        @keyframes circle-spin-left {
-            from {transform: scale(0) rotate(0)}
-            to {transform: scale(1) rotate(-270deg)}
-        }
-    }
+		@keyframes circle-spin-left {
+			from {
+				transform: scale(0) rotate(0);
+			}
+			to {
+				transform: scale(1) rotate(-270deg);
+			}
+		}
+	}
 }

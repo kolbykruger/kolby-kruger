@@ -3,25 +3,8 @@
 	}
 
 	.group {
-		margin: 0 -2em;
 	}
 }
 
 .post-card {
-	margin-bottom: 8vh;
-
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
-
-	&__title {
-		text-decoration: none;
-		margin-top: 0;
-		margin-bottom: 0;
-	}
-
-	&__summary {
-		@extend .font-size__4;
-	}
 }

@@ -1,61 +1,9 @@
 .slice {
+	.text {
+		&__two_columns {
+		}
 
-    .text {
-        position: relative;
-        max-width: 46em;
-
-        &__two_columns {
-            max-width: 1400px;
-
-            .group {
-                column-count: 2;
-                column-gap: 4vw;
-
-                @media (max-width: 768px) {
-                    column-count: 1;
-                    column-gap: 0;
-                }
-            }
-        }
-
-        &__three_columns {
-            max-width: 1400px;
-
-            .group {
-                column-count: 3;
-                column-gap: 4vw;
-
-                @media (max-width: 768px) {
-                    column-count: 1;
-                    column-gap: 0;
-                }
-            }
-        }
-
-        .vertical {
-            position: absolute;
-            bottom: calc(100% - 0.5em);
-            right: calc(100% + 3em);
-            transform: rotate(-90deg);
-            transform-origin: bottom right;
-            display: inline-flex;
-            margin: 0;
-            min-width: max-content;
-            color: c('primary-base');
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: -0.5em;
-                right: -0.5em;
-                height: 100%;
-                border-radius: 0.25em;
-                background: c('primary-base');
-                opacity: 0.15;
-                z-index: -2;
-            }
-        }
-    }
+		&__three_columns {
+		}
+	}
 }

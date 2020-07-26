@@ -33,12 +33,12 @@ export default function (type, element, content, children) {
     let result = `
         <picture>
             <source data-srcset="${element.url}&w=572" media="(max-width: 640px)">
-        	<source data-srcset="${element.url}&w=736" media="(max-width: 960px)">
-        	<source data-srcset="${element.url}&w=736" media="(max-width: 1200px)">
-        	<source data-srcset="${element.url}&w=736" media="(max-width: 1920px)">
+        	  <source data-srcset="${element.url}&w=736" media="(max-width: 960px)">
+        	  <source data-srcset="${element.url}&w=736" media="(max-width: 1200px)">
+        	  <source data-srcset="${element.url}&w=736" media="(max-width: 1920px)">
             <source data-srcset="${element.url}&w=736" media="(min-width: 1921px)">
 
-        	<img class="lazyload" data-src="${element.url}&w=736&colorquant=16&blur=500" src="${element.url}&w=736&colorquant=16&blur=500" alt="${element.alt || ''}" copyright="${element.copyright || ''}">
+        	  <img class="lazyload" data-src="${element.url}&w=736&colorquant=16&blur=500" src="${element.url}&w=736&colorquant=16&blur=500" alt="${element.alt || ''}" copyright="${element.copyright || ''}">
         </picture>
     `
 

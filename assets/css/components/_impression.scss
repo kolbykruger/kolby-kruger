@@ -59,17 +59,33 @@
 		margin-top: 6vh;
 
 		a {
+			display: inline-flex;
 			position: relative;
-			@extend .font-size__3;
+			@extend .font-size__2;
 			text-decoration: none;
 			color: c('base-1');
-			padding: 0.5em 0.25em;
+			padding: 0.5em 0;
 			padding-right: 1.25em;
+			line-height: 1.6;
 			overflow: hidden;
 			opacity: 0;
 			transform: translate(-2em, 0);
 			animation: appear 800ms cubic-bezier(0.86, 0, 0.07, 1) forwards;
 			animation-delay: 620ms;
+			overflow: hidden;
+
+			span {
+				background-position-x: -225%;
+				animation: span-appear 1000ms cubic-bezier(0.86, 0, 0.07, 1) forwards;
+				animation-delay: 1280ms;
+			}
+
+			&:hover,
+			&:focus {
+				.arrow {
+					margin-left: 0.5em;
+				}
+			}
 
 			&::before,
 			&::after {
@@ -91,6 +107,15 @@
 			&::after {
 				background: c('secondary-base');
 				animation-delay: 905ms;
+			}
+
+			@keyframes span-appear {
+				from {
+					background-position-x: -225%;
+				}
+				to {
+					background-position-x: -300%;
+				}
 			}
 
 			@keyframes appear {
