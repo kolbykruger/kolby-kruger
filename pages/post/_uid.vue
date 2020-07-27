@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<main>
 		<PageHeading :heading="$prismic.asText(content.title)" :summary="content.summary" />
 		<article>
 			<!-- <section class="post__cover">
@@ -14,7 +14,7 @@
 
 			<NextPost :post="nextPost" />
 		</article>
-	</section>
+	</main>
 </template>
 
 <script>

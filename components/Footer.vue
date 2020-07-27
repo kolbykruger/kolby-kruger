@@ -1,9 +1,9 @@
 <template>
-<footer class="footer"></footer>
+	<footer class="footer"></footer>
 </template>
 
 <script>
 export default {
-	name: 'Footer'
-}
+	name: 'Footer',
+};
 </script>
