@@ -1,2 +1,5 @@
 .about {
+	&__cover {
+		grid-column: 2 / span 18;
+	}
 }

@@ -13,7 +13,7 @@ export default {
 		return {
 			columns: 20,
 			rows: 20,
-			active: true,
+			active: false,
 		};
 	},
 	computed: {
@@ -29,7 +29,7 @@ export default {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 	display: grid;
 	pointer-events: none;

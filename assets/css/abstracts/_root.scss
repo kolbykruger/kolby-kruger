@@ -11,6 +11,18 @@ html {
 		}
 	}
 
+	&[theme='dark'] {
+		@each $name, $color in $dark {
+			@if type-of($color) == 'map' {
+				@each $subname, $subcolor in $color {
+					--color-#{$name}-#{$subname}: #{$subcolor};
+				}
+			} @else {
+				--color-#{$name}: #{$color};
+			}
+		}
+	}
+
 	//sizing
 	@each $name, $size in $sizing {
 		@if type-of($size) == 'map' {
@@ -22,15 +34,14 @@ html {
 		}
 	}
 
-	&[theme='dark'] {
-		@each $name, $color in $dark {
-			@if type-of($color) == 'map' {
-				@each $subname, $subcolor in $color {
-					--color-#{$name}-#{$subname}: #{$subcolor};
-				}
-			} @else {
-				--color-#{$name}: #{$color};
+	//structure
+	@each $name, $col in $grid {
+		@if type-of($col) == 'map' {
+			@each $subname, $subsize in $col {
+				--grid-#{$name}-#{$subname}: #{$subsize};
 			}
+		} @else {
+			--grid-#{$name}: #{$col};
 		}
 	}
 }

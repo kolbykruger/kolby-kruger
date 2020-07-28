@@ -13,8 +13,7 @@ export default {
 			{
 				hid: 'description',
 				name: 'description',
-				content:
-					'Kolby Kruger is a freelance designer, developer and student that does web design and web development in Burlington, Vermont.',
+				content: 'Kolby Kruger is a freelance designer, developer and student that does web design and web development in Burlington, Vermont.',
 			},
 		],
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -37,12 +36,7 @@ export default {
 
 	css: ['@/static/fonts/moderat/moderat.css'],
 
-	plugins: [
-		'@/assets/css/bundle.scss',
-		'node_modules/flickity/dist/flickity.min.css',
-		'@/plugins/vue-lazysizes.client.js',
-		'@/plugins/lazy-sizes.js',
-	],
+	plugins: ['@/assets/css/bundle.scss', '@/plugins/vue-lazysizes.client.js', '@/plugins/lazy-sizes.js'],
 
 	modules: ['@nuxtjs/svg', '@nuxtjs/prismic', '@nuxtjs/sitemap'],
 
@@ -58,7 +52,6 @@ export default {
 			vue.transformAssetUrls.img = ['data-src', 'src'];
 			vue.transformAssetUrls.source = ['data-srcset', 'srcset'];
 		},
-		// required for gsap
 		transpile: ['gsap'],
 	},
 

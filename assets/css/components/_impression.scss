@@ -1,6 +1,7 @@
 .impression {
 	position: relative;
 	max-height: 100vh;
+	grid-column: 1 / span 14;
 
 	.container {
 		max-width: 100%;

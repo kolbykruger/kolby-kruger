@@ -24,10 +24,16 @@ article {
 }
 
 main {
-	display: grid;
+	@extend .grid;
+
+	section,
+	article {
+		grid-column: span g(columns);
+	}
 }
 
 article {
+	@extend .grid;
 	margin: 0 auto;
 }
 

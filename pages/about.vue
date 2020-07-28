@@ -1,6 +1,6 @@
 <template>
 	<main>
-		<PageHeading heading="about" summary="Kolby Kruger — Designer & Developer" />
+		<PageHeading heading="about me" summary="My name is Kolby Kruger and I'm a 27 year old designer + developer from Vermont." />
 
 		<article>
 			<section class="about about__cover">
@@ -9,7 +9,9 @@
 				</div>
 			</section>
 
-			<Cross ref="cross" class="cross" />
+			<section>
+				<Cross ref="cross" class="cross" />
+			</section>
 
 			<section class="about about__greeting">
 				<div class="container">
@@ -118,14 +120,15 @@ export default {
 
 		const cross = this.$refs.cross;
 		gsap.to(cross, {
-			rotate: '+=360',
 			scrollTrigger: {
 				trigger: cross,
-				start: 'bottom bottom',
+				start: 'top bottom',
 				end: 'bottom top',
-				pin: false,
 				scrub: 0.5,
+				markers: true,
 			},
+			y: '-12vh',
+			rotate: '360',
 		});
 	},
 };
@@ -134,9 +137,5 @@ export default {
 .cross-1 {
 	width: 180px;
 	height: 180px;
-	left: 10%;
-	bottom: 15%;
-	position: absolute;
-	mix-blend-mode: difference;
 }
 </style>

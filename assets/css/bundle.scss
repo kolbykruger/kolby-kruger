@@ -2,14 +2,14 @@
 @import 'base/reset';
 
 //Variables
+@import 'abstracts/functions';
 @import 'abstracts/colors';
 @import 'abstracts/fonts';
 @import 'abstracts/sizing';
+@import 'abstracts/structure';
 @import 'abstracts/root';
-@import 'abstracts/functions';
 
 //Abstracts
-@import 'abstracts/structure';
 @import 'abstracts/b64';
 
 //Base

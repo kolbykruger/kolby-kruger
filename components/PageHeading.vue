@@ -1,30 +1,18 @@
 <template>
-<section class="page-heading" :class="'page-heading__'+align" v-if="visible != false">
-	<div class="container">
-		<h1 class="page-heading__heading">{{ heading }}</h1>
-		<p class="page-heading__summary">{{ summary }}</p>
-	</div>
-</section>
+	<section class="page-heading">
+		<div class="page-heading__container">
+			<div class="page-heading__group">
+				<h1 class="page-heading__title">{{ heading }}<span class="page-heading__period">.</span></h1>
+				<span class="page-heading__line"></span>
+				<p class="page-heading__summary">{{ summary }}</p>
+			</div>
+		</div>
+	</section>
 </template>
 
 <script>
 export default {
 	name: 'PageHeading',
-	props: [
-		'heading',
-		'summary',
-		'visibility',
-		'alignment'
-	],
-	data() {
-		return {
-			visible: null,
-			align: null
-		}
-	},
-	mounted() {
-		this.visible = this.visibility ? this.visibility : true;
-		this.align = this.alignment ? this.alignment : 'center';
-	}
-}
+	props: ['heading', 'summary'],
+};
 </script>

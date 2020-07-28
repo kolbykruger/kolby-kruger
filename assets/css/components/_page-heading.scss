@@ -1,2 +1,68 @@
 .page-heading {
+	&__container {
+		position: relative;
+		@extend .grid;
+		padding-top: 15vh;
+		padding-bottom: 15vh;
+	}
+
+	&__group {
+		grid-column: 2 / span 18;
+
+		@media (min-width: 768px) {
+			grid-column: 4 / span 7;
+		}
+	}
+
+	&__title {
+		display: flex;
+		margin-bottom: 0;
+	}
+
+	&__period {
+		display: block;
+		color: c('secondary-base');
+		transform: scale(0);
+		animation: period-grow 0.25s cubic-bezier(0.45, 0.85, 0.35, 0.85) 0.35s forwards;
+		transform-origin: bottom;
+
+		@keyframes period-grow {
+			from {
+				transform: scale(0);
+			}
+			to {
+				transform: scale(1);
+			}
+		}
+	}
+
+	&__line {
+		display: block;
+		height: 0.3em;
+		margin-top: 0.75em;
+		margin-bottom: 0.75em;
+		background: c('secondary-base');
+		max-width: 5vw;
+		opacity: 0;
+		transform: translateX(500%) scaleX(5);
+		animation: line-shrink 0.25s cubic-bezier(0.45, 0.85, 0.35, 0.85) 0.3s forwards;
+
+		@keyframes line-shrink {
+			0% {
+				opacity: 0;
+				transform: translateX(500%) scaleX(5);
+			}
+			1% {
+				opacity: 1;
+			}
+			to {
+				opacity: 1;
+				transform: none;
+			}
+		}
+	}
+
+	&__summary {
+		@extend .font-size__4;
+	}
 }
