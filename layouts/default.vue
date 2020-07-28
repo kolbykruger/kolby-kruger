@@ -5,6 +5,7 @@
 		<Footer />
 		<Theme />
 		<Grid />
+		<Konami />
 	</div>
 </template>
 
@@ -13,6 +14,7 @@ import Header from '~/components/Header.vue';
 import Footer from '~/components/Footer.vue';
 import Theme from '~/components/Theme.vue';
 import Grid from '~/components/Grid.vue';
+import Konami from '~/components/Konami.vue';
 
 export default {
 	components: {
@@ -20,6 +22,7 @@ export default {
 		Footer,
 		Theme,
 		Grid,
+		Konami,
 	},
 	transition: 'page',
 };

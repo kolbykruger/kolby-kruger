@@ -36,14 +36,18 @@ export default {
 
 	css: ['@/static/fonts/moderat/moderat.css'],
 
-	plugins: ['@/assets/css/bundle.scss', '@/plugins/vue-lazysizes.client.js', '@/plugins/lazy-sizes.js'],
+	plugins: ['@/assets/css/bundle.scss', '@/plugins/vue-lazysizes.client.js', '@/plugins/lazy-sizes'],
 
-	modules: ['@nuxtjs/svg', '@nuxtjs/prismic', '@nuxtjs/sitemap'],
+	modules: ['@nuxtjs/svg', '@nuxtjs/google-analytics', '@nuxtjs/prismic', '@nuxtjs/sitemap'],
 
 	prismic: {
 		endpoint: 'https://kolby-kruger.cdn.prismic.io/api/v2',
 		linkResolver: '@/plugins/link-resolver',
 		htmlSerializer: '@/plugins/html-serializer',
+	},
+
+	googleAnalytics: {
+		id: 'UA-79905161-1',
 	},
 
 	build: {
