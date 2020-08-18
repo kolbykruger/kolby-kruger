@@ -1,4 +1,14 @@
 .slice {
-	.banner {
-	}
+    margin: 12vh 0;
+    .banner {
+        &__full_width {
+            .container {
+                max-width: 100%;
+            }
+        }
+
+        .container {
+            padding: 0;
+        }
+    }
 }

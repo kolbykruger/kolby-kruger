@@ -8,50 +8,20 @@
                     <span
                         ref="largeLetter"
                         class="page-heading__large-letter"
-                        :style="{ 'color' : content.color }"
                     >{{ content.name[0].text.charAt(0) }}</span>
                 </div>
             </section>
 
-            <section ref="componentA" class="component-a">
+            <slices-block :slices="slices" />
+
+            <section class="case-study-navigation">
                 <div class="container">
-                    <div ref="componentAShape" class="shape"></div>
-                    <p class="eyebrow">EYEBROW</p>
-                    <h2>Eternity's 20th anniversary of it's start was quickly approaching.</h2>
-                    <div class="group">
-                        <div class="a">
-                            <h3>The Challenge</h3>
-                            <p>A redesign of the Eternity company website. A redesign of the Eternity company website. A redesign of the Eternity company website.</p>
-                        </div>
-                        <div class="a">
-                            <h3>The Challenge</h3>
-                            <p>A redesign of the Eternity company website. A redesign of the Eternity company website.</p>
-                        </div>
-                        <div class="a">
-                            <h3>The Challenge</h3>
-                            <p>A redesign of the Eternity company website. A redesign of the Eternity company website.</p>
-                        </div>
-                    </div>
+                    <nuxt-link v-if="nextPost !== undefined" :to="$prismic.linkResolver(nextPost)">
+                        <p>Next Project</p>
+                        <h3 class="next-post__title">{{ $prismic.asText(nextPost.data.name) }}</h3>
+                    </nuxt-link>
                 </div>
             </section>
-
-            <!-- <svg viewBox="0 0 100 100">
-                                <clipPath id="clipPath">
-                                    <circle cx="40" cy="35" r="35" />
-                                </clipPath>
-
-                                <text x="0" y="20" fill="red" id="text">E</text>
-
-                                <use clip-path="url()" xlink:href="#text" fill="red" />
-            </svg>-->
-
-            <!-- <section class="case-study__cover">
-        <div class="container">
-          <LazyImage :src="content.screen" mobile tablet laptop desktop />
-        </div>
-            </section>-->
-
-            <slices-block :slices="slices" />
         </article>
     </main>
 </template>
@@ -140,13 +110,27 @@ export default {
     async asyncData({ $prismic, params, error }) {
         try {
             // Query to get post content
-            const document = (
-                await $prismic.api.getByUID('case_study', params.uid)
-            ).data
+            const document = await $prismic.api.getByUID(
+                'case_study',
+                params.uid
+            )
+
+            const nextpost = (
+                await $prismic.api.query(
+                    $prismic.predicates.at('document.type', 'case_study'),
+                    {
+                        pageSize: 2,
+                        after: `${document.id}`,
+                        orderings: '[my.case_study.date]',
+                    }
+                )
+            ).results[0]
+
             return {
                 // Set slices as variable
-                content: document,
-                slices: document.body,
+                content: document.data,
+                slices: document.data.body,
+                nextPost: nextpost,
             }
         } catch (e) {
             // Returns error page
@@ -156,12 +140,32 @@ export default {
             })
         }
     },
-    methods: {
-        delimiter(index, length) {
-            if (index != length) {
-                return `, `
-            }
-        },
-    },
+    methods: {},
 }
 </script>
+
+<style lang="scss">
+.case-study-navigation {
+    margin: 12vh 0;
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+        text-align: center;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        p {
+            font-weight: 500;
+        }
+
+        h3 {
+            margin-top: 0;
+            font-size: var(--size-large-6);
+        }
+    }
+}
+</style>

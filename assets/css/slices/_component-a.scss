@@ -1,0 +1,37 @@
+.component-a {
+    margin: 12vh 0;
+
+    &__light_background {
+        .container {
+            background: linear-gradient(to right, c('grey-1'), c('background'));
+        }
+    }
+
+    .container {
+        position: relative;
+        padding: 4vw;
+    }
+
+    .group {
+        margin-top: 12vh;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 3vw;
+    }
+    .a {
+        border-top: 3px solid #e0e6ef;
+    }
+    .shape {
+        width: 15vw;
+        height: 15vw;
+        background: red;
+        position: absolute;
+        top: 60%;
+        left: -7.5vw;
+        border-radius: 50%;
+        background-color: c('quarternary-base');
+        background-image: url('../img/noise.png');
+        background-blend-mode: overlay;
+        z-index: -1;
+    }
+}

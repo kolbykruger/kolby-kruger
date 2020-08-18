@@ -1,0 +1,46 @@
+.component-b {
+    margin: 12vh 0;
+
+    &__light_background {
+        .container {
+            background: linear-gradient(to right, c('grey-1'), c('background'));
+        }
+    }
+
+    .container {
+        position: relative;
+        padding: 4vw;
+    }
+
+    .group {
+        margin-top: 6vh;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 3vw;
+    }
+
+    .b {
+        &-title {
+            @extend .font-size__4;
+            font-weight: 500;
+            color: c('base-2');
+            margin-top: 0;
+        }
+        &-description {
+            opacity: 0.65;
+        }
+    }
+
+    .shape {
+        width: 15vw;
+        height: 15vw;
+        background: #f6f9fc;
+        position: absolute;
+        top: 90%;
+        left: 55%;
+        border-radius: 50%;
+        background-image: url('../img/noise.png');
+        background-blend-mode: overlay;
+        z-index: -1;
+    }
+}

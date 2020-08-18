@@ -1,0 +1,27 @@
+.eyebrow {
+    letter-spacing: 0.25em;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    &::before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.75em;
+        margin-bottom: 3px;
+        height: 2px;
+        width: 1.5em;
+        background-color: currentColor;
+        animation: eyebrow 2s forwards;
+        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        @keyframes eyebrow {
+            from {
+                transform: rotate(180deg) scaleX(0.05);
+            }
+            to {
+                transform: rotate(0) scaleX(1);
+            }
+        }
+    }
+}

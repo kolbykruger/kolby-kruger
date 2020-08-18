@@ -1,0 +1,17 @@
+.component-c {
+    margin: 12vh 0;
+
+    &__light_background {
+        .container {
+            background: linear-gradient(to right, c('grey-1'), c('background'));
+        }
+    }
+
+    .container {
+        padding: 4vw;
+    }
+
+    .summary {
+        margin: 6vh 0;
+    }
+}
