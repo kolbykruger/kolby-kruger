@@ -1,0 +1,73 @@
+.component-a {
+    &.section-active {
+        p,
+        h1,
+        h2,
+        h3 {
+            visibility: visible;
+            transform: translate(0, 0);
+        }
+
+        * {
+            @for $i from 1 through 20 {
+                &:nth-child(#{$i}) {
+                    transition-delay: 0.16s * $i;
+                }
+            }
+        }
+    }
+    .container {
+        position: relative;
+        padding: 4vw;
+        background: linear-gradient(to right, #f6f9fc, #fff);
+    }
+    .eyebrow {
+        letter-spacing: 0.25em;
+        font-weight: 400;
+        text-transform: uppercase;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.75em;
+            width: 1.5em;
+            height: 2px;
+            transform: translate(0, -2px);
+            background-color: currentColor;
+        }
+    }
+    .group {
+        margin-top: 12vh;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 3vw;
+    }
+    .a {
+        border-top: 3px solid #e0e6ef;
+    }
+    .shape {
+        width: 15vw;
+        height: 15vw;
+        background: red;
+        position: absolute;
+        top: 60%;
+        left: 0;
+        border-radius: 50%;
+        background-color: c('quarternary-base');
+        background-image: url('../img/noise.png');
+        background-blend-mode: overlay;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+
+    p,
+    h1,
+    h2,
+    h3 {
+        transform: translate(0, 64px);
+        visibility: hidden;
+        transition: 0.9s;
+        transition-timing-function: cubic-bezier(0.6, 0.2, 0.1, 1);
+    }
+}

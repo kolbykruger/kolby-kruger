@@ -1,6 +1,9 @@
 <template>
   <main>
-    <PageHeading heading="work" :summary="projects.length + ' projects launched since 2016'" />
+    <PageHeading
+      heading="work"
+      :summary="`Since 2016, I've been building interactive, accessible, and usable websites that help make the web a better place. I have launched ${projects.length} projects since 2016.`"
+    />
 
     <section class="case-study-cards">
       <CaseStudyCard v-for="(item, index) in cases" :key="index" :data="item" :count="index" />
@@ -54,6 +57,7 @@ export default {
   data() {
     return {};
   },
+  computed: {},
   mounted() {},
   methods: {},
   async asyncData({ $prismic, params, error }) {

@@ -23,11 +23,11 @@
 @import 'base/blockquote';
 @import 'base/keyboard';
 @import 'base/iframes';
-@import 'base/columns';
 @import 'base/links';
 @import 'base/search';
 @import 'base/cursors';
 @import 'base/sup';
+@import 'base/transitions';
 
 //Templates
 @import 'templates/post';
@@ -39,20 +39,13 @@
 
 //Components
 @import 'components/impression';
-@import 'components/about';
 @import 'components/page-heading';
-@import 'components/section-heading';
 @import 'components/cursor';
-@import 'components/post-cards';
-@import 'components/post';
-@import 'components/next-post';
-@import 'components/project-list';
-@import 'components/experiment-cards';
 @import 'components/case-study';
 @import 'components/case-study-cards';
 @import 'components/theme';
 @import 'components/shapes';
-@import 'components/form';
+@import 'components/component-a';
 
 //Slices
 @import 'slices/slices';

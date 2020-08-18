@@ -1,12 +1,25 @@
 .shapes {
 	position: fixed;
 	top: 0;
-	left: 40%;
-	width: 60%;
+	left: 0;
+	width: 100%;
 	height: 100vh;
 	overflow: hidden;
 	opacity: 0;
-	z-index: -1;
+	//z-index: -1;
+	transform: translate(0, 0);
+	animation: shapes-out 1.1s forwards 1.35s;
+	//animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+	animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+	@keyframes shapes-out {
+		from {
+			transform: translate(0, 0);
+		}
+		to {
+			transform: translate(40%, 0);
+		}
+	}
 
 	@media (max-width: 968px) {
 		left: 0;
@@ -15,7 +28,7 @@
 
 	.container {
 		display: grid;
-		grid-template-columns: repeat(7, 10vw);
+		grid-template-columns: repeat(10, 10vw);
 		grid-template-rows: repeat(20, 10vw);
 		grid-auto-flow: dense;
 		align-items: stretch;

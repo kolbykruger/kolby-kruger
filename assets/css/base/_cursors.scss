@@ -1,13 +1,13 @@
 body {
-	cursor: url('../cursors/cursor-auto.png'), default;
+    //cursor: url('../cursors/cursor-auto.png'), default;
 
-	.flickity-enabled.is-draggable .flickity-viewport {
-		cursor: url('../cursors/cursor-drag.png'), grab;
+    .flickity-enabled.is-draggable .flickity-viewport {
+        //cursor: url('../cursors/cursor-drag.png'), grab;
 
-		&.is-pointer-down {
-			cursor: url('../cursors/cursor-drag-clicked.png'), grabbing;
-		}
-	}
+        &.is-pointer-down {
+            //cursor: url('../cursors/cursor-drag-clicked.png'), grabbing;
+        }
+    }
 }
 
 a,
@@ -15,7 +15,7 @@ button,
 input[type='submit'],
 input[type='radio'] + label,
 input[type='checkbox'] + label {
-	cursor: url('../cursors/cursor-pointer.png'), pointer;
+    //cursor: url('../cursors/cursor-pointer.png'), pointer;
 }
 
 p,
@@ -24,5 +24,5 @@ ul,
 li,
 pre,
 code {
-	//cursor: url('../cursors/cursor-text.png'), text;
+    //cursor: url('../cursors/cursor-text.png'), text;
 }

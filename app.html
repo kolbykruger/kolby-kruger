@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html {{ HTML_ATTRS }}>
-  <head {{ HEAD_ATTRS }}>
-    {{ HEAD }}
-  </head>
-  <body {{ BODY_ATTRS }}>
-    {{ APP }}
-  </body>
+    <head {{ HEAD_ATTRS }}>
+        {{ HEAD }}
+    </head>
+    <body {{ BODY_ATTRS }}>
+        {{ APP }}
+        <svg
+            class="page__navigation--slope"
+            viewBox="0 0 1920 1080"
+            preserveAspectRatio="xMidYMid slice"
+        >
+            <polygon
+                fill="currentColor"
+                points="1920,0 0,0 0,0 1920,0"
+            ></polygon>
+        </svg>
+        <svg
+            class="page__transition--slope"
+            viewBox="0 0 1920 1080"
+            preserveAspectRatio="xMidYMid slice"
+        >
+            <polygon
+                fill="currentColor"
+                points="1920,0 0,0 0,0 1920,0"
+            ></polygon>
+        </svg>
+    </body>
 </html>
